@@ -11,6 +11,8 @@ dependencies:
   country_icons: ^0.0.2
   emoji: ^1.1.2
   image_picker: ^0.4.6
+  dio: ^1.0.0
+  shared_preferences: ^0.4.2
 
 dev_dependencies:
   flutter_test:

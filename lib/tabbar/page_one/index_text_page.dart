@@ -7,7 +7,7 @@ class IndexTextPage extends StatefulWidget {
 
 class _IndexTextPageState extends State<IndexTextPage> {
   var clapping = '\u{1f44f}';
-  Runes input = new Runes('\u2665  \u{1f604}  \u{1f60e}  \u{1f47b}  \u{1f596}  \u{1f44d}');
+  Runes input = Runes('\u2665  \u{1f604}  \u{1f60e}  \u{1f47b} \u{1f44d}');
   Map aa = {'smile':'\u{1F601}'};
   TextEditingController controller = TextEditingController();
   FocusNode focusNode = FocusNode();
@@ -15,17 +15,14 @@ class _IndexTextPageState extends State<IndexTextPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Column(
+      appBar: AppBar(
+        title: Text('textfield'),
+      ),
+      body: ListView(
         children: <Widget>[
           TextField(
             decoration: InputDecoration(
-              hintText: '初始化提示文字',
-            ),
-          ),
-          TextField(
-            decoration: InputDecoration(
-              hintText: '这是一个表情'+clapping,
+              hintText: '这是hintText',
             ),
           ),
           TextField(
@@ -40,6 +37,20 @@ class _IndexTextPageState extends State<IndexTextPage> {
             focusNode: focusNode,
             controller: controller,
           ),
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: 70.0
+            ),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: '这是一个类似微信聊天的输入框，但是还不完善'
+              ),
+              maxLines: 3,
+              maxLengthEnforced: false,
+              keyboardType: TextInputType.multiline,
+            ),
+          ),
+//          IconButton(icon: Icon(Icons.access_alarm), onPressed: (){}),
         ],
       )
     );

@@ -1,6 +1,6 @@
 # flutter_learning
 
-A new Flutter application.
+一个用于学习flutter基础控件的demo
 
 ## Getting Started
 

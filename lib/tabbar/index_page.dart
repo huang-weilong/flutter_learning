@@ -7,6 +7,7 @@ import '../test.dart';
 import 'page_one/index_text_page.dart';
 import 'page_one/index_dialog_page.dart';
 import 'page_one/index_images_page.dart';
+import 'page_one/index_sharedpreferences_page.dart';
 
 class IndexPage extends StatefulWidget {
   @override
@@ -43,6 +44,10 @@ class _IndexPageState extends State<IndexPage> {
           RaisedButton(
             child: Text('图片Images'),
             onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexImagesPage()));},
+          ),
+          RaisedButton(
+            child: Text('存储简单的数据SharePreference'),
+            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexSharedPreferencePage()));},
           ),
           RaisedButton(
             child: Text('杂七杂八'),
