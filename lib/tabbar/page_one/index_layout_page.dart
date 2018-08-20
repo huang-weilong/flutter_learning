@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'layout/listview_layout.dart';
+import 'layout/gridview_layout.dart';
 
 class IndexLayoutPage extends StatefulWidget {
   @override
@@ -22,6 +23,10 @@ class _IndexLayoutPageState extends State<IndexLayoutPage> {
             RaisedButton(
               child: Text('ListView布局'),
               onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => ListViewLayout()));},
+            ),
+            RaisedButton(
+              child: Text('GridView布局'),
+              onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => GridViewLayout()));},
             ),
           ],
         ),
