@@ -8,6 +8,7 @@ class IndexGesturePage extends StatefulWidget {
 class _IndexGesturePageState extends State<IndexGesturePage> {
   String text1 = '';
   String text2 = '';
+  String tips = '';
 
   @override
   Widget build(BuildContext context) {
@@ -86,12 +87,17 @@ class _IndexGesturePageState extends State<IndexGesturePage> {
             },
             onHorizontalDragStart: (startDetails) {
               setState(() {
-                text2 = '横向拖动开始--'+startDetails.globalPosition.toString();
+                text2 = '横向拖动开始起点--'+startDetails.globalPosition.toString();
               });
             },
             onHorizontalDragEnd: (endDetails) {
               setState(() {
                 text2 = '横向拖动结束';
+              });
+            },
+            onHorizontalDragUpdate: (updateDetails) {
+              setState(() {
+                tips = '手指在屏幕的位置：' + updateDetails.globalPosition.toString();
               });
             },
             onVerticalDragCancel: () {
@@ -101,7 +107,7 @@ class _IndexGesturePageState extends State<IndexGesturePage> {
             },
             onVerticalDragStart: (startDetails) {
               setState(() {
-                text2 = '竖向拖动开始--' + startDetails.globalPosition.toString();
+                text2 = '竖向拖动开始起点--' + startDetails.globalPosition.toString();
               });
             },
             onVerticalDragEnd: (endDetails) {
@@ -110,7 +116,9 @@ class _IndexGesturePageState extends State<IndexGesturePage> {
               });
             },
             onVerticalDragUpdate: (updateDetails) {
-              print('******************************************');
+              setState(() {
+                tips = '手指在屏幕的位置：' + updateDetails.globalPosition.toString();
+              });
             },
             child: Container(
               alignment: Alignment(0.0, 0.0),
@@ -138,7 +146,11 @@ class _IndexGesturePageState extends State<IndexGesturePage> {
             padding: EdgeInsets.all(10.0),
             child: Text(text2,style: TextStyle(fontSize: 18.0),),
           ),
-
+          Container(
+            alignment: Alignment.center,
+            padding: EdgeInsets.all(10.0),
+            child: Text(tips),
+          ),
           Padding(
             padding: EdgeInsets.all(10.0),
             child: InkWell(
