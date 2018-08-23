@@ -9,6 +9,7 @@ import 'page_one/index_dialog_page.dart';
 import 'page_one/index_images_page.dart';
 import 'page_one/index_sharedpreferences_page.dart';
 import 'page_one/index_gesture_page.dart';
+import 'page_one/index_timer_page.dart';
 
 class IndexPage extends StatefulWidget {
   @override
@@ -53,6 +54,10 @@ class _IndexPageState extends State<IndexPage> {
           RaisedButton(
             child: Text('手势Gesture'),
             onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexGesturePage()));},
+          ),
+          RaisedButton(
+            child: Text('计时器'),
+            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexTimerPage()));},
           ),
           RaisedButton(
             child: Text('杂七杂八'),
