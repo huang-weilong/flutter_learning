@@ -9,31 +9,19 @@ class UseAlbum extends StatefulWidget {
 }
 
 class _UseAlbumState extends State<UseAlbum> {
-  File _image;
-
-  Future getImage() async {
-    var image = await ImagePicker.pickImage(source: ImageSource.camera);
-
-    setState(() {
-      _image = image;
-    });
-  }
-
+  String s ='        ';
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('Image Picker Example'),
       ),
-      body: new Center(
-        child: _image == null
-            ? new Text('No image selected.')
-            : new Image.file(_image),
-      ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: getImage,
-        tooltip: 'Pick Image',
-        child: new Icon(Icons.add_a_photo),
+      body: Container(
+        decoration: BoxDecoration(
+          color: Colors.blue,
+          border: Border.all(width: 1.0,color: Colors.red)
+        ),
+        child: Text(s),
       ),
     );
   }
