@@ -16,13 +16,12 @@ class _UseAlbumState extends State<UseAlbum> {
       appBar: new AppBar(
         title: new Text('Image Picker Example'),
       ),
-      body: Container(
-        decoration: BoxDecoration(
-          color: Colors.blue,
-          border: Border.all(width: 1.0,color: Colors.red)
-        ),
-        child: Text(s),
-      ),
+      body: Row(
+        children: <Widget>[
+          Text('1111111                         ',style: TextStyle(background: Paint()..color = Colors.green),),
+          Text('1111111                         ',style: TextStyle(background: Paint()..color = Colors.green),),
+        ],
+      )
     );
   }
 }

@@ -51,12 +51,12 @@ class _IndexTabBarViewPageState extends State<IndexTabBarViewPage> with SingleTi
             child: Container(
               height: 48.0,
               alignment: Alignment.center,
-              child: TabPageSelector(controller: _tabController),
+              child: TabPageSelector(controller: _tabController),//滑动的小圆点
             ),
           ),
         ),
       ),
-      body:  TabBarView(
+      body:  TabBarView(//TabBar内容
         controller: _tabController,
         children: choices.map((Choice choice) {
           return Padding(

@@ -22,8 +22,52 @@ class _IndexPageState extends State<IndexPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('首页'),
+        title: Text('首页index_page'),
         centerTitle: true,
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+//            DrawerHeader(child: Text('dsa'),),//可以使用这个自定义抽屉头部
+            UserAccountsDrawerHeader(
+              accountName: Text('long'),
+              accountEmail: Text('550456817@qq.com'),
+              currentAccountPicture: ClipOval(child: Image.asset('images/long.jpg'),)
+            ),
+            ListTile(
+              title: Text('布局'),
+              trailing: Icon(Icons.brightness_1),
+              onTap: (){
+                Navigator.of(context).pop();
+                Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexLayoutPage()));
+              },
+            ),
+            ListTile(
+              title: Text('计时器'),
+              trailing: Icon(Icons.timer),
+              onTap: (){
+                Navigator.of(context).pop();
+                Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexTimerPage()));
+              },
+            ),
+            Divider(),
+            ListTile(
+              title: new Text('收起'),
+              trailing: new Icon(Icons.cancel),
+              onTap: () => Navigator.of(context).pop(),   //点击后收起侧边栏
+            ),
+            Divider(),
+            AboutListTile(
+              icon: Icon(Icons.beach_access),
+              child: Text('关于'),
+              applicationName: 'flutter学习',
+              applicationIcon: Icon(Icons.details),
+              applicationLegalese: '此项目仅用于学习flutter，部分代码来源于互联网或官方Gallery案例',
+              applicationVersion: 'v0.0.1',
+              aboutBoxChildren: <Widget>[Icon(Icons.map),Icon(Icons.opacity)],
+            )
+          ],
+        ),
       ),
       body: GridView.count(
         crossAxisCount: 4,//一行有几个孩子
