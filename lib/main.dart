@@ -52,8 +52,8 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('首页')),
-          BottomNavigationBarItem(icon: Icon(Icons.message), title: Text('tabbar2')),
+          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('基础')),
+          BottomNavigationBarItem(icon: Icon(Icons.message), title: Text('插件')),
           BottomNavigationBarItem(icon: Icon(Icons.apps), title: Text('tabbar3')),
         ],
         onTap: onTap,

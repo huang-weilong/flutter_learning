@@ -11,6 +11,7 @@ import 'page_one/index_sharedpreferences_page.dart';
 import 'page_one/index_gesture_page.dart';
 import 'page_one/index_timer_page.dart';
 import 'page_one/index_tab_bar_view_page.dart';
+import 'page_one/index_tab_bar_page.dart';
 
 class IndexPage extends StatefulWidget {
   @override
@@ -73,8 +74,12 @@ class _IndexPageState extends State<IndexPage> {
         crossAxisCount: 4,//一行有几个孩子
         children: <Widget>[
           RaisedButton(
-            child: Text('TabBarView'),
+            child: Text('TabBar1'),
             onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexTabBarViewPage()));},
+          ),
+          RaisedButton(
+            child: Text('TabBar2'),
+            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexTabBarPage()));},
           ),
           RaisedButton(
             child: Text('按钮Button'),
