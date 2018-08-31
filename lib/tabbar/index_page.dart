@@ -12,6 +12,7 @@ import 'page_one/index_gesture_page.dart';
 import 'page_one/index_timer_page.dart';
 import 'page_one/index_tab_bar_view_page.dart';
 import 'page_one/index_tab_bar_page.dart';
+import 'page_one/index_add_delete_widget.dart';
 
 class IndexPage extends StatefulWidget {
   @override
@@ -108,6 +109,10 @@ class _IndexPageState extends State<IndexPage> {
           RaisedButton(
             child: Text('手势Gesture'),
             onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexGesturePage()));},
+          ),
+          RaisedButton(
+            child: Text('添加、删除元素'),
+            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexAddDeleteWidget()));},
           ),
           RaisedButton(
             child: Text('计时器'),
