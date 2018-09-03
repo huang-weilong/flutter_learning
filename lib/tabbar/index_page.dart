@@ -13,6 +13,7 @@ import 'page_one/index_timer_page.dart';
 import 'page_one/index_tab_bar_view_page.dart';
 import 'page_one/index_tab_bar_page.dart';
 import 'page_one/index_add_delete_widget.dart';
+import 'page_one/index_hero_page.dart';
 
 class IndexPage extends StatefulWidget {
   @override
@@ -26,6 +27,7 @@ class _IndexPageState extends State<IndexPage> {
       appBar: AppBar(
         title: Text('首页index_page'),
         centerTitle: true,
+        elevation: 0.0,
       ),
       drawer: Drawer(
         child: ListView(
@@ -113,6 +115,10 @@ class _IndexPageState extends State<IndexPage> {
           RaisedButton(
             child: Text('添加、删除元素'),
             onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexAddDeleteWidget()));},
+          ),
+          RaisedButton(
+            child: Text('英雄动画Hero'),
+            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexHeroPage()));},
           ),
           RaisedButton(
             child: Text('计时器'),

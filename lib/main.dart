@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('基础')),
           BottomNavigationBarItem(icon: Icon(Icons.message), title: Text('插件')),
-          BottomNavigationBarItem(icon: Icon(Icons.apps), title: Text('tabbar3')),
+          BottomNavigationBarItem(icon: Icon(Icons.apps), title: Text('iOS风格')),
         ],
         onTap: onTap,
         currentIndex: page,

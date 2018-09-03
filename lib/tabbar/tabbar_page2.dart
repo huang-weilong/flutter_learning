@@ -14,6 +14,7 @@ class _TabbarPage2State extends State<TabbarPage2> {
       appBar: AppBar(
         title: Text('插件'),
         centerTitle: true,
+        elevation: 0.0,
       ),
       body: GridView.count(
         crossAxisCount: 4,
