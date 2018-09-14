@@ -39,7 +39,7 @@ class _IndexPageState extends State<IndexPage> {
             UserAccountsDrawerHeader(
               accountName: Text('long'),
               accountEmail: Text('550456817@qq.com'),
-              currentAccountPicture: ClipOval(child: Image.asset('images/long.jpg'),)
+              currentAccountPicture: ClipOval(child: Image.asset('assets/images/long.jpg'),)
             ),
             ListTile(
               title: Text('布局'),

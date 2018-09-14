@@ -20,7 +20,7 @@ class _IndexHeroPageState extends State<IndexHeroPage> {
       body: Center(
         child: GestureDetector(
           child: Hero(
-            child: Image.asset('images/long.jpg',width: 100.0,),
+            child: Image.asset('assets/images/long.jpg',width: 100.0,),
             tag: 'long',
           ),
           onTap: () {
@@ -38,7 +38,7 @@ class _HeroTest extends StatelessWidget {
     // TODO: implement build
     return GestureDetector(
       child: Hero(
-        child: Image.asset('images/long.jpg'),
+        child: Image.asset('assets/images/long.jpg'),
         tag: 'long',
       ),
       onTap: () {

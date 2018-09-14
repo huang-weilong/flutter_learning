@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'tab_bar_view_page.dart';
 import 'use_camera.dart';
 import 'index_timer_page.dart';
+import 'lottie_json_animation.dart';
 
 class IndexUnclassifiedPage extends StatefulWidget {
   @override
@@ -44,6 +45,10 @@ class _IndexUnclassifiedPageState extends State<IndexUnclassifiedPage> {
           RaisedButton(
             child: Text('计时器'),
             onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexTimerPage()));},
+          ),
+          RaisedButton(
+            child: Text('使用Lottie json展示动画'),
+            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>LottieJsonAnimation()));},
           ),
         ],
       )
