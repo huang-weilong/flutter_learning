@@ -11,6 +11,7 @@ import 'page_three/index_fullscreen_dialog_transition.dart';
 import 'page_three/index_cupertino_navigation_bar.dart';
 import 'page_three/index_cupertino_tab_scaffold.dart';
 import 'page_three/index_circular_progress_indicator.dart';
+import 'page_three/index_curpertino_bottom_navbar.dart';
 
 class TabbarPage3 extends StatefulWidget {
   @override
@@ -81,6 +82,14 @@ class _TabbarPage3State extends State<TabbarPage3> {
             color: Colors.blue,
             onPressed: () {
               Navigator.push(context, CupertinoPageRoute(builder: (_) => IndexCupertinoNavigationBar()));
+            },
+          ),
+          CupertinoButton(
+            padding: EdgeInsets.all(0.0),
+            child: Text('底部导航'),
+            color: Colors.blue,
+            onPressed: () {
+              Navigator.push(context, CupertinoPageRoute(builder: (_) => IndexCurpertinoBottomNavBar()));
             },
           ),
           CupertinoButton(

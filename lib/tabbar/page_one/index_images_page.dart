@@ -21,11 +21,24 @@ class _IndexImagesPageState extends State<IndexImagesPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Padding(padding: EdgeInsets.symmetric(vertical: 10.0),child: Text('从本地资源获取图片'),),
-              Image.asset('images/img.jpg',width: 200.0,height: 200.0,),
+              Image.asset('images/img.jpg',height: 200.0,fit: BoxFit.fill,),
+              Padding(padding: EdgeInsets.symmetric(vertical: 10.0),child: Text('拉伸图片，使用了SizedBox'),),
+              SizedBox(
+                width: 400.0,
+                child: Image.asset('images/img.jpg',height: 200.0,fit: BoxFit.fill,),
+              ),
+              Padding(padding: EdgeInsets.symmetric(vertical: 10.0),child: Text('拉伸图片，使用了ConstrainedBox'),),
+              Container(
+                height: 200.0,
+                child: ConstrainedBox(
+                  child: Image.asset('images/img.jpg',fit: BoxFit.fill,),
+                  constraints: BoxConstraints.expand(),//填充父元素，需要外包一层container，因为这是在Column中，不包的话是无限高
+                ),
+              ),
               Padding(padding: EdgeInsets.symmetric(vertical: 10.0),child: Text('从Internet获取图片'),),
               Image.network('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534505726489&di=680fd0f270485ab207efa6b014c1ae'
                   '43&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01e12156264b9c6ac72548781bb856.jpg'),
-              Padding(padding: EdgeInsets.symmetric(vertical: 10.0),child: Text('从文件中获取见“杂七杂八”使用相机或相册'),),
+              Padding(padding: EdgeInsets.symmetric(vertical: 10.0),child: Text('从文件中获取图片见首页“其他”使用相机或相册'),),
               Padding(padding: EdgeInsets.symmetric(vertical: 10.0),child: Text('给图片设置其他属性'),),
               Image.asset(
                 'images/img.jpg',

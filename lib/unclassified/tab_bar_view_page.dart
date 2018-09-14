@@ -84,7 +84,7 @@ class TabBarViewPage extends StatelessWidget {
     final TabController controller = DefaultTabController.of(context);
     final Color color = Theme.of(context).accentColor;
     return new Scaffold(
-      appBar: new AppBar(title: const Text('Page selector')),
+      appBar: new AppBar(title: const Text('Page selector'),elevation: 0.0,),
       body: new DefaultTabController(
         length: 4,
         child: SafeArea(

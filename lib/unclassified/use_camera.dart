@@ -30,6 +30,7 @@ class _UseCameraState extends State<UseCamera> {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('Image Picker Example'),
+        elevation: 0.0,
       ),
       body: Column(
         children: <Widget>[

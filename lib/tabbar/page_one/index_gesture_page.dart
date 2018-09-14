@@ -17,6 +17,7 @@ class _IndexGesturePageState extends State<IndexGesturePage> {
       appBar: AppBar(
         title: Text('手势Gesture'),
         centerTitle: true,
+        elevation: 0.0,
       ),
       body: ListView(
         children: <Widget>[

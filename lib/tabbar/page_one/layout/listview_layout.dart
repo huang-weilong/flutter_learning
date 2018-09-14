@@ -14,6 +14,7 @@ class _ListViewLayoutState extends State<ListViewLayout> {
       appBar: AppBar(
         title: Text('一个ListView'),
         centerTitle: true,
+        elevation: 0.0,
       ),
       body: ListView.builder(
         itemCount: items.length,

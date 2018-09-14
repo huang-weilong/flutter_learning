@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../main.dart';
 import 'page_one/index_button_page.dart';
 import 'page_one/index_layout_page.dart';
 import '../unclassified/index_unclassified_page.dart';
@@ -9,11 +10,13 @@ import 'page_one/index_dialog_page.dart';
 import 'page_one/index_images_page.dart';
 import 'page_one/index_sharedpreferences_page.dart';
 import 'page_one/index_gesture_page.dart';
-import 'page_one/index_timer_page.dart';
+import 'package:flutter_learning/unclassified/index_timer_page.dart';
 import 'page_one/index_tab_bar_view_page.dart';
 import 'page_one/index_tab_bar_page.dart';
 import 'page_one/index_add_delete_widget.dart';
 import 'page_one/index_hero_page.dart';
+import 'page_one/index_nested_scroll_view.dart';
+import 'page_one/index_marquee_page.dart';
 
 class IndexPage extends StatefulWidget {
   @override
@@ -121,11 +124,15 @@ class _IndexPageState extends State<IndexPage> {
             onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexHeroPage()));},
           ),
           RaisedButton(
-            child: Text('计时器'),
-            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexTimerPage()));},
+            child: Text('NestedScrollView'),
+            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexNestedScrollView()));},
           ),
           RaisedButton(
-            child: Text('杂七杂八'),
+            child: Text('跑马灯效果'),
+            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexMarqueePage()));},
+          ),
+          RaisedButton(
+            child: Text('其他'),
             onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexUnclassifiedPage()));},
           ),
           RaisedButton(

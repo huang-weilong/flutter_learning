@@ -32,6 +32,7 @@ class _IndexTabBarViewPageState extends State<IndexTabBarViewPage> with SingleTi
     return Scaffold(
       appBar: AppBar(
         title: const Text('AppBar Bottom Widget'),
+        elevation: 0.0,
         leading: IconButton(
           tooltip: 'Previous choice',
           icon: const Icon(Icons.arrow_back),

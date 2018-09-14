@@ -17,6 +17,7 @@ class _IndexButtonPageState extends State<IndexButtonPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('按钮'),
+        elevation: 0.0,
       ),
       body: ListView(
         padding: EdgeInsets.all(10.0),

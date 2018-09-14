@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'tab_bar_view_page.dart';
 import 'use_camera.dart';
+import 'index_timer_page.dart';
 
 class IndexUnclassifiedPage extends StatefulWidget {
   @override
@@ -15,6 +16,7 @@ class _IndexUnclassifiedPageState extends State<IndexUnclassifiedPage> {
       appBar: AppBar(
         title: Text('未分类'),
         centerTitle: true,
+        elevation: 0.0,
       ),
       body: GridView.count(
         crossAxisCount: 4,
@@ -38,6 +40,10 @@ class _IndexUnclassifiedPageState extends State<IndexUnclassifiedPage> {
           RaisedButton(
             child: Text('使用相机或相册'),
             onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_) => UseCamera()));},
+          ),
+          RaisedButton(
+            child: Text('计时器'),
+            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexTimerPage()));},
           ),
         ],
       )

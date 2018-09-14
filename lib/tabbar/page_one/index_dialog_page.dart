@@ -59,6 +59,7 @@ class _IndexDialogPageState extends State<IndexDialogPage> {
       key: _scaffoldKey,
       appBar: AppBar(
         title: Text('Alert对话框'),
+        elevation: 0.0,
       ),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

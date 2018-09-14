@@ -15,9 +15,15 @@ class _IndexCupertinoActivityIndicatorState extends State<IndexCupertinoActivity
         centerTitle: true,
         elevation: 0.0,
       ),
-      body: Center(
-        child: CupertinoActivityIndicator(),
-      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          CupertinoActivityIndicator(),
+          CupertinoActivityIndicator(radius: 16.0,),
+          Text('CupertinoActivityIndicator()'),
+        ],
+      )
     );
   }
 }

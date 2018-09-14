@@ -16,6 +16,7 @@ class _IndexHeroPageState extends State<IndexHeroPage> {
         centerTitle: true,
         elevation: 0.0,
       ),
+      backgroundColor: Colors.grey,
       body: Center(
         child: GestureDetector(
           child: Hero(

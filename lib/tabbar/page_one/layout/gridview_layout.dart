@@ -13,6 +13,7 @@ class _GridViewLayoutState extends State<GridViewLayout> {
     return Scaffold(
       appBar: AppBar(
         title: Text('GridView布局'),
+        elevation: 0.0,
         actions: <Widget>[
           IconButton(icon: Icon(Icons.flag),tooltip: 'builder方法', onPressed: (){_changeFlag(1);}),
           IconButton(icon: Icon(Icons.opacity),tooltip: 'count方法', onPressed: (){_changeFlag(2);}),

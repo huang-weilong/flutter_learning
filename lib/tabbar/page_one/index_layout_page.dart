@@ -15,6 +15,7 @@ class _IndexLayoutPageState extends State<IndexLayoutPage> {
       appBar: AppBar(
         title: Text('布局'),
         centerTitle: true,
+        elevation: 0.0,
       ),
       body: Center(
         child: GridView.count(

@@ -15,6 +15,7 @@ class _IndexSharedPreferencePageState extends State<IndexSharedPreferencePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('SharedPreferences的使用'),
+        elevation: 0.0,
       ),
       body: Center(
         child: Column(

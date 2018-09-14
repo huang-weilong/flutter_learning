@@ -16,7 +16,7 @@ class ElapsedTime {
 class Dependencies {
 
   final List<ValueChanged<ElapsedTime>> timerListeners = <ValueChanged<ElapsedTime>>[];
-  final TextStyle textStyle = const TextStyle();
+  final TextStyle textStyle = const TextStyle(fontSize: 26.0);
   final Stopwatch stopwatch = new Stopwatch();
   final int timerMillisecondsRefreshRate = 30;
 }
@@ -29,11 +29,12 @@ class IndexTimerPage extends StatefulWidget {
 
 class IndexTimerPageState extends State<IndexTimerPage> {
   final Dependencies dependencies = new Dependencies();
+  List<Widget> text = [];
 
   void leftButtonPressed() {
     setState(() {
       if (dependencies.stopwatch.isRunning) {
-        print("${dependencies.stopwatch.elapsedMilliseconds}");
+        addText(dependencies.stopwatch.elapsedMilliseconds);
       } else {
         dependencies.stopwatch.reset();
       }
@@ -51,40 +52,66 @@ class IndexTimerPageState extends State<IndexTimerPage> {
   }
 
   Widget buildFloatingButton(String text, VoidCallback callback) {
-    TextStyle roundTextStyle = const TextStyle(fontSize: 16.0, color: Colors.blue);
-    return new RaisedButton(
-        child: new Text(text, style: roundTextStyle),
+    TextStyle roundTextStyle = TextStyle(fontSize: 16.0, color: Colors.blue);
+    return RaisedButton(
+        child: Text(text, style: roundTextStyle),
         onPressed: callback);
   }
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Text('计时器'),
+        elevation: 0.0,
+        actions: <Widget>[
+          IconButton(
+              icon: Text('清除'),
+              onPressed: () {
+                setState(() {
+                  text.clear();
+                });
+              })
+        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          new Expanded(
-            child: new TimerText(dependencies: dependencies),
-          ),
-          new Expanded(
-            flex: 0,
-            child: new Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10.0),
-              child: new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  buildFloatingButton(dependencies.stopwatch.isRunning ? "lap" : "reset", leftButtonPressed),
-                  buildFloatingButton(dependencies.stopwatch.isRunning ? "stop" : "start", rightButtonPressed),
-                ],
+          TimerText(dependencies: dependencies),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[]..addAll(text),
               ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                buildFloatingButton(dependencies.stopwatch.isRunning ? "记录" : "重置", leftButtonPressed),
+                buildFloatingButton(dependencies.stopwatch.isRunning ? "停止" : "开始", rightButtonPressed),
+              ],
             ),
           ),
         ],
       ),
     );
+  }
+
+  addText(int milliseconds) {
+    String a,b,c;
+    int seconds = milliseconds~/1000;
+    int minutes = milliseconds~/1000~/60;
+    seconds = seconds - minutes*60;
+    milliseconds = (milliseconds - seconds*1000 - minutes*60*1000)~/10;
+    milliseconds < 10 ? c = '0' : c = '';
+    seconds < 10 ? b = '0' : b = '';
+    minutes < 10 ? a = '0' : a = '';
+    setState(() {
+      text.add(Text('$a$minutes:$b$seconds:$c$milliseconds'));
+    });
   }
 }
 
@@ -186,7 +213,7 @@ class MinutesAndSecondsState extends State<MinutesAndSeconds> {
   Widget build(BuildContext context) {
     String minutesStr = (minutes % 60).toString().padLeft(2, '0');
     String secondsStr = (seconds % 60).toString().padLeft(2, '0');
-    return new Text('$minutesStr:$secondsStr.', style: dependencies.textStyle);
+    return new Text('$minutesStr:$secondsStr:', style: dependencies.textStyle);
   }
 }
 

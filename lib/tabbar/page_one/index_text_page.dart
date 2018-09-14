@@ -17,6 +17,7 @@ class _IndexTextPageState extends State<IndexTextPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text('textfield'),
+          elevation: 0.0,
           actions: <Widget>[
             Placeholder(fallbackWidth: 50.0,)
           ],
