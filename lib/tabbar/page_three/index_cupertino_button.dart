@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-class IndexCupertinoButton extends StatefulWidget {
-  @override
-  _IndexCupertinoButtonState createState() => _IndexCupertinoButtonState();
-}
-
-class _IndexCupertinoButtonState extends State<IndexCupertinoButton> {
+class IndexCupertinoButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

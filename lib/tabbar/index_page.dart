@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:charts_flutter/flutter.dart' as charts;
 
-import '../main.dart';
 import 'page_one/index_button_page.dart';
 import 'page_one/index_layout_page.dart';
 import '../unclassified/index_unclassified_page.dart';
@@ -16,7 +16,6 @@ import 'page_one/index_tab_bar_page.dart';
 import 'page_one/index_add_delete_widget.dart';
 import 'page_one/index_hero_page.dart';
 import 'page_one/index_nested_scroll_view.dart';
-import 'page_one/index_marquee_page.dart';
 
 class IndexPage extends StatefulWidget {
   @override
@@ -24,6 +23,8 @@ class IndexPage extends StatefulWidget {
 }
 
 class _IndexPageState extends State<IndexPage> {
+  final List<charts.Series> seriesList = List<charts.Series>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -128,17 +129,13 @@ class _IndexPageState extends State<IndexPage> {
             onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexNestedScrollView()));},
           ),
           RaisedButton(
-            child: Text('跑马灯效果'),
-            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexMarqueePage()));},
-          ),
-          RaisedButton(
             child: Text('其他'),
             onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexUnclassifiedPage()));},
           ),
           RaisedButton(
             child: Text('测试页面'),
 //            onPressed: (){},
-            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>UseAlbum()));},
+            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>Test.withRandomData()));},
           ),
         ],
       )

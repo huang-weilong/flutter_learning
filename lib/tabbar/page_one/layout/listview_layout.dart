@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ListViewLayout extends StatefulWidget {
-  @override
-  _ListViewLayoutState createState() => _ListViewLayoutState();
-}
-
-class _ListViewLayoutState extends State<ListViewLayout> {
+class ListViewLayout extends StatelessWidget {
   final items = new List<String>.generate(100, (i) => "Item $i");
 
   @override

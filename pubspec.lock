@@ -36,6 +36,20 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.1.2"
+  charts_common:
+    dependency: transitive
+    description:
+      name: charts_common
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.4.0"
+  charts_flutter:
+    dependency: "direct main"
+    description:
+      name: charts_flutter
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.4.0"
   collection:
     dependency: transitive
     description:
@@ -144,6 +158,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.4.10"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.15.7"
   io:
     dependency: transitive
     description:
@@ -182,10 +203,12 @@ packages:
   lottie_flutter:
     dependency: "direct main"
     description:
-      name: lottie_flutter
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.1.1"
+      path: "."
+      ref: HEAD
+      resolved-ref: e23a26d00e93b83230007ddb177898e10e20ef06
+      url: "https://github.com/dnfield/lottie-flutter.git"
+    source: git
+    version: "0.2.0"
   matcher:
     dependency: transitive
     description:
@@ -423,5 +446,5 @@ packages:
     source: hosted
     version: "2.1.15"
 sdks:
-  dart: ">=2.0.0-dev.68.0 <3.0.0"
-  flutter: ">=0.3.6 <2.0.0"
+  dart: ">=2.0.0 <3.0.0"
+  flutter: ">=0.7.3 <2.0.0"

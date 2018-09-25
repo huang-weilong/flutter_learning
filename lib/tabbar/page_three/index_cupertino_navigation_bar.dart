@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-class IndexCupertinoNavigationBar extends StatefulWidget {
-  @override
-  _IndexCupertinoNavigationBarState createState() => _IndexCupertinoNavigationBarState();
-}
-
-class _IndexCupertinoNavigationBarState extends State<IndexCupertinoNavigationBar> {
+class IndexCupertinoNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

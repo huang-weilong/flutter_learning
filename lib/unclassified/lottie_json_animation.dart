@@ -17,13 +17,15 @@ const List<String> assetNames = const <String>[
   'assets/json/favourite_app_icon.json',
   'assets/json/preloader.json',
   'assets/json/walkthrough.json',
+  'assets/json/test.json',
+  'assets/json/data.json'
 ];
 
 class LottieJsonAnimation extends StatefulWidget {
-  const LottieJsonAnimation({Key key}) : super(key: key);
+  LottieJsonAnimation({Key key}) : super(key: key);
 
   @override
-  _LottieJsonAnimationState createState() => new _LottieJsonAnimationState();
+  _LottieJsonAnimationState createState() => _LottieJsonAnimationState();
 }
 
 class _LottieJsonAnimationState extends State<LottieJsonAnimation>
@@ -39,8 +41,8 @@ class _LottieJsonAnimationState extends State<LottieJsonAnimation>
 
     _repeat = false;
     //_loadButtonPressed(assetNames[6]);
-    _controller = new AnimationController(
-      duration: const Duration(milliseconds: 1),
+    _controller = AnimationController(
+      duration: Duration(milliseconds: 1),
       vsync: this,
     );
     _controller.addListener(() => setState(() {}));
@@ -58,44 +60,45 @@ class _LottieJsonAnimationState extends State<LottieJsonAnimation>
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: const Text('以下动画都是json文件'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('json动画'),
+        elevation: 0.0,
       ),
-      body: new Center(
-        child: new Column(
+      body: Center(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            new DropdownButton<String>(
+            DropdownButton<String>(
               items: assetNames
-                  .map((String assetName) => new DropdownMenuItem<String>(
-                child: new Text(assetName),
+                  .map((String assetName) => DropdownMenuItem<String>(
+                child: Text(assetName),
                 value: assetName,
               ))
                   .toList(),
-              hint: const Text('选择一个动画'),
+              hint: Text('选择一个动画'),
               value: _assetName,
               onChanged: (String val) => _loadButtonPressed(val),
             ),
-            new Text(_composition?.bounds?.size?.toString() ?? ''),
-            new Lottie(
+            Text(_composition?.bounds?.size?.toString() ?? ''),
+            Lottie(
               composition: _composition,
-              size: const Size(300.0, 300.0),
+              size: Size(300.0, 300.0),
               controller: _controller,
             ),
-            new Slider(
+            Slider(
               value: _controller.value,
               onChanged: _composition != null
                   ? (double val) => setState(() => _controller.value = val)
                   : null,
             ),
-            new Row(
+            Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  new IconButton(
-                    icon: const Icon(Icons.repeat),
+                  IconButton(
+                    icon: Icon(Icons.repeat),
                     color: _repeat ? Colors.black : Colors.black45,
                     onPressed: () => setState(() {
                       _repeat = !_repeat;
@@ -109,16 +112,16 @@ class _LottieJsonAnimationState extends State<LottieJsonAnimation>
                       }
                     }),
                   ),
-                  new IconButton(
-                    icon: const Icon(Icons.fast_rewind),
+                  IconButton(
+                    icon: Icon(Icons.fast_rewind),
                     onPressed: _controller.value > 0 && _composition != null
                         ? () => setState(() => _controller.reset())
                         : null,
                   ),
-                  new IconButton(
+                  IconButton(
                     icon: _controller.isAnimating
-                        ? const Icon(Icons.pause)
-                        : const Icon(Icons.play_arrow),
+                        ? Icon(Icons.pause)
+                        : Icon(Icons.play_arrow),
                     onPressed: _controller.isCompleted || _composition == null
                         ? null
                         : () {
@@ -135,8 +138,8 @@ class _LottieJsonAnimationState extends State<LottieJsonAnimation>
                       });
                     },
                   ),
-                  new IconButton(
-                    icon: const Icon(Icons.stop),
+                  IconButton(
+                    icon: Icon(Icons.stop),
                     onPressed: _controller.isAnimating && _composition != null
                         ? () {
                       _controller.reset();

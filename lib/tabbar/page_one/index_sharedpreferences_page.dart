@@ -74,9 +74,8 @@ class _IndexSharedPreferencePageState extends State<IndexSharedPreferencePage> {
   //Incrementing counter after click
   _incrementCounter() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    _counter = (prefs.getInt('counter') ?? 0) + 1;
     setState(() {
-      _counter;
+      _counter = (prefs.getInt('counter') ?? 0) + 1;
     });
     prefs.setInt('counter', _counter);
   }

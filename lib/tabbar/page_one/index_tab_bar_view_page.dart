@@ -21,10 +21,10 @@ class _IndexTabBarViewPageState extends State<IndexTabBarViewPage> with SingleTi
   }
 
   void _nextPage(int delta) {
-    final int Index = _tabController.index + delta;
-    if (Index < 0 || Index >= _tabController.length)
+    final int index = _tabController.index + delta;
+    if (index < 0 || index >= _tabController.length)
       return;
-    _tabController.animateTo(Index);
+    _tabController.animateTo(index);
   }
 
   @override

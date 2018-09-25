@@ -11,7 +11,10 @@ dependencies:
   image_picker: ^0.4.6
   dio: ^1.0.0
   shared_preferences: ^0.4.2
-  lottie_flutter: ^0.1.1
+  charts_flutter: ^0.4.0
+  lottie_flutter:
+    git:
+      url: https://github.com/dnfield/lottie-flutter.git
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +51,8 @@ flutter:
    - assets/json/motorcycle.json
    - assets/json/hamburger_arrow.json
    - assets/json/Indicators2.json
+   - assets/json/test.json
+   - assets/json/data.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

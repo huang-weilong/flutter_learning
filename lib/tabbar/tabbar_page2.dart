@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'page_two/map_page.dart';
+import 'page_two/charts_page.dart';
 
 class TabbarPage2 extends StatefulWidget {
   @override
@@ -22,6 +23,10 @@ class _TabbarPage2State extends State<TabbarPage2> {
           RaisedButton(
             child: Text('地图'),
             onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>MapPage()));},
+          ),
+          RaisedButton(
+            child: Text('图表'),
+            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>ChartsPage()));},
           ),
         ],
       ),
