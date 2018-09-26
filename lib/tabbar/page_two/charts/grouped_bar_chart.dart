@@ -80,13 +80,10 @@ class GroupedBarChart extends StatelessWidget {
         centerTitle: true,
         elevation: 0.0,
       ),
-      body: SizedBox(
-        height: 400.0,
-        child: charts.BarChart(
-          seriesList,
-          animate: animate,
-          barGroupingType: charts.BarGroupingType.grouped,
-        ),
+      body: charts.BarChart(
+        seriesList,
+        animate: animate,
+        barGroupingType: charts.BarGroupingType.grouped,
       ),
     );
   }

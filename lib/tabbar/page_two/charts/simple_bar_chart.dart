@@ -52,15 +52,12 @@ class SimpleBarChart extends StatelessWidget  {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('charts'),
+        title: Text('简单的柱状图'),
         elevation: 0.0,
       ),
-      body: SizedBox(
-        height: 300.0,
-        child: charts.BarChart(
-          seriesList,
-          animate: animate,
-        ),
+      body: charts.BarChart(
+        seriesList,
+        animate: animate,
       ),
     );
   }
