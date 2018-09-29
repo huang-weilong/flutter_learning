@@ -135,7 +135,7 @@ class _IndexPageState extends State<IndexPage> {
           RaisedButton(
             child: Text('测试页面'),
 //            onPressed: (){},
-            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>Test.withRandomData()));},
+            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>Test()));},
           ),
         ],
       )

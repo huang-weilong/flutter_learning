@@ -2,96 +2,99 @@ import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'dart:math';
 
-//class Test extends StatefulWidget {
-//  const Test({Key key}) : super(key: key);
-//
-//  @override
-//  _TestState createState() => _TestState();
-//}
+class Test extends StatefulWidget {
+  const Test({Key key}) : super(key: key);
 
-class Test extends StatelessWidget  {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  @override
+  _TestState createState() => _TestState();
+}
 
-  Test(this.seriesList, {this.animate});
+class _TestState extends State<Test>  {
+  List<charts.Series> seriesList = List();
+  bool animate = true;
 
-  /// Creates a [BarChart] with sample data and no transition.
-  factory Test.withSampleData() {
-    return new Test(
-      _createSampleData(),
-      // Disable animations for image tests.
-      animate: false,
-    );
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    seriesList = _createSampleData();
+    test();
   }
 
-  // EXCLUDE_FROM_GALLERY_DOCS_START
-  // This section is excluded from being copied to the gallery.
-  // It is used for creating random series data to demonstrate animation in
-  // the example app only.
-  factory Test.withRandomData() {
-    return new Test(_createRandomData());
+
+  int i = 10;
+  int j = -122;
+  void test() {
+    print('==========');
+    print('十进制10 转二进制${i.toRadixString(2)}');
+    print('十进制-122转二进制${j.toRadixString(2)}');
+
   }
-
-  /// Create random data.
-  static List<charts.Series<OrdinalSales, String>> _createRandomData() {
-    final random = new Random();
-
-    final data = [
-      new OrdinalSales('2014', random.nextInt(100)),
-      new OrdinalSales('2015', random.nextInt(100)),
-      new OrdinalSales('2016', random.nextInt(100)),
-      new OrdinalSales('2017', random.nextInt(100)),
-    ];
-
-    return [
-      new charts.Series<OrdinalSales, String>(
-        id: 'Sales',
-        colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
-        domainFn: (OrdinalSales sales, _) => sales.year,
-        measureFn: (OrdinalSales sales, _) => sales.sales,
-        data: data,
-      )
-    ];
-  }
-  // EXCLUDE_FROM_GALLERY_DOCS_END
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('charts'),
+        title: Text('简单的饼状图'),
+        centerTitle: true,
         elevation: 0.0,
       ),
-      body: charts.BarChart(
-        seriesList,
-        animate: animate,
+      body: charts.PieChart(seriesList, animate: animate),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.refresh),
+        onPressed: (){
+          setState(() {
+            seriesList = _createRandomData();
+          });
+        },
       ),
     );
   }
 
   /// Create one series with sample hard coded data.
-  static List<charts.Series<OrdinalSales, String>> _createSampleData() {
+  List<charts.Series<LinearSales, int>> _createSampleData() {
     final data = [
-      new OrdinalSales('2014', 5),
-      new OrdinalSales('2015', 25),
-      new OrdinalSales('2016', 100),
-      new OrdinalSales('2017', 75),
+      LinearSales(0, 100),
+      LinearSales(1, 0),
+//      LinearSales(2, 25),
+//      LinearSales(3, 5),
     ];
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
-        colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
-        domainFn: (OrdinalSales sales, _) => sales.year,
-        measureFn: (OrdinalSales sales, _) => sales.sales,
+        domainFn: (LinearSales sales, _) => sales.year,
+        measureFn: (LinearSales sales, _) => sales.sales,
+        data: data,
+      )
+    ];
+  }
+
+  List<charts.Series<LinearSales, int>> _createRandomData() {
+    final random = Random();
+
+    final data = [
+      LinearSales(0, random.nextInt(100)),
+      LinearSales(1, 1),
+      LinearSales(2, 0),
+      LinearSales(3, 0),
+    ];
+
+    return [
+      charts.Series<LinearSales, int>(
+        id: 'Sales',
+//        colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
+        domainFn: (LinearSales sales, _) => sales.year,
+        measureFn: (LinearSales sales, _) => sales.sales,
         data: data,
       )
     ];
   }
 }
-class OrdinalSales {
-  final String year;
+/// Sample linear data type.
+class LinearSales {
+  final int year;
   final int sales;
 
-  OrdinalSales(this.year, this.sales);
+  LinearSales(this.year, this.sales);
 }

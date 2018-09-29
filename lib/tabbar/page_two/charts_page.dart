@@ -7,6 +7,8 @@ import 'charts/simple_pie_chart.dart';
 import 'charts/outside_label_pie_chart.dart';
 import 'charts/simple_line_chart.dart';
 import 'charts/points_line_chart.dart';
+import 'charts/stacked_bar_chart.dart';
+import 'charts/grouped_stacked_bar_chart.dart';
 
 class ChartsPage extends StatelessWidget {
   @override
@@ -32,6 +34,20 @@ class ChartsPage extends StatelessWidget {
               title: Text('柱状组图'),
               onTap: (){
                 Navigator.push(context, CupertinoPageRoute(builder: (_)=>GroupedBarChart.withRandomData()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.insert_chart),
+              title: Text('堆叠柱状图'),
+              onTap: (){
+                Navigator.push(context, CupertinoPageRoute(builder: (_)=>StackedBarChart()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.insert_chart),
+              title: Text('堆叠柱状组图'),
+              onTap: (){
+                Navigator.push(context, CupertinoPageRoute(builder: (_)=>GroupedStackedBarChart()));
               },
             ),
             ListTile(
