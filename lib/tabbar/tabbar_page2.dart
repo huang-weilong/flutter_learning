@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'page_two/map_page.dart';
 import 'page_two/charts_page.dart';
+import 'page_two/slide_delete_page.dart';
 
 class TabbarPage2 extends StatefulWidget {
   @override
@@ -27,6 +28,10 @@ class _TabbarPage2State extends State<TabbarPage2> {
           RaisedButton(
             child: Text('图表'),
             onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>ChartsPage()));},
+          ),
+          RaisedButton(
+            child: Text('滑动删除'),
+            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>SlideDeletePage()));},
           ),
         ],
       ),

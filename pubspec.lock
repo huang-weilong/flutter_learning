@@ -98,12 +98,19 @@ packages:
       name: dio
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.4"
+    version: "1.0.6"
   flutter:
     dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_slidable:
+    dependency: "direct main"
+    description:
+      name: flutter_slidable
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.4.7"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -205,7 +212,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: e23a26d00e93b83230007ddb177898e10e20ef06
+      resolved-ref: "6ab0e4d47e31e69b8635df400d91c7e8dd987adf"
       url: "https://github.com/dnfield/lottie-flutter.git"
     source: git
     version: "0.2.0"

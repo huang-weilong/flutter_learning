@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:charts_flutter/flutter.dart' as charts;
-import 'dart:math';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
-class Test extends StatefulWidget {
+class SlideDeletePage extends StatefulWidget {
   @override
-  _TestState createState() => _TestState();
+  _SlideDeletePageState createState() => _SlideDeletePageState();
 }
 
-class _TestState extends State<Test> {
+class _SlideDeletePageState extends State<SlideDeletePage> {
   List<String> list = List();
 
   @override
   Widget build(BuildContext context) {
-    print('===========');
     return Scaffold(
       appBar: AppBar(
-        title: Text('dsadas'),
+        title: Text('滑动删除'),
+        centerTitle: true,
+        elevation: 0.0,
         actions: <Widget>[
-          IconButton(icon: Text('添加'), onPressed: (){
+          IconButton(icon: Text('新增'), onPressed: (){
             addList();
           })
         ],
@@ -26,7 +25,7 @@ class _TestState extends State<Test> {
       body: ListView.builder(
         itemCount: list.length,
         itemBuilder: (context, index) {
-          return slidableW(index);
+          return _buildSlideItem(index);
         },
       ),
     );
@@ -38,7 +37,7 @@ class _TestState extends State<Test> {
     });
   }
 
-  Widget slidableW(int index) {
+  Widget _buildSlideItem(int index) {
     return Slidable(
       delegate: SlidableDrawerDelegate(),
       actionExtentRatio: 0.20,
@@ -51,17 +50,29 @@ class _TestState extends State<Test> {
             foregroundColor: Colors.white,
           ),
           title: Text(list[index]),
-          subtitle: Text('SlidableDrawerDelegate'),
+          subtitle: Text('小标题'),
         ),
       ),
+//      closeOnScroll: false,
+      actions: <Widget>[
+        IconSlideAction(
+          caption: 'Delete',
+          color: Colors.red,
+          icon: Icons.delete,
+          onTap: () {
+            setState(() {
+              list.removeAt(index);
+            });
+          },
+//          closeOnTap: false,
+        ),
+      ],
       secondaryActions: <Widget>[
         IconSlideAction(
           caption: 'Delete',
           color: Colors.red,
           icon: Icons.delete,
           onTap: () {
-            print('dsadasdsad');
-            print(index);
             setState(() {
               list.removeAt(index);
             });
