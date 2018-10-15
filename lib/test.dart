@@ -9,7 +9,10 @@ class Test extends StatefulWidget {
 }
 
 class _TestState extends State<Test> {
+  TextEditingController controller = TextEditingController();
   List<String> list = List();
+  String aa = '10';
+  String bb = '9';
 
   @override
   Widget build(BuildContext context) {
@@ -19,55 +22,29 @@ class _TestState extends State<Test> {
         title: Text('dsadas'),
         actions: <Widget>[
           IconButton(icon: Text('添加'), onPressed: (){
-            addList();
+            addWaterSource();
           })
         ],
       ),
-      body: ListView.builder(
-        itemCount: list.length,
-        itemBuilder: (context, index) {
-          return slidableW(index);
-        },
-      ),
+      body: ListView(
+        children: <Widget>[
+          TextField(
+            controller: controller,
+
+          )
+        ],
+      )
     );
   }
 
-  addList() {
-    setState(() {
-      list.add('test${list.length}');
-    });
-  }
+  void addWaterSource() {
+    Map<String, dynamic> map = Map();
 
-  Widget slidableW(int index) {
-    return Slidable(
-      delegate: SlidableDrawerDelegate(),
-      actionExtentRatio: 0.20,
-      child: Container(
-        color: Colors.white,
-        child: ListTile(
-          leading: CircleAvatar(
-            backgroundColor: Colors.indigoAccent,
-            child: Text('$index'),
-            foregroundColor: Colors.white,
-          ),
-          title: Text(list[index]),
-          subtitle: Text('SlidableDrawerDelegate'),
-        ),
-      ),
-      secondaryActions: <Widget>[
-        IconSlideAction(
-          caption: 'Delete',
-          color: Colors.red,
-          icon: Icons.delete,
-          onTap: () {
-            print('dsadasdsad');
-            print(index);
-            setState(() {
-              list.removeAt(index);
-            });
-          },
-        ),
-      ],
-    );
+//    map['id'] = '';
+    map['name'] = aa; //编码
+    map['water_pressure'] = double.parse(controller.text);
+    map['dsdas'] = 'wqwq';
+    print('--------$map');
+    print(map['water_pressure'].runtimeType);
   }
 }

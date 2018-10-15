@@ -4,6 +4,7 @@ import 'layout/listview_layout.dart';
 import 'layout/gridview_layout.dart';
 import 'layout/row_layout.dart';
 import 'layout/column_layout.dart';
+import 'layout/wrap_layout.dart';
 
 class IndexLayoutPage extends StatefulWidget {
   @override
@@ -38,6 +39,10 @@ class _IndexLayoutPageState extends State<IndexLayoutPage> {
             RaisedButton(
               child: Text('Column布局'),
               onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => ColumnLayout()));},
+            ),
+            RaisedButton(
+              child: Text('Wrap布局'),
+              onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => WrapLayout()));},
             ),
           ],
         ),

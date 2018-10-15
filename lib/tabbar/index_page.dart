@@ -8,7 +8,6 @@ import '../test.dart';
 import 'page_one/index_text_page.dart';
 import 'page_one/index_dialog_page.dart';
 import 'page_one/index_images_page.dart';
-import 'page_one/index_sharedpreferences_page.dart';
 import 'page_one/index_gesture_page.dart';
 import 'package:flutter_learning/unclassified/index_timer_page.dart';
 import 'page_one/index_tab_bar_view_page.dart';
@@ -16,6 +15,13 @@ import 'page_one/index_tab_bar_page.dart';
 import 'page_one/index_add_delete_widget.dart';
 import 'page_one/index_hero_page.dart';
 import 'page_one/index_nested_scroll_view.dart';
+import 'page_one/index_expansion_tile_page.dart';
+import 'page_one/index_tooltip_page.dart';
+import 'page_one/index_sliders_page.dart';
+import 'page_one/index_checkbox_page.dart';
+import 'page_one/index_radio_page.dart';
+import 'page_one/index_switch_page.dart';
+import 'page_one/index_circular_progress_indicator.dart';
 
 class IndexPage extends StatefulWidget {
   @override
@@ -77,65 +83,128 @@ class _IndexPageState extends State<IndexPage> {
           ],
         ),
       ),
-      body: GridView.count(
-        crossAxisCount: 4,//一行有几个孩子
+      body: ListView(
+//        crossAxisCount: 4,//一行有几个孩子
         children: <Widget>[
-          RaisedButton(
-            child: Text('TabBar1'),
-            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexTabBarViewPage()));},
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.tab),
+            title: Text('TabBar1'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexTabBarViewPage()));},
           ),
-          RaisedButton(
-            child: Text('TabBar2'),
-            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexTabBarPage()));},
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.tab),
+            title: Text('TabBar2'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexTabBarPage()));},
           ),
-          RaisedButton(
-            child: Text('按钮Button'),
-            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexButtonPage()));},
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.check_box_outline_blank),
+            title: Text('按钮Button'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexButtonPage()));},
           ),
-          RaisedButton(
-            child: Text('布局'),
-            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexLayoutPage()));},
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.check_box_outline_blank),
+            title: Text('布局'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexLayoutPage()));},
           ),
-          RaisedButton(
-            child: Text('输入框TextField'),
-            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexTextPage()));},
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.keyboard),
+            title: Text('输入框TextField'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexTextPage()));},
           ),
-          RaisedButton(
-            child: Text('对话框AlertDialog'),
-            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexDialogPage()));},
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.check_box_outline_blank),
+            title: Text('对话框AlertDialog'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexDialogPage()));},
           ),
-          RaisedButton(
-            child: Text('图片Images'),
-            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexImagesPage()));},
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.image),
+            title: Text('图片Images'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexImagesPage()));},
           ),
-          RaisedButton(
-            child: Text('存储简单的数据SharePreference'),
-            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexSharedPreferencePage()));},
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.gesture),
+            title: Text('手势Gesture'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexGesturePage()));},
           ),
-          RaisedButton(
-            child: Text('手势Gesture'),
-            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexGesturePage()));},
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.add),
+            title: Text('添加、删除元素'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexAddDeleteWidget()));},
           ),
-          RaisedButton(
-            child: Text('添加、删除元素'),
-            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexAddDeleteWidget()));},
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.hdr_strong),
+            title: Text('英雄动画Hero'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexHeroPage()));},
           ),
-          RaisedButton(
-            child: Text('英雄动画Hero'),
-            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexHeroPage()));},
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.signal_cellular_4_bar),
+            title: Text('NestedScrollView'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexNestedScrollView()));},
           ),
-          RaisedButton(
-            child: Text('NestedScrollView'),
-            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexNestedScrollView()));},
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.expand_more),
+            title: Text('ExpansionTile下拉'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexExpansionTilePage()));},
           ),
-          RaisedButton(
-            child: Text('其他'),
-            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexUnclassifiedPage()));},
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.linear_scale),
+            title: Text('slider滑块'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexSlidersPage()));},
           ),
-          RaisedButton(
-            child: Text('测试页面'),
-//            onPressed: (){},
-            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>Test()));},
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.autorenew),
+            title: Text('应用程序正忙、刷新动画'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexCircularProgressIndicator()));},
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.radio_button_checked),
+            title: Text('radio单选框'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexRadioPage()));},
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.check_box),
+            title: Text('checkbox复选框'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexCheckboxPage()));},
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.looks),
+            title: Text('switch开关'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexSwitchPage()));},
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.chat_bubble_outline),
+            title: Text('tootip'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexTooltipPage()));},
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.more_horiz),
+            title: Text('其他'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexUnclassifiedPage()));},
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.terrain),
+            title: Text('测试页面'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>Test()));},
           ),
         ],
       )

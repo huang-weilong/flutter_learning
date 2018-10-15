@@ -13,7 +13,7 @@ class _IndexTabBarPageState extends State<IndexTabBarPage> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('TabBar'),
+          title: Text('使用DefaultTabController'),
           centerTitle: true,
           elevation: 0.0,
           bottom: PreferredSize(
