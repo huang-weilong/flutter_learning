@@ -26,6 +26,8 @@ import '../test2.dart';
 import '../test3.dart';
 import 'page_one/index_drag_page.dart';
 import 'page_one/index_tab_bar_show_emotions.dart';
+import 'page_one/index_reorderable_list_view.dart';
+import 'page_one/leav_behind_demo.dart';
 
 class IndexPage extends StatefulWidget {
   @override
@@ -148,6 +150,32 @@ class _IndexPageState extends State<IndexPage> {
             ),
             ListTile(
               dense: true,
+              leading: Icon(Icons.tab),
+              title: Text('弹出底部窗口'),
+              onTap: () {
+                showBottomSheet(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Expanded(
+                            child: Container(
+                                decoration: BoxDecoration(border: Border(top: BorderSide(color: Colors.green)), color: Colors.blue),
+                                child: Padding(
+                                    padding: const EdgeInsets.symmetric(vertical: 80.0),
+                                    child:
+                                        Text('下滑隐藏', textAlign: TextAlign.center, style: TextStyle(color: Colors.orange, fontSize: 24.0)))),
+                          )
+                        ],
+                      );
+                    }).closed.whenComplete(() {
+                  print('下滑关闭时执行');
+                });
+              },
+            ),
+            ListTile(
+              dense: true,
               leading: Icon(Icons.check_box_outline_blank),
               title: Text('Container'),
               onTap: () {
@@ -192,6 +220,22 @@ class _IndexPageState extends State<IndexPage> {
               title: Text('drag拖拽'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => IndexDragPage()));
+              },
+            ),
+            ListTile(
+              dense: true,
+              leading: Icon(Icons.gesture),
+              title: Text('ReorderableListView拖拽'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => IndexReorderableListView()));
+              },
+            ),
+            ListTile(
+              dense: true,
+              leading: Icon(Icons.gesture),
+              title: Text('滑动删除'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => LeaveBehindDemo()));
               },
             ),
             ListTile(
@@ -287,7 +331,7 @@ class _IndexPageState extends State<IndexPage> {
               leading: Icon(Icons.terrain),
               title: Text('测试页面2'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => Test2()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => ReorderableListDemo()));
               },
             ),
             ListTile(

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'page_four/index_timer_page.dart';
 import 'page_four/index_marquee_page.dart';
-import 'page_four/select_highlight_example.dart';
+import 'page_four/click_effect_example.dart';
+import 'page_four/reorderable_list_view_dismissible.dart';
 
 class TabbarPage4 extends StatelessWidget {
   @override
@@ -33,6 +34,12 @@ class TabbarPage4 extends StatelessWidget {
             title: Text('点击改变颜色选中'),
             trailing: Text('自定义widget'),
             onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>SelectHighlightExample()));},
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.signal_cellular_4_bar),
+            title: Text('拖动排序+滑动删除'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>ReorderableListViewDismissible()));},
           ),
         ],
       ),

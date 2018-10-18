@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SelectHighlight extends StatefulWidget {
-  SelectHighlight({
+class ClickEffect extends StatefulWidget {
+  ClickEffect({
     Key key,
     this.margin,
     this.padding,
@@ -24,10 +24,10 @@ class SelectHighlight extends StatefulWidget {
   final Widget child;
 
   @override
-  _SelectHighlightState createState() => _SelectHighlightState();
+  _ClickEffectState createState() => _ClickEffectState();
 }
 
-class _SelectHighlightState extends State<SelectHighlight> {
+class _ClickEffectState extends State<ClickEffect> {
   Color color;
 
   @override

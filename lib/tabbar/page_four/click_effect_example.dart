@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widget/select_highlight.dart';
+import '../../widget/click_effect.dart';
 
 class SelectHighlightExample extends StatelessWidget {
   @override
@@ -13,7 +13,7 @@ class SelectHighlightExample extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          SelectHighlight(
+          ClickEffect(
             margin: EdgeInsets.only(top: 10.0),
             child: ListTile(
               title: Text('Android'),
@@ -23,7 +23,7 @@ class SelectHighlightExample extends StatelessWidget {
             onTap: (){
             },
           ),
-          SelectHighlight(
+          ClickEffect(
             margin: EdgeInsets.only(top: 10.0),
             child: ListTile(
               title: Text('设置'),
@@ -33,7 +33,7 @@ class SelectHighlightExample extends StatelessWidget {
             onTap: (){
             },
           ),
-          SelectHighlight(
+          ClickEffect(
             margin: EdgeInsets.only(top: 10.0),
             child: ListTile(
               title: Text('关于'),
