@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../util/emoticons.dart';
+import '../../util/emoticons.dart';
 
-class TabBarViewPage extends StatelessWidget {
+class IndexTabBarShowEmotions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TabController controller = DefaultTabController.of(context);

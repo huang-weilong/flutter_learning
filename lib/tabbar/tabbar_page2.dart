@@ -7,6 +7,7 @@ import 'page_two/html_page.dart';
 import 'page_two/lottie_json_animation.dart';
 import 'page_two/use_camera.dart';
 import 'page_two/index_sharedpreferences_page.dart';
+import 'page_two/scan_qr_code.dart';
 
 class TabbarPage2 extends StatefulWidget {
   @override
@@ -65,6 +66,12 @@ class _TabbarPage2State extends State<TabbarPage2> {
             leading: Icon(Icons.save),
             title: Text('存储简单的数据SharePreference'),
             onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexSharedPreferencePage()));},
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.blur_on),
+            title: Text('二维码扫描'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>ScanQRCode()));},
           ),
         ],
       ),

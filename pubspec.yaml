@@ -14,6 +14,7 @@ dependencies:
   charts_flutter: ^0.4.0
   flutter_slidable: ^0.4.7
   flutter_html: ^0.7.1
+  barcode_scan: ^0.0.7
   lottie_flutter:
     git:
       url: https://github.com/dnfield/lottie-flutter.git

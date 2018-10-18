@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'tabbar/index_page.dart';
 import 'tabbar/tabbar_page2.dart';
 import 'tabbar/tabbar_page3.dart';
+import 'tabbar/tabbar_page4.dart';
 
 void main() {
   runApp(new MyApp());
@@ -50,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
           IndexPage(),
           TabbarPage2(),
           TabbarPage3(),
+          TabbarPage4()
         ],
         controller: pageController,
         onPageChanged: onPageChanged,
@@ -58,8 +60,9 @@ class _MyHomePageState extends State<MyHomePage> {
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('基础')),
-          BottomNavigationBarItem(icon: Icon(Icons.message), title: Text('插件')),
-          BottomNavigationBarItem(icon: Icon(Icons.apps), title: Text('iOS风格')),
+          BottomNavigationBarItem(icon: Icon(Icons.build), title: Text('插件')),
+          BottomNavigationBarItem(icon: Icon(Icons.bubble_chart), title: Text('iOS风格')),
+          BottomNavigationBarItem(icon: Icon(Icons.ac_unit), title: Text('小实例')),
         ],
         onTap: onTap,
         currentIndex: page,
