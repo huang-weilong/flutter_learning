@@ -70,9 +70,21 @@ class _IndexTabBarViewPageState extends State<IndexTabBarViewPage> with SingleTi
         //TabBar内容
         controller: _tabController,
         children: <Widget>[
-          Text('TabBarView1的内容'),
-          Text('TabBarView2的内容'),
-          Text('TabBarView3的内容'),
+          Text('TabBarView1的内容，添加key: PageStorageKey(\'tab2\'),可以使tabbarview保持当前状态'),
+          ListView.builder(
+            key: PageStorageKey('tab2'),
+            itemCount: 60,
+            itemBuilder: (BuildContext context, int index){
+              return Text('-----$index');
+            },
+          ),
+          ListView.builder(
+//            key: PageStorageKey('tab3'),
+            itemCount: 60,
+            itemBuilder: (BuildContext context, int index){
+              return Text('-----$index');
+            },
+          ),
           Text('TabBarView4的内容'),
         ],
 //        children: choices.map((Choice choice) {

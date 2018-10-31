@@ -4,7 +4,7 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'page_one/index_button_page.dart';
 import 'page_one/index_layout_page.dart';
 import '../test.dart';
-import 'page_one/index_text_page.dart';
+import 'page_one/index_text_field_page.dart';
 import 'page_one/index_dialog_page.dart';
 import 'page_one/index_images_page.dart';
 import 'page_one/index_gesture_page.dart';
@@ -28,6 +28,7 @@ import 'page_one/index_drag_page.dart';
 import 'page_one/index_tab_bar_show_emotions.dart';
 import 'page_one/index_reorderable_list_view.dart';
 import 'page_one/leav_behind_demo.dart';
+import '../test4.dart';
 
 class IndexPage extends StatefulWidget {
   @override
@@ -187,7 +188,7 @@ class _IndexPageState extends State<IndexPage> {
               leading: Icon(Icons.keyboard),
               title: Text('输入框TextField'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => IndexTextPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => IndexTextFieldPage()));
               },
             ),
             ListTile(
@@ -331,7 +332,7 @@ class _IndexPageState extends State<IndexPage> {
               leading: Icon(Icons.terrain),
               title: Text('测试页面2'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => ReorderableListDemo()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => Test2()));
               },
             ),
             ListTile(
@@ -339,7 +340,15 @@ class _IndexPageState extends State<IndexPage> {
               leading: Icon(Icons.terrain),
               title: Text('测试页面3'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => Test3()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => DraggableGridViewDemo()));
+              },
+            ),
+            ListTile(
+              dense: true,
+              leading: Icon(Icons.terrain),
+              title: Text('测试页面4'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => Test4()));
               },
             ),
           ],

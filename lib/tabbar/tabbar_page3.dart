@@ -10,6 +10,7 @@ import 'page_three/index_cupertino_navigation_bar.dart';
 import 'page_three/index_cupertino_tab_scaffold.dart';
 import 'page_three/index_curpertino_bottom_navbar.dart';
 import 'page_three/index_cupertino_picker.dart';
+import 'page_three/index_cupertino_action_sheet.dart';
 
 class TabbarPage3 extends StatefulWidget {
   @override
@@ -30,7 +31,6 @@ class _TabbarPage3State extends State<TabbarPage3> {
             dense: true,
             title: Text('loading动画'),
             onTap: (){
-              Navigator.of(context).pop();
               Navigator.push(context, CupertinoPageRoute(builder: (_)=>IndexCupertinoActivityIndicator()));
             },
           ),
@@ -38,15 +38,20 @@ class _TabbarPage3State extends State<TabbarPage3> {
             dense: true,
             title: Text('对话框'),
             onTap: (){
-              Navigator.of(context).pop();
               Navigator.push(context, CupertinoPageRoute(builder: (_)=>IndexCupertinoDialog()));
+            },
+          ),
+          ListTile(
+            dense: true,
+            title: Text('CupertinoActionSheet'),
+            onTap: (){
+              Navigator.push(context, CupertinoPageRoute(builder: (_)=>IndexCupertinoActionSheet()));
             },
           ),
           ListTile(
             dense: true,
             title: Text('按钮'),
             onTap: (){
-              Navigator.of(context).pop();
               Navigator.push(context, CupertinoPageRoute(builder: (_)=>IndexCupertinoButton()));
             },
           ),
@@ -54,7 +59,6 @@ class _TabbarPage3State extends State<TabbarPage3> {
             dense: true,
             title: Text('滑块'),
             onTap: (){
-              Navigator.of(context).pop();
               Navigator.push(context, CupertinoPageRoute(builder: (_)=>IndexCupertinoSlider()));
             },
           ),
@@ -62,7 +66,6 @@ class _TabbarPage3State extends State<TabbarPage3> {
             dense: true,
             title: Text('选择开关'),
             onTap: (){
-              Navigator.of(context).pop();
               Navigator.push(context, CupertinoPageRoute(builder: (_)=>IndexCupertinoSwitch()));
             },
           ),
@@ -70,7 +73,6 @@ class _TabbarPage3State extends State<TabbarPage3> {
             dense: true,
             title: Text('AppBar'),
             onTap: (){
-              Navigator.of(context).pop();
               Navigator.push(context, CupertinoPageRoute(builder: (_)=>IndexCupertinoNavigationBar()));
             },
           ),
@@ -78,7 +80,6 @@ class _TabbarPage3State extends State<TabbarPage3> {
             dense: true,
             title: Text('底部导航'),
             onTap: (){
-              Navigator.of(context).pop();
               Navigator.push(context, CupertinoPageRoute(builder: (_)=>IndexCurpertinoBottomNavBar()));
             },
           ),
@@ -86,7 +87,6 @@ class _TabbarPage3State extends State<TabbarPage3> {
             dense: true,
             title: Text('picker'),
             onTap: (){
-              Navigator.of(context).pop();
               Navigator.push(context, CupertinoPageRoute(builder: (_)=>IndexCupertinoPicker()));
             },
           ),

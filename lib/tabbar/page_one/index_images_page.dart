@@ -14,6 +14,7 @@ class _IndexImagesPageState extends State<IndexImagesPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('images'),
+        elevation: 0.0,
       ),
       body: ListView(
         children: <Widget>[
@@ -21,8 +22,8 @@ class _IndexImagesPageState extends State<IndexImagesPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Padding(padding: EdgeInsets.symmetric(vertical: 10.0),child: Text('从本地资源获取图片'),),
-              Image.asset('assets/images/img.jpg',height: 200.0,fit: BoxFit.fill,),
-              Padding(padding: EdgeInsets.symmetric(vertical: 10.0),child: Text('拉伸图片，使用了SizedBox'),),
+              Image.asset('assets/images/background.jpg',height: 100.0,),
+              Padding(padding: EdgeInsets.symmetric(vertical: 10.0),child: Text('拉伸图片，使用了SizedBox，下图原本是正方形的图片'),),
               SizedBox(
                 width: 400.0,
                 child: Image.asset('assets/images/img.jpg',height: 200.0,fit: BoxFit.fill,),
@@ -31,7 +32,7 @@ class _IndexImagesPageState extends State<IndexImagesPage> {
               Container(
                 height: 200.0,
                 child: ConstrainedBox(
-                  child: Image.asset('assets/images/img.jpg',fit: BoxFit.fill,),
+                  child: Image.asset('assets/images/067.jpg',fit: BoxFit.fill,),
                   constraints: BoxConstraints.expand(),//填充父元素，需要外包一层container，因为这是在Column中，不包的话是无限高
                 ),
               ),

@@ -18,6 +18,7 @@ class LeaveBehindItem {
 
 class _ReorderableListViewDismissibleState extends State<ReorderableListViewDismissible> {
   List<LeaveBehindItem> leaveBehindItems;
+  int index;
 
   @override
   void initState() {
@@ -25,6 +26,7 @@ class _ReorderableListViewDismissibleState extends State<ReorderableListViewDism
     leaveBehindItems = List<LeaveBehindItem>.generate(16, (int index) {
       return LeaveBehindItem(index: index, name: '第 $index 项');
     });
+    index = leaveBehindItems.length;
   }
 
   @override
@@ -34,6 +36,14 @@ class _ReorderableListViewDismissibleState extends State<ReorderableListViewDism
           title: Text('拖拽排序 + 滑动删除'),
           centerTitle: true,
           elevation: 0.0,
+          actions: <Widget>[
+            IconButton(icon: Text('添加'), onPressed: (){
+              setState(() {
+                leaveBehindItems.add(LeaveBehindItem(index: index,name: '第 $index 项'));
+                index++;
+              });
+            })
+          ],
         ),
         /** Scrollbar 显示滚动条*/
         body: Scrollbar(

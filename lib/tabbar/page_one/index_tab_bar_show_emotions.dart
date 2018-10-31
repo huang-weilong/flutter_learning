@@ -13,25 +13,23 @@ class IndexTabBarShowEmotions extends StatelessWidget {
       ),
       body: DefaultTabController(
         length: 4,
-        child: SafeArea(
-          top: false,
-          bottom: false,
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                child: TabBarView(
-                    children: List.generate(4, (index) {
-                  return GridView.count(
-                      crossAxisCount: 4,
-                      shrinkWrap: true,
-                      children: List.generate(8, (flag) {
-                        return Text(emoticons[index * 8 + flag]);
-                      }));
-                })),
-              ),
-              TabPageSelector(controller: controller),
-            ],
-          ),
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: TabBarView(
+                  children: List.generate(4, (index) {
+                return GridView.count(
+                    crossAxisCount: 4,
+                    shrinkWrap: true,
+                    children: List.generate(12, (flag) {
+                      return Text(emoticons[index * 12 + flag]);
+                    }));
+              })),
+            ),
+            Expanded(
+              child: TabPageSelector(controller: controller),
+            )
+          ],
         ),
       ),
     );

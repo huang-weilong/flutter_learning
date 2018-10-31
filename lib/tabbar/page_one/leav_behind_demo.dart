@@ -5,7 +5,6 @@
 import 'package:collection/collection.dart' show lowerBound;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/semantics.dart';
 
 enum LeaveBehindDemoAction { reset, horizontalSwipe, leftSwipe, rightSwipe }
 

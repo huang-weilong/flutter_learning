@@ -5,190 +5,263 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'dart:io';
+import 'package:android_intent/android_intent.dart';
 
-enum _ReorderableListType {
-  /// A list tile that contains a [CircleAvatar].
-  horizontalAvatar,
+import 'package:flutter_document_picker/flutter_document_picker.dart';
 
-  /// A list tile that contains a [CircleAvatar].
-  verticalAvatar,
-
-  /// A list tile that contains three lines of text and a checkbox.
-  threeLine,
+class Test2 extends StatefulWidget {
+  @override
+  _Test2State createState() => _Test2State();
 }
 
-class ReorderableListDemo extends StatefulWidget {
-  const ReorderableListDemo({ Key key }) : super(key: key);
+class _Test2State extends State<Test2> {
+  String _path = '-';
+  bool _pickFileInProgress = false;
+  bool _iosPublicDataUTI = true;
+  bool _checkByCustomExtension = false;
+  bool _checkByMimeType = false;
 
-  static const String routeName = '/material/reorderable-list';
+  final _utiController = TextEditingController(
+    text: 'com.sidlatau.example.mwfbak',
+  );
+
+  final _extensionController = TextEditingController(
+    text: 'mwfbak',
+  );
+
+  final _mimeTypeController = TextEditingController(
+    text: 'application/*',
+  );
 
   @override
-  _ListDemoState createState() => _ListDemoState();
-}
-
-class _ListItem {
-  _ListItem(this.value, this.checkState);
-
-  final String value;
-
-  bool checkState;
-}
-
-class _ListDemoState extends State<ReorderableListDemo> {
-  static final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-
-  PersistentBottomSheetController<Null> _bottomSheet;
-  _ReorderableListType _itemType = _ReorderableListType.threeLine;
-  bool _reverseSort = false;
-  final List<_ListItem> _items = <String>[
-    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
-  ].map((String item) => _ListItem(item, false)).toList();
-
-  void changeItemType(_ReorderableListType type) {
-    setState(() {
-      _itemType = type;
-    });
-    // Rebuild the bottom sheet to reflect the selected list view.
-    _bottomSheet?.setState(() { });
-    // Close the bottom sheet to give the user a clear view of the list.
-    _bottomSheet?.close();
+  void initState() {
+    super.initState();
   }
-
-  void _showConfigurationSheet() {
-    setState(() {
-      _bottomSheet = scaffoldKey.currentState.showBottomSheet((BuildContext bottomSheetContext) {
-        return DecoratedBox(
-          decoration: const BoxDecoration(
-            border: Border(top: BorderSide(color: Colors.black26)),
-          ),
-          child: ListView(
-            shrinkWrap: true,
-            primary: false,
-            children: <Widget>[
-              RadioListTile<_ReorderableListType>(
-                dense: true,
-                title: const Text('Horizontal Avatars'),
-                value: _ReorderableListType.horizontalAvatar,
-                groupValue: _itemType,
-                onChanged: changeItemType,
-              ),
-              RadioListTile<_ReorderableListType>(
-                dense: true,
-                title: const Text('Vertical Avatars'),
-                value: _ReorderableListType.verticalAvatar,
-                groupValue: _itemType,
-                onChanged: changeItemType,
-              ),
-              RadioListTile<_ReorderableListType>(
-                dense: true,
-                title: const Text('Three-line'),
-                value: _ReorderableListType.threeLine,
-                groupValue: _itemType,
-                onChanged: changeItemType,
-              ),
-            ],
-          ),
-        );
-      });
-
-      // Garbage collect the bottom sheet when it closes.
-      _bottomSheet.closed.whenComplete(() {
-        if (mounted) {
-          setState(() {
-            _bottomSheet = null;
-          });
-        }
-      });
-    });
-  }
-
-  Widget buildListTile(_ListItem item) {
-    const Widget secondary = Text(
-      'Even more additional list item information appears on line three.',
-    );
-    Widget listTile;
-    switch (_itemType) {
-      case _ReorderableListType.threeLine:
-        listTile = CheckboxListTile(
-          key: Key(item.value),
-          isThreeLine: true,
-          value: item.checkState ?? false,
-          onChanged: (bool newValue) {
-            setState(() {
-              item.checkState = newValue;
-            });
-          },
-          title: Text('序号 ${item.value}.'),
-          subtitle: secondary,
-          secondary: const Icon(Icons.drag_handle),
-        );
-        break;
-      case _ReorderableListType.horizontalAvatar:
-      case _ReorderableListType.verticalAvatar:
-        listTile = Container(
-          key: Key(item.value),
-          height: 100.0,
-          width: 100.0,
-          child: CircleAvatar(child: Text(item.value),
-            backgroundColor: Colors.green,
-          ),
-        );
-        break;
-    }
-
-    return listTile;
-  }
-
-  void _onReorder(int oldIndex, int newIndex) {
-    setState(() {
-      if (newIndex > oldIndex) {
-        newIndex -= 1;
-      }
-      final _ListItem item = _items.removeAt(oldIndex);
-      _items.insert(newIndex, item);
-    });
-  }
-
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: scaffoldKey,
-      appBar: AppBar(
-        title: const Text('Reorderable list'),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.sort_by_alpha),
-            tooltip: 'Sort',
-            onPressed: () {
-              setState(() {
-                _reverseSort = !_reverseSort;
-                _items.sort((_ListItem a, _ListItem b) => _reverseSort ? b.value.compareTo(a.value) : a.value.compareTo(b.value));
-              });
-            },
-          ),
-          IconButton(
-            icon: Icon(
-              Theme.of(context).platform == TargetPlatform.iOS
-                  ? Icons.more_horiz
-                  : Icons.more_vert,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Plugin example app'),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.open_in_new),
+              onPressed: _pickFileInProgress ? null : _pickDocument,
+            )
+          ],
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  'Picked file path:',
+                  style: Theme.of(context).textTheme.title,
+                ),
+                Text('$_path'),
+                _pickFileInProgress ? CircularProgressIndicator() : Container(),
+                _buildCommonParams(),
+                Theme.of(context).platform == TargetPlatform.iOS
+                    ? _buildIOSParams()
+                    : _buildAndroidParams(),
+              ],
             ),
-            tooltip: 'Show menu',
-            onPressed: _bottomSheet == null ? _showConfigurationSheet : null,
           ),
-        ],
+        ),
       ),
-      body: Scrollbar(
-        child: ReorderableListView(
-          header: _itemType != _ReorderableListType.threeLine
-              ? Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text('Header of the list', style: Theme.of(context).textTheme.headline))
-              : null,
-          onReorder: _onReorder,
-          scrollDirection: _itemType == _ReorderableListType.horizontalAvatar ? Axis.horizontal : Axis.vertical,
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          children: _items.map(buildListTile).toList(),
+    );
+  }
+
+  _pickDocument() async {
+    String result;
+    try {
+      setState(() {
+        _path = '-';
+        _pickFileInProgress = true;
+      });
+
+      FlutterDocumentPickerParams params = FlutterDocumentPickerParams(
+        allowedFileExtensions: _checkByCustomExtension
+            ? _extensionController.text
+            .split(' ')
+            .where((x) => x.isNotEmpty)
+            .toList()
+            : null,
+        allowedUtiTypes: _iosPublicDataUTI
+            ? null
+            : _utiController.text
+            .split(' ')
+            .where((x) => x.isNotEmpty)
+            .toList(),
+        allowedMimeType: _checkByMimeType ? _mimeTypeController.text : null,
+      );
+
+      result = await FlutterDocumentPicker.openDocument(params: params);
+    } catch (e) {
+      print(e);
+      result = 'Error: $e';
+    } finally {
+      setState(() {
+        _pickFileInProgress = false;
+      });
+    }
+
+    setState(() {
+      _path = result;
+      print('=============  $_path');
+    });
+  }
+
+  _buildIOSParams() {
+    return ParamsCard(
+      title: 'iOS Params',
+      children: <Widget>[
+        Text(
+          'Example app is configured to pick custom document type with extension ".mwfbak"',
+          style: Theme.of(context).textTheme.body1,
+        ),
+        Param(
+          isEnabled: !_iosPublicDataUTI,
+          description:
+          'Allow pick all documents("public.data" UTI will be used).',
+          controller: _utiController,
+          onEnabledChanged: (value) {
+            setState(() {
+              _iosPublicDataUTI = value;
+            });
+          },
+          textLabel: 'Uniform Type Identifier to pick:',
+        ),
+      ],
+    );
+  }
+
+  _buildAndroidParams() {
+    return ParamsCard(
+      title: 'Android Params',
+      children: <Widget>[
+        Param(
+          isEnabled: _checkByMimeType,
+          description: 'Filter files by MIME type',
+          controller: _mimeTypeController,
+          onEnabledChanged: (value) {
+            setState(() {
+              _checkByMimeType = value;
+            });
+          },
+          textLabel: 'Allowed MIME type:',
+        ),
+      ],
+    );
+  }
+
+  _buildCommonParams() {
+    return ParamsCard(
+      title: 'Common Params',
+      children: <Widget>[
+        Param(
+          isEnabled: _checkByCustomExtension,
+          description:
+          '通过扩展名检查文件 - 如果选择的文件没有扩展名 - 返回“extension_mismatch”错误',
+          controller: _extensionController,
+          onEnabledChanged: (value) {
+            setState(() {
+              _checkByCustomExtension = value;
+            });
+          },
+          textLabel: '文件扩展名（以空格分隔）:',
+        ),
+      ],
+    );
+  }
+}
+class Param extends StatelessWidget {
+  final bool isEnabled;
+  final ValueChanged<bool> onEnabledChanged;
+  final TextEditingController controller;
+  final String description;
+  final String textLabel;
+
+  Param({
+    @required this.isEnabled,
+    this.onEnabledChanged,
+    this.controller,
+    this.description,
+    this.textLabel,
+  })  : assert(isEnabled != null),
+        assert(onEnabledChanged != null),
+        assert(description != null),
+        assert(textLabel != null),
+        assert(controller != null);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 16.0),
+                child: Text(
+                  description,
+                  softWrap: true,
+                ),
+              ),
+            ),
+            Checkbox(
+              value: isEnabled,
+              onChanged: onEnabledChanged,
+            ),
+          ],
+        ),
+        TextField(
+          controller: controller,
+          enabled: isEnabled,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: textLabel,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class ParamsCard extends StatelessWidget {
+  final String title;
+  final List<Widget> children;
+
+  ParamsCard({
+    @required this.title,
+    @required this.children,
+  })  : assert(title != null),
+        assert(children != null);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(top: 24.0),
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(bottom: 16.0),
+                child: Text(
+                  title,
+                  style: Theme.of(context).textTheme.headline,
+                ),
+              ),
+            ]..addAll(children),
+          ),
         ),
       ),
     );

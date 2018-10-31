@@ -8,6 +8,11 @@ import 'page_two/lottie_json_animation.dart';
 import 'page_two/use_camera.dart';
 import 'page_two/index_sharedpreferences_page.dart';
 import 'page_two/scan_qr_code.dart';
+import 'page_two/video_player_sample.dart';
+import 'page_two/video_player_page.dart';
+import 'page_two/video_chewie.dart';
+import 'page_two/share_page.dart';
+import 'page_two/android_intent_page.dart';
 
 class TabbarPage2 extends StatefulWidget {
   @override
@@ -73,6 +78,36 @@ class _TabbarPage2State extends State<TabbarPage2> {
             title: Text('二维码扫描'),
             onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>ScanQRCode()));},
           ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.share),
+            title: Text('分享'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>SharePage()));},
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.insert_drive_file),
+            title: Text('打开第三方应用'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>AndroidIntentPage()));},
+          ),
+//          ListTile(
+//            dense: true,
+//            leading: Icon(Icons.video_library),
+//            title: Text('视频播放'),
+//            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>VideoPlayerSample()));},
+//          ),
+//          ListTile(
+//            dense: true,
+//            leading: Icon(Icons.video_library),
+//            title: Text('视频播放'),
+//            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>VideoPlayerPage()));},
+//          ),
+//          ListTile(
+//            dense: true,
+//            leading: Icon(Icons.video_library),
+//            title: Text('视频播放chewie'),
+//            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>VideoChewie()));},
+//          ),
         ],
       ),
     );

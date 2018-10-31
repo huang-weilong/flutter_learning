@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
@@ -10,6 +12,29 @@ class _IndexSlidersPageState extends State<IndexSlidersPage> {
   double _value1 = 20.0;
   double _value2 = 20.0;
   double _value3 = 35.0;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Timer.periodic(Duration(seconds: 1), (_){
+      setState(() {
+        _value1++;
+        print(_value1);
+        print(_value1 == 99.0);
+        if(_value1>99.0) {
+          _value1 = 0.0;
+          print('=======================================');
+        }
+      });
+    });
+  }
+
+  addTimer(){
+    _value1++;
+  }
+
+
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
