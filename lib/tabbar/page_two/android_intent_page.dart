@@ -87,13 +87,14 @@ class _AndroidIntentPageState extends State<AndroidIntentPage> {
   }
 
   void _displaySDCardPPT() {
-    File file = File('/storage/emulated/0/test.pptx');
-    final AndroidIntent intent = AndroidIntent(
-      action: 'action_view',
-      data: Uri.file(file.path).toString(),
-      package: 'cn.wps.moffice_eng'
-    );
-    intent.launch();
+    if (File('/storage/emulated/0/test.pptx').existsSync()) {
+      final AndroidIntent intent = AndroidIntent(
+          action: 'action_view',
+          data: Uri.file('/storage/emulated/0/test.pptx').toString(),
+          package: 'cn.wps.moffice_eng'
+      );
+      intent.launch();
+    }
   }
 
   void _displayNetworkPPT() {

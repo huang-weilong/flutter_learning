@@ -6,6 +6,8 @@ import 'tabbar/tabbar_page2.dart';
 import 'tabbar/tabbar_page3.dart';
 import 'tabbar/tabbar_page4.dart';
 
+import 'tabbar/page_one/map_to_list.dart';
+
 void main() {
   runApp(new MyApp());
 
@@ -29,8 +31,15 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(),
+      routes: <String, WidgetBuilder> {
+        '/testg': (BuildContext context) => MapToList()
+      }
     );
   }
+}
+
+class App {
+  static final GlobalKey<_MyHomePageState> appStateKey = new GlobalKey<_MyHomePageState>();
 }
 
 class MyHomePage extends StatefulWidget {

@@ -2,17 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
 import 'page_one/index_button_page.dart';
-import 'page_one/index_layout_page.dart';
+import 'page_one/navigation_page.dart';
 import '../test.dart';
 import 'page_one/index_text_field_page.dart';
 import 'page_one/index_dialog_page.dart';
 import 'page_one/index_images_page.dart';
 import 'page_one/index_gesture_page.dart';
 import 'package:flutter_learning/tabbar/page_four/index_timer_page.dart';
-import 'page_one/index_tab_bar_view_page.dart';
-import 'page_one/index_tab_bar_page.dart';
 import 'page_one/index_add_delete_widget.dart';
-import 'page_one/index_hero_page.dart';
 import 'page_one/index_nested_scroll_view.dart';
 import 'page_one/index_expansion_tile_page.dart';
 import 'page_one/index_tooltip_page.dart';
@@ -25,10 +22,11 @@ import 'page_one/index_container_page.dart';
 import '../test2.dart';
 import '../test3.dart';
 import 'page_one/index_drag_page.dart';
-import 'page_one/index_tab_bar_show_emotions.dart';
 import 'page_one/index_reorderable_list_view.dart';
 import 'page_one/leav_behind_demo.dart';
 import '../test4.dart';
+import 'page_one/map_to_list.dart';
+import '../answer_page.dart';
 
 class IndexPage extends StatefulWidget {
   @override
@@ -96,33 +94,9 @@ class _IndexPageState extends State<IndexPage> {
             ListTile(
               dense: true,
               leading: Icon(Icons.tab),
-              title: Text('TabBar1'),
+              title: Text('TabBar'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => IndexTabBarViewPage()));
-              },
-            ),
-            ListTile(
-              dense: true,
-              leading: Icon(Icons.tab),
-              title: Text('TabBar2'),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => IndexTabBarPage()));
-              },
-            ),
-            ListTile(
-              dense: true,
-              leading: Icon(Icons.tab),
-              title: Text('TabBar显示表情'),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => IndexTabBarShowEmotions()));
-              },
-            ),
-            ListTile(
-              dense: true,
-              leading: Icon(Icons.check_box_outline_blank),
-              title: Text('按钮Button'),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => IndexButtonPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => TabBarPage1()));
               },
             ),
             ListTile(
@@ -131,6 +105,22 @@ class _IndexPageState extends State<IndexPage> {
               title: Text('布局'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => IndexLayoutPage()));
+              },
+            ),
+            ListTile(
+              dense: true,
+              leading: Icon(Icons.all_inclusive),
+              title: Text('动画'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => IndexAnimationPage()));
+              },
+            ),
+            ListTile(
+              dense: true,
+              leading: Icon(Icons.check_box_outline_blank),
+              title: Text('按钮Button'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => IndexButtonPage()));
               },
             ),
             ListTile(
@@ -173,6 +163,14 @@ class _IndexPageState extends State<IndexPage> {
                     }).closed.whenComplete(() {
                   print('下滑关闭时执行');
                 });
+              },
+            ),
+            ListTile(
+              dense: true,
+              leading: Icon(Icons.check_box_outline_blank),
+              title: Text('xx.map(xxx).toList()'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => MapToList()));
               },
             ),
             ListTile(
@@ -245,14 +243,6 @@ class _IndexPageState extends State<IndexPage> {
               title: Text('添加、删除元素'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => IndexAddDeleteWidget()));
-              },
-            ),
-            ListTile(
-              dense: true,
-              leading: Icon(Icons.hdr_strong),
-              title: Text('英雄动画Hero'),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => IndexHeroPage()));
               },
             ),
             ListTile(
@@ -349,6 +339,14 @@ class _IndexPageState extends State<IndexPage> {
               title: Text('测试页面4'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => Test4()));
+              },
+            ),
+            ListTile(
+              dense: true,
+              leading: Icon(Icons.terrain),
+              title: Text('接听页面'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => AnswerPage()));
               },
             ),
           ],

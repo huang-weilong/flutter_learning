@@ -37,6 +37,7 @@ class _GridViewLayoutState extends State<GridViewLayout> {
   Widget _buildGridViewLayout() {
     if (flag == 1) {
       return GridView.builder(
+        controller: ScrollController(keepScrollOffset: false),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 4,
         ),
@@ -47,6 +48,8 @@ class _GridViewLayoutState extends State<GridViewLayout> {
       );
     } else if (flag == 2) {
       return GridView.count(
+        controller: ScrollController(keepScrollOffset: false),
+        addRepaintBoundaries: false,
         crossAxisCount: 4,
         children: <Widget>[
           Icon(Icons.access_alarm),
@@ -60,6 +63,9 @@ class _GridViewLayoutState extends State<GridViewLayout> {
           Icon(Icons.access_alarm),
           Icon(Icons.access_alarm),
           Icon(Icons.access_alarm),
+          Icon(Icons.access_alarm),
+          Text('keepScrollOffset: false'),
+          Text('取消回弹效果')
         ],
       );
     } else if (flag == 3) {

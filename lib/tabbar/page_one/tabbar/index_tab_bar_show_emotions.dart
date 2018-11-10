@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../util/emoticons.dart';
+import '../../../util/emoticons.dart';
 
 class IndexTabBarShowEmotions extends StatelessWidget {
   @override

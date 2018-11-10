@@ -60,12 +60,7 @@ class _ClickEffectState extends State<ClickEffect> {
           color = widget.normalColor;
         });
       },
-      onHorizontalDragEnd: (_){
-        setState(() {
-          color = widget.normalColor;
-        });
-      },
-      onVerticalDragEnd: (_){
+      onTapCancel: (){
         setState(() {
           color = widget.normalColor;
         });
