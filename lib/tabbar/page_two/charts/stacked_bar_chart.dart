@@ -78,6 +78,7 @@ class _StackedBarChartState extends State<StackedBarChart> {
         id: 'Tablet',
         domainFn: (OrdinalSales sales, _) => sales.year,
         measureFn: (OrdinalSales sales, _) => sales.sales,
+        fillColorFn: (OrdinalSales sales, _) =>charts.Color.fromHex(code: '#3df5a4'),
         data: tableSalesData,
       ),
       charts.Series<OrdinalSales, String>(

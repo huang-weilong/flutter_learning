@@ -13,7 +13,6 @@ class _SimplePieChartState extends State<SimplePieChart> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     seriesList = _createSampleData();
   }

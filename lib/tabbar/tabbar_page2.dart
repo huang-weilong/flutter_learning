@@ -13,6 +13,7 @@ import 'page_two/video_player_page.dart';
 import 'page_two/video_chewie.dart';
 import 'page_two/share_page.dart';
 import 'page_two/android_intent_page.dart';
+import 'page_two/event_bus_page.dart';
 
 class TabbarPage2 extends StatefulWidget {
   @override
@@ -89,6 +90,12 @@ class _TabbarPage2State extends State<TabbarPage2> {
             leading: Icon(Icons.insert_drive_file),
             title: Text('打开第三方应用'),
             onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>AndroidIntentPage()));},
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.event),
+            title: Text('event_bus'),
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>EventBusPage()));},
           ),
 //          ListTile(
 //            dense: true,

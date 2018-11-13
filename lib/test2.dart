@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -19,6 +21,9 @@ class Test2 extends StatefulWidget {
 class _Test2State extends State<Test2> with SingleTickerProviderStateMixin{
   Color color = Colors.red;
   bool _first = true;
+  double width = 1.0;
+  double height = 4.0;
+  double num = 0.0;
 
   AnimationController controller;
   final DecorationTween decorationTween = DecorationTween(
@@ -64,14 +69,34 @@ class _Test2State extends State<Test2> with SingleTickerProviderStateMixin{
         title: Text('das'),
         centerTitle: true,
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.ac_unit), onPressed: (){
+          IconButton(icon: Text('宽高'), onPressed: (){
             setState(() {
-              _first = !_first;
+              width = 380.0;
+              Timer.periodic(Duration(milliseconds: 28), (timer) {
+                setState(() {
+                  num++;
+                });
+                if (num >= 100.0){
+                  timer.cancel();
+                }
+              });
             });
-          })
+          },)
         ],
       ),
-      body: SizeTransition(sizeFactor: null)
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text('正在更新数据$num%'),
+          AnimatedContainer(
+            duration: Duration(seconds: 3),
+            color: color,
+            width: width,
+            height: height,
+            curve: Curves.linear,
+          ),
+        ],
+      ),
     );
   }
 

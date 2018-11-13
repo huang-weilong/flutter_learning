@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class IndexAnimationContainer extends StatefulWidget {
@@ -9,6 +11,8 @@ class _IndexAnimationContainerState extends State<IndexAnimationContainer> {
   Color color = Colors.blue;
   double width = 100.0;
   double height = 100.0;
+  double width2 = 1.0;
+  double num = 0.0;
   
   @override
   Widget build(BuildContext context) {
@@ -34,14 +38,42 @@ class _IndexAnimationContainerState extends State<IndexAnimationContainer> {
           },)
         ],
       ),
-      body: Center(
-        child: AnimatedContainer(
-          duration: Duration(seconds: 1),
-          color: color,
-          width: width,
-          height: height,
-          curve: Curves.linear,
-        ),
+      floatingActionButton: FloatingActionButton(
+        child: Text('更新'),
+        elevation: 0.0,
+        onPressed: () {
+          setState(() {
+            width2 = 380.0;
+            Timer.periodic(Duration(milliseconds: 28), (timer) {
+              setState(() {
+                num++;
+              });
+              if (num >= 100.0){
+                timer.cancel();
+              }
+            });
+          });
+        },
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          AnimatedContainer(
+            duration: Duration(seconds: 1),
+            color: color,
+            width: width,
+            height: height,
+            curve: Curves.linear,
+          ),
+          num == 0.0 ? Container() : Text('正在更新数据$num%'),
+          AnimatedContainer(
+            duration: Duration(seconds: 3),
+            color: color,
+            width: width2,
+            height: 4.0,
+            curve: Curves.linear,
+          ),
+        ],
       ),
     );
   }

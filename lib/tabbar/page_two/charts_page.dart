@@ -9,6 +9,7 @@ import 'charts/simple_line_chart.dart';
 import 'charts/points_line_chart.dart';
 import 'charts/stacked_bar_chart.dart';
 import 'charts/grouped_stacked_bar_chart.dart';
+import 'charts/donut_pie_chart.dart';
 
 class ChartsPage extends StatelessWidget {
   @override
@@ -62,6 +63,13 @@ class ChartsPage extends StatelessWidget {
               title: Text('描述在图外的饼状图'),
               onTap: (){
                 Navigator.push(context, CupertinoPageRoute(builder: (_)=>OutsideLabelPieChart()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.pie_chart),
+              title: Text('甜甜圈饼状图'),
+              onTap: (){
+                Navigator.push(context, CupertinoPageRoute(builder: (_)=>DonutPieChart()));
               },
             ),
             ListTile(
