@@ -27,6 +27,7 @@ import 'page_one/leav_behind_demo.dart';
 import '../test4.dart';
 import 'page_one/map_to_list.dart';
 import '../answer_page.dart';
+import 'page_one/web_socket_page.dart';
 
 class IndexPage extends StatefulWidget {
   @override
@@ -154,7 +155,7 @@ class _IndexPageState extends State<IndexPage> {
                             child: Container(
                                 decoration: BoxDecoration(border: Border(top: BorderSide(color: Colors.green)), color: Colors.blue),
                                 child: Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 80.0),
+                                    padding: EdgeInsets.symmetric(vertical: 80.0),
                                     child:
                                         Text('下滑隐藏', textAlign: TextAlign.center, style: TextStyle(color: Colors.orange, fontSize: 24.0)))),
                           )
@@ -307,6 +308,14 @@ class _IndexPageState extends State<IndexPage> {
               title: Text('tootip'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => IndexTooltipPage()));
+              },
+            ),
+            ListTile(
+              dense: true,
+              leading: Icon(Icons.chat_bubble_outline),
+              title: Text('websocket'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => WebSocketPage()));
               },
             ),
             ListTile(

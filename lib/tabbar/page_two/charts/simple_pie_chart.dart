@@ -40,10 +40,10 @@ class _SimplePieChartState extends State<SimplePieChart> {
   /// Create one series with sample hard coded data.
   List<charts.Series<LinearSales, int>> _createSampleData() {
     final data = [
-      LinearSales(0, 100),
-      LinearSales(1, 75),
-      LinearSales(2, 25),
-      LinearSales(3, 5),
+      LinearSales(0, 100, charts.Color.black),
+      LinearSales(1, 75, charts.Color.white),
+      LinearSales(2, 25, charts.Color.black),
+      LinearSales(3, 5, charts.Color.white),
     ];
 
     return [
@@ -51,6 +51,7 @@ class _SimplePieChartState extends State<SimplePieChart> {
         id: 'Sales',
         domainFn: (LinearSales sales, _) => sales.year,
         measureFn: (LinearSales sales, _) => sales.sales,
+        colorFn: (LinearSales sales, _) => sales.color,
         data: data,
       )
     ];
@@ -60,10 +61,10 @@ class _SimplePieChartState extends State<SimplePieChart> {
     final random = Random();
 
     final data = [
-      LinearSales(0, random.nextInt(100)),
-      LinearSales(1, random.nextInt(100)),
-      LinearSales(2, random.nextInt(100)),
-      LinearSales(3, random.nextInt(100)),
+      LinearSales(0, random.nextInt(100), charts.Color.fromHex(code: '#ffa0ee')),
+      LinearSales(1, random.nextInt(100), charts.Color.fromHex(code: '#ea4b4b')),
+      LinearSales(2, random.nextInt(100), charts.Color.fromHex(code: '#f3aa5c')),
+      LinearSales(3, random.nextInt(100), charts.Color.fromHex(code: '#fcf76b')),
     ];
 
     return [
@@ -72,6 +73,8 @@ class _SimplePieChartState extends State<SimplePieChart> {
 //        colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
         domainFn: (LinearSales sales, _) => sales.year,
         measureFn: (LinearSales sales, _) => sales.sales,
+        colorFn: (LinearSales s,_)=>s.color,
+        fillColorFn: (LinearSales sales, _) =>charts.Color.black,
         data: data,
       )
     ];
@@ -82,6 +85,7 @@ class _SimplePieChartState extends State<SimplePieChart> {
 class LinearSales {
   final int year;
   final int sales;
+  final charts.Color color;
 
-  LinearSales(this.year, this.sales);
+  LinearSales(this.year, this.sales, this.color);
 }

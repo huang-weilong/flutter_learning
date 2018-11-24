@@ -1,14 +1,19 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
+
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'tabbar/index_page.dart';
 import 'tabbar/tabbar_page2.dart';
 import 'tabbar/tabbar_page3.dart';
 import 'tabbar/tabbar_page4.dart';
 
-import 'tabbar/page_one/map_to_list.dart';
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 void main() {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(new MyApp());
 
   /** 以下代码设置Android状态栏为透明的沉浸
@@ -28,12 +33,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Learning',
       theme: ThemeData(
+//        platform: TargetPlatform.iOS,
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(),
-      routes: <String, WidgetBuilder> {
-        '/testg': (BuildContext context) => MapToList()
-      }
+      routes: {
+        "/ss": (_) => new WebviewScaffold(
+              url: "https://www.jianshu.com/u/37c10960a409",
+              appBar: new AppBar(
+                title: new Text("Widget webview"),
+              ),
+            ),
+      },
     );
   }
 }
@@ -50,44 +61,51 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   PageController pageController;
   int page = 0;
+  int flag = 0;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView(
-        children: <Widget>[
-          IndexPage(),
-          TabbarPage2(),
-          TabbarPage3(),
-          TabbarPage4()
-        ],
-        controller: pageController,
-        onPageChanged: onPageChanged,
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('基础')),
-          BottomNavigationBarItem(icon: Icon(Icons.build), title: Text('插件')),
-          BottomNavigationBarItem(icon: Icon(Icons.bubble_chart), title: Text('iOS风格')),
-          BottomNavigationBarItem(icon: Icon(Icons.ac_unit), title: Text('小实例')),
-        ],
-        onTap: onTap,
-        currentIndex: page,
+    return WillPopScope(
+      onWillPop: () {
+        flag++;
+        Fluttertoast.showToast(msg: '再按一次退出', gravity: ToastGravity.BOTTOM);
+        Timer.periodic(Duration(seconds: 3), (timer) {
+          flag = 0;
+          timer.cancel();
+        });
+        if (flag == 2) {
+          SystemNavigator.pop();
+        }
+      },
+      child: Scaffold(
+        body: PageView(
+          children: <Widget>[IndexPage(), TabbarPage2(), TabbarPage3(), TabbarPage4()],
+          controller: pageController,
+          onPageChanged: onPageChanged,
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('基础')),
+            BottomNavigationBarItem(icon: Icon(Icons.build), title: Text('插件')),
+            BottomNavigationBarItem(icon: Icon(Icons.bubble_chart), title: Text('iOS风格')),
+            BottomNavigationBarItem(icon: Icon(Icons.ac_unit), title: Text('小实例')),
+          ],
+          onTap: onTap,
+          currentIndex: page,
+        ),
       ),
     );
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     pageController = PageController(initialPage: this.page);
   }
 
   void onTap(int index) {
-    pageController.animateToPage(index,
-        duration: const Duration(milliseconds: 300), curve: Curves.ease);
+    pageController.animateToPage(index, duration: const Duration(milliseconds: 300), curve: Curves.ease);
   }
 
   void onPageChanged(int page) {

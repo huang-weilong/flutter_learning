@@ -22,6 +22,8 @@ dependencies:
   android_intent: ^0.2.1
   chewie: ^0.8.0
   event_bus: ^1.0.1
+  fluttertoast: ^2.1.0
+  flutter_webview_plugin: ^0.3.0+2
 #  video_player: ^0.7.2
 
 #  custom_chewie:

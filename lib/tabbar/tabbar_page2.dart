@@ -14,6 +14,9 @@ import 'page_two/video_chewie.dart';
 import 'page_two/share_page.dart';
 import 'page_two/android_intent_page.dart';
 import 'page_two/event_bus_page.dart';
+import 'page_two/web_view_page.dart';
+import 'page_two/dio_page.dart';
+import 'page_two/web_socket_channel_page.dart';
 
 class TabbarPage2 extends StatefulWidget {
   @override
@@ -35,67 +38,113 @@ class _TabbarPage2State extends State<TabbarPage2> {
             dense: true,
             leading: Icon(Icons.map),
             title: Text('地图'),
-            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>MapPage()));},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => MapPage()));
+            },
           ),
           ListTile(
             dense: true,
             leading: Icon(Icons.insert_chart),
             title: Text('图表'),
-            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>ChartsPage()));},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => ChartsPage()));
+            },
           ),
           ListTile(
             dense: true,
             leading: Icon(Icons.delete_sweep),
             title: Text('滑动删除'),
-            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>SlideDeletePage()));},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => SlideDeletePage()));
+            },
           ),
           ListTile(
             dense: true,
             leading: Icon(Icons.whatshot),
             title: Text('显示html'),
-            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>HtmlPage()));},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => HtmlPage()));
+            },
           ),
           ListTile(
             dense: true,
             leading: Icon(Icons.account_balance),
             title: Text('使用Lottie json展示动画'),
-            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>LottieJsonAnimation()));},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => LottieJsonAnimation()));
+            },
           ),
           ListTile(
             dense: true,
             leading: Icon(Icons.camera_alt),
             title: Text('使用相机或相册'),
-            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>UseCamera()));},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => UseCamera()));
+            },
           ),
           ListTile(
             dense: true,
             leading: Icon(Icons.save),
             title: Text('存储简单的数据SharePreference'),
-            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>IndexSharedPreferencePage()));},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => IndexSharedPreferencePage()));
+            },
           ),
           ListTile(
             dense: true,
             leading: Icon(Icons.blur_on),
             title: Text('二维码扫描'),
-            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>ScanQRCode()));},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => ScanQRCode()));
+            },
           ),
           ListTile(
             dense: true,
             leading: Icon(Icons.share),
             title: Text('分享'),
-            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>SharePage()));},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => SharePage()));
+            },
           ),
           ListTile(
             dense: true,
             leading: Icon(Icons.insert_drive_file),
             title: Text('打开第三方应用'),
-            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>AndroidIntentPage()));},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => AndroidIntentPage()));
+            },
           ),
           ListTile(
             dense: true,
             leading: Icon(Icons.event),
             title: Text('event_bus'),
-            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>EventBusPage()));},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => EventBusPage()));
+            },
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.web),
+            title: Text('webview'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => WebViewPage()));
+            },
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.web),
+            title: Text('dio'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => DioPage()));
+            },
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.web),
+            title: Text('websocket channel'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => WebSocketChannelPage()));
+            },
           ),
 //          ListTile(
 //            dense: true,

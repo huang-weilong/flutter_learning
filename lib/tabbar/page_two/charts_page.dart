@@ -53,7 +53,7 @@ class ChartsPage extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(Icons.pie_chart),
-              title: Text('简单的饼状图'),
+              title: Text('简单的饼状图(颜色修改)'),
               onTap: (){
                 Navigator.push(context, CupertinoPageRoute(builder: (_)=>SimplePieChart()));
               },
