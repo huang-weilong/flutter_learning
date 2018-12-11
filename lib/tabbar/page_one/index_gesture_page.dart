@@ -12,7 +12,6 @@ class _IndexGesturePageState extends State<IndexGesturePage> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Text('手势Gesture'),
@@ -22,12 +21,12 @@ class _IndexGesturePageState extends State<IndexGesturePage> {
       body: ListView(
         children: <Widget>[
           GestureDetector(
-            onTap: (){
+            onTap: () {
               setState(() {
                 text1 = '点击了按钮   onTap';
               });
             },
-            onTapCancel: (){
+            onTapCancel: () {
               setState(() {
                 print('会先执行onTapDown -> onTapCancel');
                 text1 = '点击但移开（取消）了  onTapCancel';
@@ -43,7 +42,7 @@ class _IndexGesturePageState extends State<IndexGesturePage> {
                 text1 = '双击   onDoubleTap';
               });
             },
-            onTapDown: (T){
+            onTapDown: (T) {
               setState(() {
                 text1 = '点击立即触发此方法   onTapDown';
               });
@@ -59,36 +58,37 @@ class _IndexGesturePageState extends State<IndexGesturePage> {
               margin: EdgeInsets.all(10.0),
               padding: EdgeInsets.all(15.0),
               decoration: BoxDecoration(
-                border: Border.all(width: 1.0, color: Colors.blue),
-                color: Colors.blue,
-                borderRadius: BorderRadius.circular(5.0)
+                  border: Border.all(width: 1.0, color: Colors.blue), color: Colors.blue, borderRadius: BorderRadius.circular(5.0)),
+              child: Text(
+                '使用（下方提示的）不同手势来和此按钮交互',
+                style: TextStyle(color: Colors.white),
               ),
-              child: Text('使用（下方提示的）不同手势来和此按钮交互',style: TextStyle(color: Colors.white),),
             ),
           ),
           Container(
             padding: EdgeInsets.all(10.0),
             margin: EdgeInsets.symmetric(horizontal: 10.0),
             alignment: Alignment.center,
-            decoration: BoxDecoration(
-              border: Border.all(width: 1.0,color: Colors.blue)
-            ),
+            decoration: BoxDecoration(border: Border.all(width: 1.0, color: Colors.blue)),
             child: Text('tips:点击、点击取消、长按、双击'),
           ),
           Container(
             alignment: Alignment.center,
             padding: EdgeInsets.all(10.0),
-            child: Text(text1,style: TextStyle(fontSize: 18.0),),
+            child: Text(
+              text1,
+              style: TextStyle(fontSize: 18.0),
+            ),
           ),
           GestureDetector(
-            onHorizontalDragCancel: (){
+            onHorizontalDragCancel: () {
               setState(() {
                 text2 = '沿水平拖动取消   onHorizontalDragCancel';
               });
             },
             onHorizontalDragStart: (startDetails) {
               setState(() {
-                text2 = '横向拖动开始起点--'+startDetails.globalPosition.toString();
+                text2 = '横向拖动开始起点--' + startDetails.globalPosition.toString();
               });
             },
             onHorizontalDragEnd: (endDetails) {
@@ -126,26 +126,27 @@ class _IndexGesturePageState extends State<IndexGesturePage> {
               margin: EdgeInsets.all(10.0),
               padding: EdgeInsets.all(15.0),
               decoration: BoxDecoration(
-                  border: Border.all(width: 1.0, color: Colors.blue),
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.circular(5.0)
+                  border: Border.all(width: 1.0, color: Colors.blue), color: Colors.blue, borderRadius: BorderRadius.circular(5.0)),
+              child: Text(
+                '使用（下方提示的）不同手势来和此按钮交互',
+                style: TextStyle(color: Colors.white),
               ),
-              child: Text('使用（下方提示的）不同手势来和此按钮交互',style: TextStyle(color: Colors.white),),
             ),
           ),
           Container(
             padding: EdgeInsets.all(10.0),
             margin: EdgeInsets.symmetric(horizontal: 10.0),
             alignment: Alignment.center,
-            decoration: BoxDecoration(
-                border: Border.all(width: 1.0,color: Colors.blue)
-            ),
+            decoration: BoxDecoration(border: Border.all(width: 1.0, color: Colors.blue)),
             child: Text('tips:横向拖动、竖向拖动'),
           ),
           Container(
             alignment: Alignment.center,
             padding: EdgeInsets.all(10.0),
-            child: Text(text2,style: TextStyle(fontSize: 18.0),),
+            child: Text(
+              text2,
+              style: TextStyle(fontSize: 18.0),
+            ),
           ),
           Container(
             alignment: Alignment.center,
@@ -155,49 +156,42 @@ class _IndexGesturePageState extends State<IndexGesturePage> {
           Padding(
             padding: EdgeInsets.all(10.0),
             child: InkWell(
-                onTap: (){},
+                onTap: () {},
                 child: Container(
                   alignment: Alignment.center,
                   padding: EdgeInsets.all(10.0),
-                  decoration: BoxDecoration(
-                    border: Border.all(width: 1.0, color: Colors.blue),
-                    borderRadius: BorderRadius.circular(5.0)
-                  ),
+                  decoration: BoxDecoration(border: Border.all(width: 1.0, color: Colors.blue), borderRadius: BorderRadius.circular(5.0)),
                   child: Text('有水波效果的请使用InkWell'),
-                )
-            ),
+                )),
           ),
           Dismissible(
-            key: Key('curItem'),
-            direction: DismissDirection.startToEnd,
-            onDismissed: (direction) {
-              showModalBottomSheet(
-                context: context,
-                builder: (_) {
-                  return Container(
-                    alignment: Alignment.center,
-                    child: Text('已被删除！'),
-                  );
-                }
-              );
-            },
-            background: Container(
-              alignment: Alignment(-1.0, 0.0),
-              color: Colors.redAccent,
-              child: Text('使用了 Dismissble'),
-            ),
-            child: Container(
-              padding: EdgeInsets.all(15.0),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                border: Border.all(width: 1.0, color: Colors.blue),
+              key: Key('curItem'),
+              direction: DismissDirection.startToEnd,
+              onDismissed: (direction) {
+                showModalBottomSheet(
+                    context: context,
+                    builder: (_) {
+                      return Container(
+                        alignment: Alignment.center,
+                        child: Text('已被删除！'),
+                      );
+                    });
+              },
+              background: Container(
+                alignment: Alignment(-1.0, 0.0),
+                color: Colors.redAccent,
+                child: Text('使用了 Dismissble'),
               ),
-              child: Text('向右滑动删除'),
-            )
-          ),
+              child: Container(
+                padding: EdgeInsets.all(15.0),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1.0, color: Colors.blue),
+                ),
+                child: Text('向右滑动删除'),
+              )),
         ],
       ),
     );
   }
-
 }

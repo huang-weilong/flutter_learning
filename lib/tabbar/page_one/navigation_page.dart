@@ -17,6 +17,7 @@ import 'animation/index_hero_page.dart';
 import 'animation/index_scale_transition.dart';
 import 'animation/index_rotation_transition.dart';
 import 'animation/index_size_transition.dart';
+import 'animation/index_fade_transition.dart';
 
 /// 布局
 class IndexLayoutPage extends StatelessWidget {
@@ -154,7 +155,8 @@ class IndexAnimationPage extends StatelessWidget {
             dense: true,
             leading: Icon(Icons.all_inclusive),
             title: Text('AnimatedBuilder'),
-            subtitle: Text('用于构建动画的通用小部件。AnimatedBuilder在有多个widget希望有一个动画作为一个较大的建造函数部分时会非常有用。要使用AnimatedBuilder，只需构建widget并将其传给builder函数即可。'),
+            subtitle:
+                Text('用于构建动画的通用小部件。AnimatedBuilder在有多个widget希望有一个动画作为一个较大的建造函数部分时会非常有用。要使用AnimatedBuilder，只需构建widget并将其传给builder函数即可。'),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) => IndexAnimatedBuilder()));
             },
@@ -193,6 +195,15 @@ class IndexAnimationPage extends StatelessWidget {
             subtitle: Text('裁剪动画'),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) => IndexSizeTransition()));
+            },
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.all_inclusive),
+            title: Text('FadeTransition'),
+            subtitle: Text('透明度动画'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => IndexFadeTransition()));
             },
           ),
         ],

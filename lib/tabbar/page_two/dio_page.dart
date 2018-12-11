@@ -30,14 +30,13 @@ class _DioPageState extends State<DioPage> {
     );
   }
 
+  // 直接在该方法内添加一些参数即可测试
   Future<bool> getPlacesInfoList() async {
     try {
       String url = 'url地址';
-      Options options = Options(headers: {'Authorization': 'xxxxx'});
+      Options options = Options(headers: {'Authorization': '请求头的一些数据'});
       Response response = await Dio(options).get(url, data: {
-        'page': 1,
-        'rows': 1000,
-        'sidx': 'last_update_date',
+        'sidx': '地址中 ? 后的一些参数如果没有可以删除 data直接使用url',
         'sord': 'desc',
       });
       setState(() {

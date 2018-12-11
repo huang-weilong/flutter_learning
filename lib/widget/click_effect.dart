@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class ClickEffect extends StatefulWidget {
@@ -6,9 +8,9 @@ class ClickEffect extends StatefulWidget {
       this.margin,
       this.padding,
       this.normalColor: Colors.white,
-      this.selectColor: const Color(0xffcccccc),
-      this.onTap,
-      this.child})
+      this.selectColor: const Color(0xffdedede),
+      @required this.onTap,
+      @required this.child})
       : super(key: key);
 
   final EdgeInsetsGeometry margin;
@@ -33,11 +35,7 @@ class _ClickEffectState extends State<ClickEffect> {
   @override
   void initState() {
     super.initState();
-    if (widget.normalColor == null) {
-      color = Colors.white;
-    } else {
-      color = widget.normalColor;
-    }
+    color = widget.normalColor;
   }
 
   @override
@@ -49,7 +47,7 @@ class _ClickEffectState extends State<ClickEffect> {
         child: widget.child,
         color: color,
       ),
-      onTap: widget.onTap,
+      onTap: onTap,
       onTapDown: (_) {
         setState(() {
           color = widget.selectColor;
@@ -66,5 +64,17 @@ class _ClickEffectState extends State<ClickEffect> {
         });
       },
     );
+  }
+
+  void onTap() {
+    widget.onTap();
+    setState(() {
+      color = widget.selectColor;
+      Timer.periodic(Duration(milliseconds: 40), (timer) {
+        setState(() {});
+        color = widget.normalColor;
+        timer.cancel();
+      });
+    });
   }
 }

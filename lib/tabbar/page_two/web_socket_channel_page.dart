@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:web_socket_channel/web_socket_channel.dart';
 import 'package:web_socket_channel/io.dart';
 
 class WebSocketChannelPage extends StatefulWidget {
@@ -34,6 +33,7 @@ class _WebSocketChannelPageState extends State<WebSocketChannelPage> {
       body: ListView(
         children: <Widget>[
           TextField(
+            decoration: InputDecoration(hintText: '输入一些内容点击发送'),
             controller: controller,
           ),
           Column(

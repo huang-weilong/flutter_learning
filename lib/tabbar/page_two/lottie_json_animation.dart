@@ -28,8 +28,7 @@ class LottieJsonAnimation extends StatefulWidget {
   _LottieJsonAnimationState createState() => _LottieJsonAnimationState();
 }
 
-class _LottieJsonAnimationState extends State<LottieJsonAnimation>
-    with SingleTickerProviderStateMixin {
+class _LottieJsonAnimationState extends State<LottieJsonAnimation> with SingleTickerProviderStateMixin {
   LottieComposition _composition;
   String _assetName;
   AnimationController _controller;
@@ -74,9 +73,9 @@ class _LottieJsonAnimationState extends State<LottieJsonAnimation>
             DropdownButton<String>(
               items: assetNames
                   .map((String assetName) => DropdownMenuItem<String>(
-                child: Text(assetName),
-                value: assetName,
-              ))
+                        child: Text(assetName),
+                        value: assetName,
+                      ))
                   .toList(),
               hint: Text('选择一个动画'),
               value: _assetName,
@@ -90,63 +89,54 @@ class _LottieJsonAnimationState extends State<LottieJsonAnimation>
             ),
             Slider(
               value: _controller.value,
-              onChanged: _composition != null
-                  ? (double val) => setState(() => _controller.value = val)
-                  : null,
+              onChanged: _composition != null ? (double val) => setState(() => _controller.value = val) : null,
             ),
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  IconButton(
-                    icon: Icon(Icons.repeat),
-                    color: _repeat ? Colors.black : Colors.black45,
-                    onPressed: () => setState(() {
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+              IconButton(
+                icon: Icon(Icons.repeat),
+                color: _repeat ? Colors.black : Colors.black45,
+                onPressed: () => setState(() {
                       _repeat = !_repeat;
                       if (_controller.isAnimating) {
                         if (_repeat) {
-                          _controller.forward().then<Null>(
-                                  (Null nul) => _controller.repeat());
+                          _controller.forward().then<Null>((nul) => _controller.repeat());
                         } else {
                           _controller.forward();
                         }
                       }
                     }),
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.fast_rewind),
-                    onPressed: _controller.value > 0 && _composition != null
-                        ? () => setState(() => _controller.reset())
-                        : null,
-                  ),
-                  IconButton(
-                    icon: _controller.isAnimating
-                        ? Icon(Icons.pause)
-                        : Icon(Icons.play_arrow),
-                    onPressed: _controller.isCompleted || _composition == null
-                        ? null
-                        : () {
-                      setState(() {
-                        if (_controller.isAnimating) {
-                          _controller.stop();
-                        } else {
-                          if (_repeat) {
-                            _controller.repeat();
+              ),
+              IconButton(
+                icon: Icon(Icons.fast_rewind),
+                onPressed: _controller.value > 0 && _composition != null ? () => setState(() => _controller.reset()) : null,
+              ),
+              IconButton(
+                icon: _controller.isAnimating ? Icon(Icons.pause) : Icon(Icons.play_arrow),
+                onPressed: _controller.isCompleted || _composition == null
+                    ? null
+                    : () {
+                        setState(() {
+                          if (_controller.isAnimating) {
+                            _controller.stop();
                           } else {
-                            _controller.forward();
+                            if (_repeat) {
+                              _controller.repeat();
+                            } else {
+                              _controller.forward();
+                            }
                           }
-                        }
-                      });
-                    },
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.stop),
-                    onPressed: _controller.isAnimating && _composition != null
-                        ? () {
-                      _controller.reset();
-                    }
-                        : null,
-                  ),
-                ]),
+                        });
+                      },
+              ),
+              IconButton(
+                icon: Icon(Icons.stop),
+                onPressed: _controller.isAnimating && _composition != null
+                    ? () {
+                        _controller.reset();
+                      }
+                    : null,
+              ),
+            ]),
           ],
         ),
       ),

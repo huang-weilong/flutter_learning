@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 const double _kMinFlingVelocity = 800.0;
 
 class IndexHeroPage extends StatefulWidget {
@@ -13,38 +12,55 @@ class _IndexHeroPageState extends State<IndexHeroPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('触发英雄动画'),
-        centerTitle: true,
-        elevation: 0.0,
-      ),
-      backgroundColor: Colors.grey,
-      body: Center(
-        child: GestureDetector(
-          child: Hero(
-            child: Image.asset('assets/images/long.jpg',width: 100.0,),
-            tag: 'long',
-          ),
-          onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => _HeroTest()));
-          },
+        appBar: AppBar(
+          title: Text('触发英雄动画'),
+          centerTitle: true,
+          elevation: 0.0,
         ),
-      )
-    );
+        backgroundColor: Colors.grey,
+        body: Center(
+          child: GestureDetector(
+            child: Hero(
+              child: Image.asset(
+                'assets/images/long.jpg',
+                width: 100.0,
+              ),
+              tag: 'long',
+            ),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => _HeroTest()));
+            },
+          ),
+        ));
   }
 }
 
 class _HeroTest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      child: Hero(
-        child: ScaleImage(imgDir: 'assets/images/long.jpg',),
-        tag: 'long',
-      ),
-      onTap: () {
-        Navigator.pop(context);
-      },
+    return Stack(
+      children: <Widget>[
+        Container(
+          color: Colors.black,
+        ),
+        Positioned(
+          bottom: 0.0,
+          top: 0.0,
+          left: 0.0,
+          right: 0.0,
+          child: GestureDetector(
+            child: Hero(
+              child: ScaleImage(
+                imgDir: 'assets/images/long.jpg',
+              ),
+              tag: 'long',
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+        ),
+      ],
     );
   }
 }
@@ -69,8 +85,7 @@ class _ScaleImageState extends State<ScaleImage> with SingleTickerProviderStateM
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this)
-      ..addListener(_handleFlingAnimation);
+    _controller = AnimationController(vsync: this)..addListener(_handleFlingAnimation);
   }
 
   @override
@@ -83,11 +98,12 @@ class _ScaleImageState extends State<ScaleImage> with SingleTickerProviderStateM
         transform: Matrix4.identity()
           ..translate(_offset.dx, _offset.dy)
           ..scale(_scale),
-        child: Image.asset(widget.imgDir,),
+        child: Image.asset(
+          widget.imgDir,
+        ),
       ),
     );
   }
-
 
   @override
   void dispose() {
@@ -126,14 +142,10 @@ class _ScaleImageState extends State<ScaleImage> with SingleTickerProviderStateM
 
   void _handleOnScaleEnd(ScaleEndDetails details) {
     final double magnitude = details.velocity.pixelsPerSecond.distance;
-    if (magnitude < _kMinFlingVelocity)
-      return;
+    if (magnitude < _kMinFlingVelocity) return;
     final Offset direction = details.velocity.pixelsPerSecond / magnitude;
     final double distance = (Offset.zero & context.size).shortestSide;
-    _flingAnimation = Tween<Offset>(
-        begin: _offset,
-        end: _clampOffset(_offset + direction * distance)
-    ).animate(_controller);
+    _flingAnimation = Tween<Offset>(begin: _offset, end: _clampOffset(_offset + direction * distance)).animate(_controller);
     _controller
       ..value = 0.0
       ..fling(velocity: magnitude / 1000.0);

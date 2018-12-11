@@ -41,34 +41,43 @@ class _IndexButtonPageState extends State<IndexButtonPage> {
   _buildRaisedButton() {
     return Column(
       children: <Widget>[
-        Text('RaisedButton',style: TextStyle(color: Colors.redAccent),),
+        Text(
+          'RaisedButton',
+          style: TextStyle(color: Colors.redAccent),
+        ),
         RaisedButton(
           textColor: Colors.white,
           color: Colors.blue,
           child: const Text('改变了文本颜色'),
-          onPressed: (){},
+          onPressed: () {},
         ),
-        Padding(padding: EdgeInsets.all(5.0),),
+        Padding(
+          padding: EdgeInsets.all(5.0),
+        ),
         RaisedButton(
           disabledTextColor: Colors.white,
           disabledColor: Colors.grey,
           child: const Text('不可点击，颜色已更改(disabledxxx)'),
           onPressed: null,
         ),
-        Padding(padding: EdgeInsets.all(5.0),),
+        Padding(
+          padding: EdgeInsets.all(5.0),
+        ),
         RaisedButton.icon(
           icon: const Icon(Icons.add),
           label: const Text('添加了小图标'),
-          onPressed: (){},
+          onPressed: () {},
         ),
-        Padding(padding: EdgeInsets.all(5.0),),
+        Padding(
+          padding: EdgeInsets.all(5.0),
+        ),
         RaisedButton(
           textColor: Colors.white,
           color: Colors.blue,
           splashColor: Colors.redAccent,
-          shape: StadiumBorder(),//圆角
+          shape: StadiumBorder(), //圆角
           child: const Text('体育场边界使用shape: StadiumBorder()'),
-          onPressed: (){},
+          onPressed: () {},
         ),
       ],
     );
@@ -77,22 +86,31 @@ class _IndexButtonPageState extends State<IndexButtonPage> {
   _buildFlatButton() {
     return Column(
       children: <Widget>[
-        Padding(padding: EdgeInsets.only(top: 25.0),),
-        Text('FlatButton',style: TextStyle(color: Colors.redAccent),),
+        Padding(
+          padding: EdgeInsets.only(top: 25.0),
+        ),
+        Text(
+          'FlatButton',
+          style: TextStyle(color: Colors.redAccent),
+        ),
         FlatButton(
           child: Text('长按有水波效果'),
-          onPressed: (){},
+          onPressed: () {},
         ),
-        Padding(padding: EdgeInsets.all(5.0),),
+        Padding(
+          padding: EdgeInsets.all(5.0),
+        ),
         FlatButton(
           child: Text('不可点击'),
           onPressed: null,
         ),
-        Padding(padding: EdgeInsets.all(5.0),),
+        Padding(
+          padding: EdgeInsets.all(5.0),
+        ),
         FlatButton.icon(
           icon: Icon(Icons.more),
           label: Text('添加了小图标'),
-          onPressed: (){},
+          onPressed: () {},
         ),
       ],
     );
@@ -101,22 +119,31 @@ class _IndexButtonPageState extends State<IndexButtonPage> {
   _buildOutlineButton() {
     return Column(
       children: <Widget>[
-        Padding(padding: EdgeInsets.only(top: 25.0),),
-        Text('OutlineButton',style: TextStyle(color: Colors.redAccent),),
+        Padding(
+          padding: EdgeInsets.only(top: 25.0),
+        ),
+        Text(
+          'OutlineButton',
+          style: TextStyle(color: Colors.redAccent),
+        ),
         OutlineButton(
           child: Text('有轮廓的按钮'),
-          onPressed: (){},
+          onPressed: () {},
         ),
-        Padding(padding: EdgeInsets.all(5.0),),
+        Padding(
+          padding: EdgeInsets.all(5.0),
+        ),
         OutlineButton(
           child: Text('不可点击'),
           onPressed: null,
         ),
-        Padding(padding: EdgeInsets.all(5.0),),
+        Padding(
+          padding: EdgeInsets.all(5.0),
+        ),
         OutlineButton.icon(
           icon: Icon(Icons.access_alarm),
           label: Text('添加了小图标'),
-          onPressed: (){},
+          onPressed: () {},
         ),
       ],
     );
@@ -125,52 +152,58 @@ class _IndexButtonPageState extends State<IndexButtonPage> {
   _buildDropdownButton() {
     return Column(
       children: <Widget>[
-        Padding(padding: EdgeInsets.only(top: 25.0),),
-        Text('DropdownButton',style: TextStyle(color: Colors.redAccent),),
+        Padding(
+          padding: EdgeInsets.only(top: 25.0),
+        ),
+        Text(
+          'DropdownButton',
+          style: TextStyle(color: Colors.redAccent),
+        ),
         DropdownButton<String>(
           value: dropdownValue1,
           onChanged: (String newValue) {
             setState(() {
-              if(newValue != null)
-                dropdownValue1 = newValue;
+              if (newValue != null) dropdownValue1 = newValue;
             });
           },
-          items: <String>['simple dropdown','选项一','选项二','选项三','选项四'].map((String value) {
+          items: <String>['simple dropdown', '选项一', '选项二', '选项三', '选项四'].map((String value) {
             return DropdownMenuItem<String>(
               value: value,
               child: Text(value),
             );
           }).toList(),
         ),
-        Padding(padding: EdgeInsets.all(5.0),),
+        Padding(
+          padding: EdgeInsets.all(5.0),
+        ),
         DropdownButton<String>(
           value: dropdownValue2,
           hint: Text('请选择'),
           onChanged: (String newValue) {
             setState(() {
-              if(newValue != null)
-                dropdownValue2 = newValue;
+              if (newValue != null) dropdownValue2 = newValue;
             });
           },
-          items: <String>['hint属性设置了初始的值','选项一','选项二','选项三','选项四'].map((String value) {
+          items: <String>['hint属性设置了初始的值', '选项一', '选项二', '选项三', '选项四'].map((String value) {
             return DropdownMenuItem<String>(
               value: value,
               child: Text(value),
             );
           }).toList(),
         ),
-        Padding(padding: EdgeInsets.all(5.0),),
+        Padding(
+          padding: EdgeInsets.all(5.0),
+        ),
         DropdownButton<String>(
           value: dropdownValue3,
           hint: Text('可滑动的'),
           onChanged: (String newValue) {
             setState(() {
-              if(newValue != null)
-                dropdownValue3 = newValue;
+              if (newValue != null) dropdownValue3 = newValue;
             });
           },
-          items: <String>['hint属性设置了初始的值','选项一','选项二','选项三','选项四',
-          '5','6','7','8','9','10','11','12','13','14','15'].map((String value) {
+          items: <String>['hint属性设置了初始的值', '选项一', '选项二', '选项三', '选项四', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']
+              .map((String value) {
             return DropdownMenuItem<String>(
               value: value,
               child: Text(value),
@@ -184,13 +217,18 @@ class _IndexButtonPageState extends State<IndexButtonPage> {
   _buildIconButton() {
     return Column(
       children: <Widget>[
-        Padding(padding: EdgeInsets.only(top: 25.0),),
-        Text('IconButton',style: TextStyle(color: Colors.redAccent),),
+        Padding(
+          padding: EdgeInsets.only(top: 25.0),
+        ),
+        Text(
+          'IconButton',
+          style: TextStyle(color: Colors.redAccent),
+        ),
         IconButton(
           icon: Icon(Icons.thumb_up),
-          onPressed: (){
+          onPressed: () {
             setState(() => value = !value);
-            },
+          },
           color: value ? Colors.lightBlue : null,
         )
       ],
@@ -200,11 +238,18 @@ class _IndexButtonPageState extends State<IndexButtonPage> {
   _buildCupertinoButton() {
     return Column(
       children: <Widget>[
-        Padding(padding: EdgeInsets.only(top: 25.0),),
-        Text('iOS风格按钮',style: TextStyle(color: Colors.redAccent),),
+        Padding(
+          padding: EdgeInsets.only(top: 25.0),
+        ),
+        Text(
+          'iOS风格按钮',
+          style: TextStyle(color: Colors.redAccent),
+        ),
         CupertinoButton(
-          child: Text('最普通的',),
-          onPressed: (){},
+          child: Text(
+            '最普通的',
+          ),
+          onPressed: () {},
         ),
         CupertinoButton(
           child: Text('不可点击'),
@@ -213,7 +258,7 @@ class _IndexButtonPageState extends State<IndexButtonPage> {
         CupertinoButton(
           child: Text('背景色'),
           color: Colors.lightBlue,
-          onPressed: (){},
+          onPressed: () {},
         ),
         CupertinoButton(
           child: Text('不可点击'),
@@ -223,5 +268,4 @@ class _IndexButtonPageState extends State<IndexButtonPage> {
       ],
     );
   }
-
 }

@@ -12,28 +12,33 @@ class _IndexSlidersPageState extends State<IndexSlidersPage> {
   double _value1 = 20.0;
   double _value2 = 20.0;
   double _value3 = 35.0;
+  Timer timer;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer.periodic(Duration(seconds: 1), (_){
+    timer = Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {
         _value1++;
         print(_value1);
         print(_value1 == 99.0);
-        if(_value1>99.0) {
+        if (_value1 > 99.0) {
           _value1 = 0.0;
-          print('=======================================');
         }
       });
     });
   }
 
-  addTimer(){
-    _value1++;
+  @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
   }
 
+  addTimer() {
+    _value1++;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -122,17 +127,17 @@ class _CustomThumbShape extends SliderComponentShape {
 
   @override
   void paint(
-      PaintingContext context,
-      Offset thumbCenter, {
-        Animation<double> activationAnimation,
-        Animation<double> enableAnimation,
-        bool isDiscrete,
-        TextPainter labelPainter,
-        RenderBox parentBox,
-        SliderThemeData sliderTheme,
-        TextDirection textDirection,
-        double value,
-      }) {
+    PaintingContext context,
+    Offset thumbCenter, {
+    Animation<double> activationAnimation,
+    Animation<double> enableAnimation,
+    bool isDiscrete,
+    TextPainter labelPainter,
+    RenderBox parentBox,
+    SliderThemeData sliderTheme,
+    TextDirection textDirection,
+    double value,
+  }) {
     final Canvas canvas = context.canvas;
     final ColorTween colorTween = new ColorTween(
       begin: sliderTheme.disabledThumbColor,
@@ -174,17 +179,17 @@ class _CustomValueIndicatorShape extends SliderComponentShape {
 
   @override
   void paint(
-      PaintingContext context,
-      Offset thumbCenter, {
-        Animation<double> activationAnimation,
-        Animation<double> enableAnimation,
-        bool isDiscrete,
-        TextPainter labelPainter,
-        RenderBox parentBox,
-        SliderThemeData sliderTheme,
-        TextDirection textDirection,
-        double value,
-      }) {
+    PaintingContext context,
+    Offset thumbCenter, {
+    Animation<double> activationAnimation,
+    Animation<double> enableAnimation,
+    bool isDiscrete,
+    TextPainter labelPainter,
+    RenderBox parentBox,
+    SliderThemeData sliderTheme,
+    TextDirection textDirection,
+    double value,
+  }) {
     final Canvas canvas = context.canvas;
     final ColorTween enableColor = new ColorTween(
       begin: sliderTheme.disabledThumbColor,

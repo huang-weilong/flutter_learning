@@ -1,7 +1,4 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'dart:io';
 
 import '../../util/websocket_client.dart';
 
@@ -11,8 +8,6 @@ class WebSocketPage extends StatefulWidget {
 }
 
 class _WebSocketPageState extends State<WebSocketPage> {
-//  WebSocket webSocket;
-
   TextEditingController controller = TextEditingController();
 
   @override
@@ -48,7 +43,8 @@ class _WebSocketPageState extends State<WebSocketPage> {
               onPressed: () {
                 client.sendMessage(controller.text);
               },
-            )
+            ),
+            Text('请查看控制台的输出内容')
           ],
         ),
       ),

@@ -9,7 +9,7 @@ enum DialogDemoAction {
 }
 
 class DialogDemoItem extends StatelessWidget {
-  const DialogDemoItem({ Key key, this.icon, this.color, this.text, this.onPressed }) : super(key: key);
+  const DialogDemoItem({Key key, this.icon, this.color, this.text, this.onPressed}) : super(key: key);
 
   final IconData icon;
   final Color color;
@@ -54,43 +54,22 @@ class _IndexDialogPageState extends State<IndexDialogPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
-      appBar: AppBar(
-        title: Text('Alert对话框'),
-        elevation: 0.0,
-      ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              _buildAlert(),
-              _buildAlertWithTitle(),
-              _buildSimple(),
-              _buildConfirmation(),
-              _buildCupertinoDialogs()
-            ],
-          ),
-        ],
-      )
-    );
+        key: _scaffoldKey,
+        appBar: AppBar(
+          title: Text('Alert对话框'),
+          elevation: 0.0,
+        ),
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[_buildAlert(), _buildAlertWithTitle(), _buildSimple(), _buildConfirmation()],
+            ),
+          ],
+        ));
   }
-
-//  void showDemoDialog<T>({ BuildContext context, Widget child }) {
-//    showDialog<T>(
-//      context: context,
-//      builder: (BuildContext context) => child,
-//    )
-//        .then<void>((T value) { // The value passed to Navigator.pop() or null.
-//      if (value != null) {
-//        _scaffoldKey.currentState.showSnackBar(new SnackBar(
-//            content: new Text('You selected: $value')
-//        ));
-//      }
-//    });
-//  }
 
   _buildAlert() {
     return RaisedButton(
@@ -106,43 +85,41 @@ class _IndexDialogPageState extends State<IndexDialogPage> {
                     actions: <Widget>[
                       FlatButton(
                           child: Text('CANCEL'),
-                          onPressed: () { Navigator.pop(context, DialogDemoAction.cancel); }
-                      ),
+                          onPressed: () {
+                            Navigator.pop(context, DialogDemoAction.cancel);
+                          }),
                       FlatButton(
                           child: Text('DISCARD'),
-                          onPressed: () { Navigator.pop(context, DialogDemoAction.discard); }
-                      )
-                    ]
-                );
-              }
-          );
-        }
-    );
+                          onPressed: () {
+                            Navigator.pop(context, DialogDemoAction.discard);
+                          })
+                    ]);
+              });
+        });
   }
 
   _buildAlertWithTitle() {
     return RaisedButton(
       child: Text('有标题的对话框'),
-      onPressed: (){
+      onPressed: () {
         showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: Text('我是标题'),
-              content: Text('提示内容'),
-              actions: <Widget>[
-                FlatButton(
-                  child: Text('确认'),
-                  onPressed: (){},
-                ),
-                FlatButton(
-                  child: Text('取消'),
-                  onPressed: (){},
-                ),
-              ],
-            );
-          }
-        );
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text('我是标题'),
+                content: Text('提示内容'),
+                actions: <Widget>[
+                  FlatButton(
+                    child: Text('确认'),
+                    onPressed: () {},
+                  ),
+                  FlatButton(
+                    child: Text('取消'),
+                    onPressed: () {},
+                  ),
+                ],
+              );
+            });
       },
     );
   }
@@ -150,7 +127,7 @@ class _IndexDialogPageState extends State<IndexDialogPage> {
   _buildSimple() {
     return RaisedButton(
       child: Text('SimpleDialog'),
-      onPressed: (){
+      onPressed: () {
         showDialog(
           context: context,
           builder: (BuildContext context) {
@@ -161,19 +138,17 @@ class _IndexDialogPageState extends State<IndexDialogPage> {
                     icon: Icons.account_circle,
                     color: Colors.lightBlue,
                     text: 'username@gmail.com',
-                    onPressed: () { Navigator.pop(context, 'username@gmail.com'); }
-                ),
+                    onPressed: () {
+                      Navigator.pop(context, 'username@gmail.com');
+                    }),
                 DialogDemoItem(
                     icon: Icons.account_circle,
                     color: Colors.lightBlue,
                     text: 'user02@gmail.com',
-                    onPressed: () { Navigator.pop(context, 'user02@gmail.com'); }
-                ),
-                DialogDemoItem(
-                    icon: Icons.add_circle,
-                    text: 'add account',
-                    color: Colors.grey
-                )
+                    onPressed: () {
+                      Navigator.pop(context, 'user02@gmail.com');
+                    }),
+                DialogDemoItem(icon: Icons.add_circle, text: 'add account', color: Colors.grey)
               ],
             );
           },
@@ -184,51 +159,15 @@ class _IndexDialogPageState extends State<IndexDialogPage> {
 
   _buildConfirmation() {
     return RaisedButton(
-      child: Text('confirmation'),
-      onPressed: (){
-        showTimePicker(context: context, initialTime: _selectedTime)
-            .then<Null>((TimeOfDay value) {
-              if(value != null && value != _selectedTime) {
-                _selectedTime = value;
-                _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text('你选择了: ${value.format(context)}')));
-              }
+      child: Text('TimePicker'),
+      onPressed: () {
+        showTimePicker(context: context, initialTime: _selectedTime).then<Null>((TimeOfDay value) {
+          if (value != null && value != _selectedTime) {
+            _selectedTime = value;
+            _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text('你选择了: ${value.format(context)}')));
+          }
         });
       },
-    );
-  }
-
-  _buildCupertinoDialogs() {
-    return Column(
-      children: <Widget>[
-        Text('iOS风格的对话框',style: TextStyle(color: Colors.redAccent),),
-        CupertinoButton(
-          child: Text('iOS对话框'),
-          color: Colors.blue,
-          onPressed: (){
-            showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return CupertinoAlertDialog(
-                  title: Text('我是标题'),
-                  content: Text('我是描述信息'),
-                  actions: <Widget>[
-                    CupertinoDialogAction(
-                      child: Text('确认'),
-                      isDestructiveAction: true,//颜色变红(删除、取消的意思）
-                      onPressed: (){Navigator.pop(context);},
-                    ),
-                    CupertinoDialogAction(
-                      child: Text('取消'),
-                      isDefaultAction: true,//内容加粗
-                      onPressed: (){Navigator.pop(context);},
-                    )
-                  ],
-                );
-              }
-            );
-          },
-        ),
-      ],
     );
   }
 }

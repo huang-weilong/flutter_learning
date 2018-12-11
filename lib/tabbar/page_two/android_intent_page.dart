@@ -52,18 +52,12 @@ class _AndroidIntentPageState extends State<AndroidIntentPage> {
             ),
             RaisedButton(
               child: Text('打印项目目录（控制台）'),
-              onPressed: (){
+              onPressed: () {
                 printFiles('/data/data/com.huangweilong.flutterlearning/');
               },
             ),
-            RaisedButton(
-              child: Text('打印SD卡目录（控制台）'),
-              onPressed: printSDCardDirectory
-            ),
-            RaisedButton(
-                child: Text('打印Temp目录（控制台）'),
-                onPressed: printTempDirectory
-            ),
+            RaisedButton(child: Text('打印SD卡目录（控制台）'), onPressed: printSDCardDirectory),
+            RaisedButton(child: Text('打印Temp目录（控制台）'), onPressed: printTempDirectory),
             Text(dir ?? '')
           ],
         ),
@@ -73,38 +67,31 @@ class _AndroidIntentPageState extends State<AndroidIntentPage> {
 
   void _displayMapInAMap({int zoomLevel = 12}) {
     final AndroidIntent intent = AndroidIntent(
-        action: 'action_view',
-        data: Uri.encodeFull('geo:23.040511,114.423673?z=$zoomLevel'),
-        package: 'com.autonavi.minimap');
+        action: 'action_view', data: Uri.encodeFull('geo:23.040511,114.423673?z=$zoomLevel'), package: 'com.autonavi.minimap');
     intent.launch();
   }
 
   void _displayCamera() {
     final AndroidIntent intent = AndroidIntent(
-        action: 'android.media.action.STILL_IMAGE_CAMERA',
+      action: 'android.media.action.STILL_IMAGE_CAMERA',
     );
     intent.launch();
   }
 
   void _displaySDCardPPT() {
     if (File('/storage/emulated/0/test.pptx').existsSync()) {
-      final AndroidIntent intent = AndroidIntent(
-          action: 'action_view',
-          data: Uri.file('/storage/emulated/0/test.pptx').toString(),
-          package: 'cn.wps.moffice_eng'
-      );
+      final AndroidIntent intent =
+          AndroidIntent(action: 'action_view', data: Uri.file('/storage/emulated/0/test.pptx').toString(), package: 'cn.wps.moffice_eng');
       intent.launch();
     }
   }
 
   void _displayNetworkPPT() {
-    final AndroidIntent intent = AndroidIntent(
-        action: 'action_view',
-        data: Uri.encodeFull('http://www.mrjoke.cn/test.ppt'),
-        package: 'cn.wps.moffice_eng'
-    );
+    final AndroidIntent intent =
+        AndroidIntent(action: 'action_view', data: Uri.encodeFull('http://www.mrjoke.cn/test.ppt'), package: 'cn.wps.moffice_eng');
     intent.launch();
   }
+
   void printFiles(String path) {
     try {
       var directory = new Directory(path);
@@ -164,26 +151,26 @@ class _AndroidIntentPageState extends State<AndroidIntentPage> {
   }
 
   void _requestAppDocumentsDirectory() {
-    getApplicationDocumentsDirectory().then((path){
-        setState(() {
-          dir = path.path;
-        });
+    getApplicationDocumentsDirectory().then((path) {
+      setState(() {
+        dir = path.path;
       });
+    });
   }
 
   void _requestTempDirectory() {
-      getTemporaryDirectory().then((path) {
-        setState(() {
-          dir = path.path;
-        });
+    getTemporaryDirectory().then((path) {
+      setState(() {
+        dir = path.path;
       });
+    });
   }
 
   void _requestExternalStorageDirectory() {
-      getExternalStorageDirectory().then((path) {
-        setState(() {
-          dir = path.path;
-        });
+    getExternalStorageDirectory().then((path) {
+      setState(() {
+        dir = path.path;
       });
+    });
   }
 }

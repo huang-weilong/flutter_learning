@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:charts_flutter/flutter.dart' as charts;
 
 import 'page_one/index_button_page.dart';
 import 'page_one/navigation_page.dart';
@@ -26,8 +25,9 @@ import 'page_one/index_reorderable_list_view.dart';
 import 'page_one/leav_behind_demo.dart';
 import '../test4.dart';
 import 'page_one/map_to_list.dart';
-import '../answer_page.dart';
 import 'page_one/web_socket_page.dart';
+import 'page_one/stream_page.dart';
+import 'page_one/index_gradient_page.dart';
 
 class IndexPage extends StatefulWidget {
   @override
@@ -35,8 +35,6 @@ class IndexPage extends StatefulWidget {
 }
 
 class _IndexPageState extends State<IndexPage> {
-  final List<charts.Series> seriesList = List<charts.Series>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,8 +71,8 @@ class _IndexPageState extends State<IndexPage> {
               ),
               Divider(),
               ListTile(
-                title: new Text('收起'),
-                trailing: new Icon(Icons.cancel),
+                title: Text('收起'),
+                trailing: Icon(Icons.cancel),
                 onTap: () => Navigator.of(context).pop(), //点击后收起侧边栏
               ),
               Divider(),
@@ -169,7 +167,7 @@ class _IndexPageState extends State<IndexPage> {
             ListTile(
               dense: true,
               leading: Icon(Icons.check_box_outline_blank),
-              title: Text('xx.map(xxx).toList()'),
+              title: Text('xx.map(xxx).toList()的简单使用'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => MapToList()));
               },
@@ -312,10 +310,26 @@ class _IndexPageState extends State<IndexPage> {
             ),
             ListTile(
               dense: true,
-              leading: Icon(Icons.chat_bubble_outline),
+              leading: Icon(Icons.web_asset),
               title: Text('websocket'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => WebSocketPage()));
+              },
+            ),
+            ListTile(
+              dense: true,
+              leading: Icon(Icons.streetview),
+              title: Text('stream'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => StreamPage()));
+              },
+            ),
+            ListTile(
+              dense: true,
+              leading: Icon(Icons.gradient),
+              title: Text('gradient渐变'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => IndexGradientPage()));
               },
             ),
             ListTile(
@@ -348,14 +362,6 @@ class _IndexPageState extends State<IndexPage> {
               title: Text('测试页面4'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => Test4()));
-              },
-            ),
-            ListTile(
-              dense: true,
-              leading: Icon(Icons.terrain),
-              title: Text('接听页面'),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => AnswerPage()));
               },
             ),
           ],

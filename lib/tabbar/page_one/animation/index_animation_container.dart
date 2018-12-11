@@ -13,7 +13,7 @@ class _IndexAnimationContainerState extends State<IndexAnimationContainer> {
   double height = 100.0;
   double width2 = 1.0;
   double num = 0.0;
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,20 +22,35 @@ class _IndexAnimationContainerState extends State<IndexAnimationContainer> {
         centerTitle: true,
         elevation: 0.0,
         actions: <Widget>[
-          IconButton(icon: Text('变色'), onPressed: (){
-            setState(() {
-              if (color == Colors.blue) color = Colors.red;
-              else if (color == Colors.red) color = Colors.green;
-              else color = Colors.blue;
-            });
-          }),
-          IconButton(icon: Text('宽高'), onPressed: (){
-            setState(() {
-              if (width == 100.0) { width = 300.0; height = 300.0;}
-              else if (width == 300.0) {width = 50.0; height = 200.0;}
-              else { width = 100.0; height = 50.0;}
-            });
-          },)
+          IconButton(
+              icon: Text('变色'),
+              onPressed: () {
+                setState(() {
+                  if (color == Colors.blue)
+                    color = Colors.red;
+                  else if (color == Colors.red)
+                    color = Colors.green;
+                  else
+                    color = Colors.blue;
+                });
+              }),
+          IconButton(
+            icon: Text('宽高'),
+            onPressed: () {
+              setState(() {
+                if (width == 100.0) {
+                  width = 300.0;
+                  height = 300.0;
+                } else if (width == 300.0) {
+                  width = 50.0;
+                  height = 200.0;
+                } else {
+                  width = 100.0;
+                  height = 50.0;
+                }
+              });
+            },
+          )
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -48,7 +63,7 @@ class _IndexAnimationContainerState extends State<IndexAnimationContainer> {
               setState(() {
                 num++;
               });
-              if (num >= 100.0){
+              if (num >= 100.0) {
                 timer.cancel();
               }
             });
@@ -59,7 +74,7 @@ class _IndexAnimationContainerState extends State<IndexAnimationContainer> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           AnimatedContainer(
-            duration: Duration(seconds: 1),
+            duration: Duration(milliseconds: 50),
             color: color,
             width: width,
             height: height,
@@ -67,7 +82,7 @@ class _IndexAnimationContainerState extends State<IndexAnimationContainer> {
           ),
           num == 0.0 ? Container() : Text('正在更新数据$num%'),
           AnimatedContainer(
-            duration: Duration(seconds: 3),
+            duration: Duration(milliseconds: 50),
             color: color,
             width: width2,
             height: 4.0,

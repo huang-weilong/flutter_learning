@@ -5,7 +5,7 @@ class IndexExpansionTilePage extends StatefulWidget {
   _IndexExpansionTilePageState createState() => _IndexExpansionTilePageState();
 }
 
-class _IndexExpansionTilePageState extends State<IndexExpansionTilePage> with SingleTickerProviderStateMixin{
+class _IndexExpansionTilePageState extends State<IndexExpansionTilePage> with SingleTickerProviderStateMixin {
   Animation animation;
   AnimationController animationController;
 
@@ -69,11 +69,9 @@ class _IndexExpansionTilePageState extends State<IndexExpansionTilePage> with Si
     );
   }
 
-
-
   _changeIcon(bool expand) {
     setState(() {
-      if(expand)
+      if (expand)
         animationController.forward();
       else
         animationController.reverse();

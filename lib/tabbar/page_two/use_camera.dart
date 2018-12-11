@@ -31,14 +31,6 @@ class _UseCameraState extends State<UseCamera> {
       appBar: new AppBar(
         title: new Text('Image Picker Example'),
         elevation: 0.0,
-        actions: <Widget>[
-          IconButton(icon: Text('ddd'), onPressed: (){
-            Timer.periodic(Duration(seconds: 10), (timer){
-              getCameraImage();
-              timer.cancel();
-            });
-          },)
-        ],
       ),
       body: Column(
         children: <Widget>[

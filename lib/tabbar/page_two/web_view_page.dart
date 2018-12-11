@@ -11,7 +11,7 @@ class _WebViewPageState extends State<WebViewPage> {
   @override
   Widget build(BuildContext context) {
     return WebviewScaffold(
-      url: 'https://github.com/huang-weilong',
+      url: 'https://www.baidu.com',
       appBar: AppBar(
         title: Text('GitHub:huang-weilong'),
       ),

@@ -44,9 +44,10 @@ class _EventBusPageState extends State<EventBusPage> {
       body: Center(
         child: Column(
           children: <Widget>[
+            Text('用于自定义监听的插件'),
             RaisedButton(
               child: Text('发起事件'),
-              onPressed: (){
+              onPressed: () {
                 eventBus.fire(TestEvent('abcdefg'));
                 setState(() {});
               },

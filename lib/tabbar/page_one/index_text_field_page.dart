@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class IndexTextFieldPage extends StatefulWidget {
   @override
@@ -76,8 +75,7 @@ class _IndexTextFieldPageState extends State<IndexTextFieldPage> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15.0),
 //            borderSide: BorderSide(color: Colors.red, width: 3.0, style: BorderStyle.solid)//没什么luan效果
-                      )
-                  ),
+                      )),
                 ),
               ),
               buildTextField(),
@@ -108,9 +106,7 @@ class _IndexTextFieldPageState extends State<IndexTextFieldPage> {
       alignment: Alignment.center,
       height: 60.0,
       decoration: new BoxDecoration(
-          color: Colors.blueGrey,
-          border: new Border.all(color: Colors.black54, width: 4.0),
-          borderRadius: new BorderRadius.circular(12.0)),
+          color: Colors.blueGrey, border: new Border.all(color: Colors.black54, width: 4.0), borderRadius: new BorderRadius.circular(12.0)),
       child: new TextFormField(
         decoration: InputDecoration.collapsed(hintText: '使用Container的装饰'),
       ),
