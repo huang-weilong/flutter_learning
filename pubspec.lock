@@ -77,7 +77,7 @@ packages:
       name: convert
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.0.2"
+    version: "2.1.1"
   cookie_jar:
     dependency: transitive
     description:
@@ -112,7 +112,7 @@ packages:
       name: dio
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.9"
+    version: "1.0.13"
   event_bus:
     dependency: "direct main"
     description:
@@ -120,6 +120,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.1"
+  fcharts:
+    dependency: "direct main"
+    description:
+      name: fcharts
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.10"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -154,11 +161,9 @@ packages:
   flutter_webview_plugin:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "560e58bada851617a7850c6f3fa109ed5037bca3"
-      url: "https://git.qianqiusoft.com/flutter-plugins/flutter_webview_plugin.git"
-    source: git
+      name: flutter_webview_plugin
+      url: "https://pub.flutter-io.cn"
+    source: hosted
     version: "0.3.0+2"
   fluttertoast:
     dependency: "direct main"
@@ -166,7 +171,7 @@ packages:
       name: fluttertoast
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.1.4"
+    version: "2.2.3"
   html:
     dependency: transitive
     description:
@@ -200,7 +205,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "3e68cfa3fd1f2245281cb85c0789ff45de4462a7"
+      resolved-ref: "9f71bd83375dd6756cef4a3f438267581f08210e"
       url: "https://github.com/dnfield/lottie-flutter.git"
     source: git
     version: "0.3.0"

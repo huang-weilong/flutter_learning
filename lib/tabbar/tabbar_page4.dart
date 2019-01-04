@@ -5,6 +5,9 @@ import 'page_four/index_marquee_page.dart';
 import 'page_four/click_effect_example.dart';
 import 'page_four/reorderable_list_view_dismissible.dart';
 import 'page_four/binary_conversion.dart';
+import 'page_four/carousel_images.dart';
+import 'page_four/circle_progress_demo.dart';
+import 'page_four/wave_progress_demo.dart';
 
 class TabbarPage4 extends StatelessWidget {
   @override
@@ -56,6 +59,22 @@ class TabbarPage4 extends StatelessWidget {
             title: Text('进制转换'),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) => BinaryConversion()));
+            },
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.signal_cellular_4_bar),
+            title: Text('轮播图'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => CarouselImages()));
+            },
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.signal_cellular_4_bar),
+            title: Text('圆形进度条'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => WaveProgressDemo()));
             },
           ),
         ],

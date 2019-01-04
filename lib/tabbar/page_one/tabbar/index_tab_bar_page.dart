@@ -20,11 +20,7 @@ class _IndexTabBarPageState extends State<IndexTabBarPage> {
             preferredSize: Size.fromHeight(24.0),
             child: TabBar(
 //              isScrollable: true,///每个选项卡的宽度和其标签所需的宽度一致，否则每个标签宽度一致
-              tabs: <Widget>[
-                Text('TabBar1'),
-                Text('TabBar2'),
-                Text('TabBar3')
-              ],
+              tabs: <Widget>[Text('TabBar1'), Text('TabBar2'), Text('TabBar3')],
             ),
           ),
         ),

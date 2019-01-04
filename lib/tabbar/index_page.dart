@@ -6,9 +6,8 @@ import '../test.dart';
 import 'page_one/index_text_field_page.dart';
 import 'page_one/index_dialog_page.dart';
 import 'page_one/index_images_page.dart';
-import 'page_one/index_gesture_page.dart';
 import 'package:flutter_learning/tabbar/page_four/index_timer_page.dart';
-import 'page_one/index_add_delete_widget.dart';
+import 'package:flutter_learning/tabbar/page_one/example/index_add_delete_widget.dart';
 import 'page_one/index_nested_scroll_view.dart';
 import 'page_one/index_expansion_tile_page.dart';
 import 'page_one/index_tooltip_page.dart';
@@ -20,11 +19,8 @@ import 'page_one/index_circular_progress_indicator.dart';
 import 'page_one/index_container_page.dart';
 import '../test2.dart';
 import '../test3.dart';
-import 'page_one/index_drag_page.dart';
-import 'page_one/index_reorderable_list_view.dart';
-import 'page_one/leav_behind_demo.dart';
 import '../test4.dart';
-import 'page_one/map_to_list.dart';
+import 'package:flutter_learning/tabbar/page_one/example/map_to_list.dart';
 import 'page_one/web_socket_page.dart';
 import 'page_one/stream_page.dart';
 import 'page_one/index_gradient_page.dart';
@@ -92,14 +88,6 @@ class _IndexPageState extends State<IndexPage> {
           children: <Widget>[
             ListTile(
               dense: true,
-              leading: Icon(Icons.tab),
-              title: Text('TabBar'),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => TabBarPage1()));
-              },
-            ),
-            ListTile(
-              dense: true,
               leading: Icon(Icons.check_box_outline_blank),
               title: Text('布局'),
               onTap: () {
@@ -112,6 +100,22 @@ class _IndexPageState extends State<IndexPage> {
               title: Text('动画'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => IndexAnimationPage()));
+              },
+            ),
+            ListTile(
+              dense: true,
+              leading: Icon(Icons.gesture),
+              title: Text('手势Gesture'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => IndexGesturePage()));
+              },
+            ),
+            ListTile(
+              dense: true,
+              leading: Icon(Icons.gesture),
+              title: Text('绘制painter'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => IndexPainterPage()));
               },
             ),
             ListTile(
@@ -167,14 +171,6 @@ class _IndexPageState extends State<IndexPage> {
             ListTile(
               dense: true,
               leading: Icon(Icons.check_box_outline_blank),
-              title: Text('xx.map(xxx).toList()的简单使用'),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => MapToList()));
-              },
-            ),
-            ListTile(
-              dense: true,
-              leading: Icon(Icons.check_box_outline_blank),
               title: Text('Container'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => IndexContainerPage()));
@@ -202,46 +198,6 @@ class _IndexPageState extends State<IndexPage> {
               title: Text('图片Images'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => IndexImagesPage()));
-              },
-            ),
-            ListTile(
-              dense: true,
-              leading: Icon(Icons.gesture),
-              title: Text('手势Gesture'),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => IndexGesturePage()));
-              },
-            ),
-            ListTile(
-              dense: true,
-              leading: Icon(Icons.gesture),
-              title: Text('drag拖拽'),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => IndexDragPage()));
-              },
-            ),
-            ListTile(
-              dense: true,
-              leading: Icon(Icons.gesture),
-              title: Text('ReorderableListView拖拽'),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => IndexReorderableListView()));
-              },
-            ),
-            ListTile(
-              dense: true,
-              leading: Icon(Icons.gesture),
-              title: Text('滑动删除'),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => LeaveBehindDemo()));
-              },
-            ),
-            ListTile(
-              dense: true,
-              leading: Icon(Icons.add),
-              title: Text('添加、删除元素'),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => IndexAddDeleteWidget()));
               },
             ),
             ListTile(
@@ -334,8 +290,16 @@ class _IndexPageState extends State<IndexPage> {
             ),
             ListTile(
               dense: true,
+              leading: Icon(Icons.assistant_photo),
+              title: Text('一些方法的使用'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => ExamplePage()));
+              },
+            ),
+            ListTile(
+              dense: true,
               leading: Icon(Icons.terrain),
-              title: Text('测试页面'),
+              title: Text('测试页面1'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => DragPage()));
               },
@@ -353,7 +317,7 @@ class _IndexPageState extends State<IndexPage> {
               leading: Icon(Icons.terrain),
               title: Text('测试页面3'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => DraggableGridViewDemo()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => Test3()));
               },
             ),
             ListTile(

@@ -16,7 +16,7 @@ class _DragPageState extends State<DragPage> {
           elevation: 0.0,
         ),
         body: Center(
-          child: Text('暂无测试内容'),
+          child: Text('无'),
         ));
   }
 }

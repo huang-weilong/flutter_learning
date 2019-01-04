@@ -17,6 +17,7 @@ import 'page_two/event_bus_page.dart';
 import 'page_two/web_view_page.dart';
 import 'page_two/dio_page.dart';
 import 'page_two/web_socket_channel_page.dart';
+import 'page_two/fcharts_page.dart';
 
 class TabbarPage2 extends StatefulWidget {
   @override
@@ -48,6 +49,14 @@ class _TabbarPage2State extends State<TabbarPage2> {
             title: Text('图表'),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) => ChartsPage()));
+            },
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.insert_chart),
+            title: Text('fchart图表'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => FChartsPage()));
             },
           ),
           ListTile(

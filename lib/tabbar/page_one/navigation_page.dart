@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 
+import 'gesture/index_drag_page.dart';
+import 'gesture/index_gesture_page.dart';
+import 'gesture/index_reorderable_list_view.dart';
+import 'gesture/leav_behind_demo.dart';
+
+import 'example/map_to_list.dart';
+import 'example/index_add_delete_widget.dart';
+
 import 'layout/listview_layout.dart';
 import 'layout/gridview_layout.dart';
 import 'layout/row_layout.dart';
@@ -18,6 +26,10 @@ import 'animation/index_scale_transition.dart';
 import 'animation/index_rotation_transition.dart';
 import 'animation/index_size_transition.dart';
 import 'animation/index_fade_transition.dart';
+
+import 'painter/draw_line.dart';
+import 'painter/draw_circle.dart';
+import 'painter/draw_rect.dart';
 
 /// 布局
 class IndexLayoutPage extends StatelessWidget {
@@ -72,50 +84,32 @@ class IndexLayoutPage extends StatelessWidget {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => WrapLayout()));
               },
             ),
+            ListTile(
+              dense: true,
+              leading: Icon(Icons.tab),
+              title: Text('TabBar1'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => IndexTabBarViewPage()));
+              },
+            ),
+            ListTile(
+              dense: true,
+              leading: Icon(Icons.tab),
+              title: Text('TabBar2'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => IndexTabBarPage()));
+              },
+            ),
+            ListTile(
+              dense: true,
+              leading: Icon(Icons.tab),
+              title: Text('TabBar显示表情'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => IndexTabBarShowEmotions()));
+              },
+            ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-/// TabBar
-class TabBarPage1 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('TabBar'),
-        centerTitle: true,
-        elevation: 0.0,
-      ),
-      body: ListView(
-        children: <Widget>[
-          ListTile(
-            dense: true,
-            leading: Icon(Icons.tab),
-            title: Text('TabBar1'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => IndexTabBarViewPage()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            leading: Icon(Icons.tab),
-            title: Text('TabBar2'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => IndexTabBarPage()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            leading: Icon(Icons.tab),
-            title: Text('TabBar显示表情'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => IndexTabBarShowEmotions()));
-            },
-          ),
-        ],
       ),
     );
   }
@@ -204,6 +198,132 @@ class IndexAnimationPage extends StatelessWidget {
             subtitle: Text('透明度动画'),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) => IndexFadeTransition()));
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// 手势
+class IndexGesturePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('手势'),
+        elevation: 0.0,
+        centerTitle: true,
+      ),
+      body: ListView(
+        children: <Widget>[
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.gesture),
+            title: Text('手势Gesture'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => GesturePage()));
+            },
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.gesture),
+            title: Text('drag拖拽'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => IndexDragPage()));
+            },
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.gesture),
+            title: Text('ReorderableListView拖拽'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => IndexReorderableListView()));
+            },
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.gesture),
+            title: Text('滑动删除'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => LeaveBehindDemo()));
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// painter
+class IndexPainterPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('painter'),
+        centerTitle: true,
+        elevation: 0.0,
+      ),
+      body: ListView(
+        children: <Widget>[
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.line_weight),
+            title: Text('画线'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => DrawLine()));
+            },
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.pie_chart_outlined),
+            title: Text('画圆、画弧'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => DrawCircle()));
+            },
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.check_box_outline_blank),
+            title: Text('画矩形、多边形'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => DrawRect()));
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// 一些方法的简单使用
+class ExamplePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('一些方法的使用'),
+        elevation: 0.0,
+        centerTitle: true,
+      ),
+      body: ListView(
+        children: <Widget>[
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.check_box_outline_blank),
+            title: Text('xx.map(xxx).toList()的简单使用'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => MapToList()));
+            },
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.add),
+            title: Text('添加、删除元素'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => IndexAddDeleteWidget()));
             },
           ),
         ],

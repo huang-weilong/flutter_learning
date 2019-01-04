@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class IndexGesturePage extends StatefulWidget {
+class GesturePage extends StatefulWidget {
   @override
-  _IndexGesturePageState createState() => _IndexGesturePageState();
+  _GesturePageState createState() => _GesturePageState();
 }
 
-class _IndexGesturePageState extends State<IndexGesturePage> {
+class _GesturePageState extends State<GesturePage> {
   String text1 = '';
   String text2 = '';
   String tips = '';
