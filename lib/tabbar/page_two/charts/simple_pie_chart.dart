@@ -28,7 +28,7 @@ class _SimplePieChartState extends State<SimplePieChart> {
       body: charts.PieChart(seriesList, animate: animate),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.refresh),
-        onPressed: (){
+        onPressed: () {
           setState(() {
             seriesList = _createRandomData();
           });
@@ -73,8 +73,8 @@ class _SimplePieChartState extends State<SimplePieChart> {
 //        colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
         domainFn: (LinearSales sales, _) => sales.year,
         measureFn: (LinearSales sales, _) => sales.sales,
-        colorFn: (LinearSales s,_)=>s.color,
-        fillColorFn: (LinearSales sales, _) =>charts.Color.black,
+        colorFn: (LinearSales s, _) => s.color,
+        fillColorFn: (LinearSales sales, _) => charts.Color.black,
         data: data,
       )
     ];

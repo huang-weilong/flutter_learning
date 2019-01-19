@@ -309,7 +309,7 @@ class _IndexPageState extends State<IndexPage> {
               leading: Icon(Icons.terrain),
               title: Text('测试页面2'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => Test2()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => HandleSQLiteDataWidget()));
               },
             ),
             ListTile(

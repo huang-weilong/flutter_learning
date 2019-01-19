@@ -18,6 +18,7 @@ import 'page_two/web_view_page.dart';
 import 'page_two/dio_page.dart';
 import 'page_two/web_socket_channel_page.dart';
 import 'page_two/fcharts_page.dart';
+import 'page_two/sqflite_page.dart';
 
 class TabbarPage2 extends StatefulWidget {
   @override
@@ -153,6 +154,14 @@ class _TabbarPage2State extends State<TabbarPage2> {
             title: Text('websocket channel'),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) => WebSocketChannelPage()));
+            },
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.web),
+            title: Text('sqflite'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => SqflitePage()));
             },
           ),
 //          ListTile(

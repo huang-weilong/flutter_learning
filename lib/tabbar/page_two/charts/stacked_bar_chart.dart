@@ -10,7 +10,7 @@ class StackedBarChart extends StatefulWidget {
 class _StackedBarChartState extends State<StackedBarChart> {
   List<charts.Series> seriesList;
   bool animate;
-  
+
   @override
   void initState() {
     // TODO: implement initState
@@ -45,7 +45,7 @@ class _StackedBarChartState extends State<StackedBarChart> {
   /// Create series list with multiple series
   List<charts.Series<OrdinalSales, String>> _createRandomData() {
     final random = Random();
-    
+
     final desktopSalesData = [
       OrdinalSales('2014', random.nextInt(100)),
       OrdinalSales('2015', random.nextInt(100)),
@@ -73,18 +73,24 @@ class _StackedBarChartState extends State<StackedBarChart> {
         domainFn: (OrdinalSales sales, _) => sales.year,
         measureFn: (OrdinalSales sales, _) => sales.sales,
         data: desktopSalesData,
+        // 填充的颜色
+//        fillColorFn: (OrdinalSales sales, _) => charts.Color.fromHex(code: '#ffa0ee'),
+        // 有选中效果的颜色
+        colorFn: (OrdinalSales sales, _) => charts.Color.fromHex(code: '#ffa0ee'),
       ),
       charts.Series<OrdinalSales, String>(
         id: 'Tablet',
         domainFn: (OrdinalSales sales, _) => sales.year,
         measureFn: (OrdinalSales sales, _) => sales.sales,
-        fillColorFn: (OrdinalSales sales, _) =>charts.Color.fromHex(code: '#3df5a4'),
+//        fillColorFn: (OrdinalSales sales, _) => charts.Color.fromHex(code: '#3df5a4'),
+        colorFn: (OrdinalSales sales, _) => charts.Color.fromHex(code: '#3df5a4'),
         data: tableSalesData,
       ),
       charts.Series<OrdinalSales, String>(
         id: 'Mobile',
         domainFn: (OrdinalSales sales, _) => sales.year,
         measureFn: (OrdinalSales sales, _) => sales.sales,
+        colorFn: (OrdinalSales sales, _) => charts.Color.fromHex(code: '#adf124'),
         data: mobileSalesData,
       ),
     ];
