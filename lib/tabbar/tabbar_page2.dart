@@ -158,8 +158,8 @@ class _TabbarPage2State extends State<TabbarPage2> {
           ),
           ListTile(
             dense: true,
-            leading: Icon(Icons.web),
-            title: Text('sqflite'),
+            leading: Icon(Icons.games),
+            title: Text('sqflite数据库'),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) => SqflitePage()));
             },

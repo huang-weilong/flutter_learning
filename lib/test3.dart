@@ -1,4 +1,10 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:crypto/crypto.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 
 class Test3 extends StatefulWidget {
   @override
@@ -6,150 +12,63 @@ class Test3 extends StatefulWidget {
 }
 
 class _Test3State extends State<Test3> {
-  bool flag = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: <Widget>[
-          IconButton(
+        appBar: AppBar(
+          actions: <Widget>[
+            IconButton(
               icon: Icon(Icons.add),
-              onPressed: () {
-//                ModalRoute.of(context);
-
-                setState(() {
-                  flag = !flag;
-                });
-              })
-        ],
-      ),
-      body: Stack(
-        children: <Widget>[
-          SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                Text(
-                  'ddddd',
-                  style: TextStyle(fontSize: 30.0),
-                ),
-                Text(
-                  'ddddd',
-                  style: TextStyle(fontSize: 30.0),
-                ),
-                Text(
-                  'ddddd',
-                  style: TextStyle(fontSize: 30.0),
-                ),
-                Text(
-                  'ddddd',
-                  style: TextStyle(fontSize: 30.0),
-                ),
-                Text(
-                  'ddddd',
-                  style: TextStyle(fontSize: 30.0),
-                ),
-                Text(
-                  'ddddd',
-                  style: TextStyle(fontSize: 30.0),
-                ),
-                Text(
-                  'ddddd',
-                  style: TextStyle(fontSize: 30.0),
-                ),
-                Text(
-                  'ddddd',
-                  style: TextStyle(fontSize: 30.0),
-                ),
-                Text(
-                  'ddddd',
-                  style: TextStyle(fontSize: 30.0),
-                ),
-                Text(
-                  'ddddd',
-                  style: TextStyle(fontSize: 30.0),
-                ),
-                Text(
-                  'ddddd',
-                  style: TextStyle(fontSize: 30.0),
-                ),
-                Text(
-                  'ddddd',
-                  style: TextStyle(fontSize: 30.0),
-                ),
-                Text(
-                  'ddddd',
-                  style: TextStyle(fontSize: 30.0),
-                ),
-                Text(
-                  'ddddd',
-                  style: TextStyle(fontSize: 30.0),
-                ),
-                Text(
-                  'ddddd',
-                  style: TextStyle(fontSize: 30.0),
-                ),
-                Text(
-                  'ddddd',
-                  style: TextStyle(fontSize: 30.0),
-                ),
-                Text(
-                  'ddddd',
-                  style: TextStyle(fontSize: 30.0),
-                ),
-                Text(
-                  'ddddd',
-                  style: TextStyle(fontSize: 30.0),
-                ),
-              ],
-            ),
+              onPressed: () async {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return ShowDialogPage();
+                  },
+                );
+              },
+            )
+          ],
+        ),
+        body: Center(
+          child: RaisedButton(
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                builder: (BuildContext context) {
+                  return ShowDialogPage();
+                },
+              );
+            },
+            child: Text('弹窗'),
           ),
-          flag
-              ? Column(
-                  children: <Widget>[
-                    Expanded(child: Container()),
-                    Stack(
-                      children: <Widget>[
-                        Container(
-                          color: Colors.red,
-                          height: 400.0,
-                          width: MediaQuery.of(context).size.width,
-                        ),
-                        Positioned(
-                          top: -20.0,
-                          child: Container(
-                            color: Colors.green,
-                            height: 30.0,
-                            width: 30.0,
-                          ),
-                        )
-                      ],
-                    )
-                  ],
-                )
-              : Container(),
-        ],
-      ),
-    );
+        ));
   }
 }
 
-class TTT extends StatefulWidget {
+class ShowDialogPage extends StatefulWidget {
   @override
-  _TTTState createState() => _TTTState();
+  _ShowDialogPageState createState() => _ShowDialogPageState();
 }
 
-class _TTTState extends State<TTT> {
+class _ShowDialogPageState extends State<ShowDialogPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: Column(
+    return Material(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
-            color: Colors.red,
-            height: 100.0,
-            width: 100.0,
+            decoration: BoxDecoration(border: Border(bottom: BorderSide(width: 0.5, color: Colors.grey.withOpacity(0.5)))),
+            child: TextField(
+              style: TextStyle(fontSize: 14.0, color: Colors.black),
+              decoration: InputDecoration(
+                isDense: true,
+                hintText: '请输入内容...',
+                contentPadding: EdgeInsets.symmetric(vertical: 4.0),
+                border: InputBorder.none,
+              ),
+            ),
           ),
         ],
       ),

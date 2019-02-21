@@ -11,6 +11,7 @@ import 'charts/stacked_bar_chart.dart';
 import 'charts/grouped_stacked_bar_chart.dart';
 import 'charts/donut_pie_chart.dart';
 import 'charts/custom_xaxis_label.dart';
+import 'charts/ordinal_combo_chart_page.dart';
 
 class ChartsPage extends StatelessWidget {
   @override
@@ -85,6 +86,13 @@ class ChartsPage extends StatelessWidget {
               title: Text('带点的折线图'),
               onTap: () {
                 Navigator.push(context, CupertinoPageRoute(builder: (_) => PointsLineChart()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.show_chart),
+              title: Text('带点的折线图string横坐标'),
+              onTap: () {
+                Navigator.push(context, CupertinoPageRoute(builder: (_) => OrdinalComboChartPage()));
               },
             ),
             ListTile(

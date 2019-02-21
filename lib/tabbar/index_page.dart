@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'page_one/index_button_page.dart';
 import 'page_one/navigation_page.dart';
@@ -24,6 +26,7 @@ import 'package:flutter_learning/tabbar/page_one/example/map_to_list.dart';
 import 'page_one/web_socket_page.dart';
 import 'page_one/stream_page.dart';
 import 'page_one/index_gradient_page.dart';
+import '../login_page.dart';
 
 class IndexPage extends StatefulWidget {
   @override
@@ -31,6 +34,34 @@ class IndexPage extends StatefulWidget {
 }
 
 class _IndexPageState extends State<IndexPage> {
+  bool flag = false;
+
+  @override
+  void initState() {
+    super.initState();
+    loadUserInfo();
+  }
+
+  loadUserInfo() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String username = await prefs.get('username') ?? '';
+    String password = await prefs.get('password') ?? '';
+    if (username == 'long' && password == '123456') {
+      setState(() {
+        flag = true;
+      });
+    }
+  }
+
+  logout() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('username', '');
+    await prefs.setString('password', '');
+    setState(() {
+      flag = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,12 +74,20 @@ class _IndexPageState extends State<IndexPage> {
           child: ListView(
             children: <Widget>[
 //            DrawerHeader(child: Text('dsa'),),//可以使用这个自定义抽屉头部
-              UserAccountsDrawerHeader(
-                  accountName: Text('long'),
-                  accountEmail: Text('550456817@qq.com'),
+              GestureDetector(
+                onTap: () {
+                  if (!flag) {
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => LoginPage())).then((result) {});
+                  }
+                },
+                child: UserAccountsDrawerHeader(
+                  accountName: Text(flag ? 'long' : '登录'),
+                  accountEmail: Text(flag ? '550456817@qq.com' : ''),
                   currentAccountPicture: ClipOval(
-                    child: Image.asset('assets/images/long.jpg'),
-                  )),
+                    child: Image.asset(flag ? 'assets/images/long.jpg' : 'assets/images/img.jpg'),
+                  ),
+                ),
+              ),
               ListTile(
                 title: Text('布局'),
                 trailing: Icon(Icons.brightness_1),
@@ -72,6 +111,40 @@ class _IndexPageState extends State<IndexPage> {
                 onTap: () => Navigator.of(context).pop(), //点击后收起侧边栏
               ),
               Divider(),
+              flag
+                  ? ListTile(
+                      title: Text('退出登录'),
+                      trailing: Icon(Icons.cancel),
+                      onTap: () {
+                        showCupertinoDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return CupertinoAlertDialog(
+                                title: Text('Logout'),
+                                content: Text('确认退出？'),
+                                actions: <Widget>[
+                                  CupertinoDialogAction(
+                                    child: Text('确认'),
+                                    isDestructiveAction: true, //颜色变红(删除、取消的意思）
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                      logout();
+                                    },
+                                  ),
+                                  CupertinoDialogAction(
+                                    child: Text('取消'),
+                                    isDefaultAction: true, //内容加粗
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                  )
+                                ],
+                              );
+                            });
+                      }, //点击后收起侧边栏
+                    )
+                  : Container(),
+              flag ? Divider() : Container(),
               AboutListTile(
                 icon: Icon(Icons.beach_access),
                 child: Text('关于'),

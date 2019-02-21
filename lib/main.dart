@@ -49,10 +49,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class App {
-  static final GlobalKey<_MyHomePageState> appStateKey = new GlobalKey<_MyHomePageState>();
-}
-
 class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
