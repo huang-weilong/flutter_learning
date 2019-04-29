@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_learning/tabbar/page_four/refresh_and_loading.dart';
 
 import 'page_four/index_timer_page.dart';
 import 'page_four/index_marquee_page.dart';
@@ -93,6 +94,14 @@ class TabbarPage4 extends StatelessWidget {
             title: Text('时间选择器'),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) => DatePickExample()));
+            },
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.signal_cellular_4_bar),
+            title: Text('上拉加载 下拉刷新'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => RefreshAndLoading()));
             },
           ),
         ],
