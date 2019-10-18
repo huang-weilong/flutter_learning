@@ -17,9 +17,11 @@ class _SlideDeletePageState extends State<SlideDeletePage> {
         centerTitle: true,
         elevation: 0.0,
         actions: <Widget>[
-          IconButton(icon: Text('新增'), onPressed: (){
-            addList();
-          })
+          IconButton(
+              icon: Text('新增'),
+              onPressed: () {
+                addList();
+              })
         ],
       ),
       body: ListView.builder(
@@ -39,7 +41,6 @@ class _SlideDeletePageState extends State<SlideDeletePage> {
 
   Widget _buildSlideItem(int index) {
     return Slidable(
-      delegate: SlidableDrawerDelegate(),
       actionExtentRatio: 0.20,
       child: Container(
         color: Colors.white,
@@ -79,6 +80,7 @@ class _SlideDeletePageState extends State<SlideDeletePage> {
           },
         ),
       ],
+      actionPane: Text('test'),
     );
   }
 }

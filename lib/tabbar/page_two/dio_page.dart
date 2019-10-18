@@ -35,7 +35,7 @@ class _DioPageState extends State<DioPage> {
     try {
       String url = 'url地址';
       Options options = Options(headers: {'Authorization': '请求头的一些数据'});
-      Response response = await Dio(options).get(url, data: {
+      Response response = await Dio().get(url, options: options, queryParameters: {
         'sidx': '地址中 ? 后的一些参数如果没有可以删除 data直接使用url',
         'sord': 'desc',
       });

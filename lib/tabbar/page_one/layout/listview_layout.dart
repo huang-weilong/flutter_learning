@@ -6,19 +6,19 @@ class ListViewLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('一个ListView'),
-        centerTitle: true,
-        elevation: 0.0,
-      ),
-      body: ListView.builder(
-        itemCount: items.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text('I\'m ${items[index]}'),
-          );
-        },
-      )
-    );
+        appBar: AppBar(
+          title: Text('一个ListView'),
+          centerTitle: true,
+          elevation: 0.0,
+        ),
+        body: ListView.builder(
+          physics: BouncingScrollPhysics(), // 回弹效果
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Text('I\'m ${items[index]}'),
+            );
+          },
+        ));
   }
 }

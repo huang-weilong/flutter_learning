@@ -81,7 +81,7 @@ class _TabbarPage2State extends State<TabbarPage2> {
             leading: Icon(Icons.account_balance),
             title: Text('使用Lottie json展示动画'),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => LottieJsonAnimation()));
+//              Navigator.push(context, MaterialPageRoute(builder: (_) => LottieJsonAnimation()));
             },
           ),
           ListTile(

@@ -37,12 +37,14 @@ class _ReorderableListViewDismissibleState extends State<ReorderableListViewDism
           centerTitle: true,
           elevation: 0.0,
           actions: <Widget>[
-            IconButton(icon: Text('添加'), onPressed: (){
-              setState(() {
-                leaveBehindItems.add(LeaveBehindItem(index: index,name: '第 $index 项'));
-                index++;
-              });
-            })
+            IconButton(
+                icon: Text('添加'),
+                onPressed: () {
+                  setState(() {
+                    leaveBehindItems.add(LeaveBehindItem(index: index, name: '第 $index 项'));
+                    index++;
+                  });
+                })
           ],
         ),
         /** Scrollbar 显示滚动条*/
@@ -57,16 +59,15 @@ class _ReorderableListViewDismissibleState extends State<ReorderableListViewDism
 
   Widget buildListTile(LeaveBehindItem item) {
     return Dismissible(
-      key: Key('A${item.index}'),
-      onDismissed: (DismissDirection direction) {
-        _handleDelete(item);
-      },
-      background: Text('删除'),
-      child: ListTile(
-        leading: Icon(Icons.accessibility),
-        title: Text('${item.name}'),
-      )
-    );
+        key: Key('A${item.index}'),
+        onDismissed: (DismissDirection direction) {
+          _handleDelete(item);
+        },
+        background: Text('删除'),
+        child: ListTile(
+          leading: Icon(Icons.accessibility),
+          title: Text('${item.name}'),
+        ));
   }
 
   // 拖动排序的方法
