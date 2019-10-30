@@ -8,6 +8,7 @@ import 'gesture/leav_behind_demo.dart';
 import 'example/map_to_list.dart';
 import 'example/index_add_delete_widget.dart';
 
+import 'layout/custom_scroll_view_layout.dart';
 import 'layout/listview_layout.dart';
 import 'layout/gridview_layout.dart';
 import 'layout/row_layout.dart';
@@ -106,6 +107,14 @@ class IndexLayoutPage extends StatelessWidget {
               title: Text('TabBar显示表情'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => IndexTabBarShowEmotions()));
+              },
+            ),
+            ListTile(
+              dense: true,
+              leading: Icon(Icons.tab),
+              title: Text('CustomScrollView布局'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => CustomScrollViewLayout()));
               },
             ),
           ],
