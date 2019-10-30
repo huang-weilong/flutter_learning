@@ -12,65 +12,58 @@ class Test3 extends StatefulWidget {
 }
 
 class _Test3State extends State<Test3> {
+  bool isShow = false;
+  GlobalObjectKey key = GlobalObjectKey('dd');
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           actions: <Widget>[
             IconButton(
-              icon: Icon(Icons.add),
-              onPressed: () async {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return ShowDialogPage();
-                  },
-                );
-              },
-            )
+                icon: Icon(Icons.ac_unit),
+                onPressed: () {
+                  setState(() {
+                    isShow = !isShow;
+                  });
+                }),
           ],
         ),
-        body: Center(
-          child: RaisedButton(
-            onPressed: () {
-              showModalBottomSheet(
-                context: context,
-                builder: (BuildContext context) {
-                  return ShowDialogPage();
-                },
-              );
-            },
-            child: Text('弹窗'),
-          ),
-        ));
-  }
-}
-
-class ShowDialogPage extends StatefulWidget {
-  @override
-  _ShowDialogPageState createState() => _ShowDialogPageState();
-}
-
-class _ShowDialogPageState extends State<ShowDialogPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Container(
-            decoration: BoxDecoration(border: Border(bottom: BorderSide(width: 0.5, color: Colors.grey.withOpacity(0.5)))),
-            child: TextField(
-              style: TextStyle(fontSize: 14.0, color: Colors.black),
-              decoration: InputDecoration(
-                isDense: true,
-                hintText: '请输入内容...',
-                contentPadding: EdgeInsets.symmetric(vertical: 4.0),
-                border: InputBorder.none,
+        body: ListView(
+          children: <Widget>[
+            Offstage(
+              offstage: isShow,
+              child: Container(
+                width: 100.0,
+                height: 500.0,
+                color: Colors.grey,
               ),
             ),
-          ),
-        ],
+            Container(
+              width: 100.0,
+              height: 500.0,
+              color: Colors.orange,
+            ),
+            Container(
+              width: 100.0,
+              height: 500.0,
+              color: Colors.blue,
+            ),
+          ],
+        ));
+  }
+
+  Widget _test() {
+    return IgnorePointer(
+      key: key,
+      ignoring: isShow,
+      child: Opacity(
+        opacity: 0.0,
+        child: Container(
+          width: 100.0,
+          height: 300.0,
+          color: Colors.grey,
+        ),
       ),
     );
   }

@@ -1,4 +1,4 @@
-package com.huangweilong.flutterlearning;
+package com.huangweilong.flutter_learning;
 
 import android.os.Build;
 import android.os.Bundle;
