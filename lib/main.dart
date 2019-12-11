@@ -72,10 +72,16 @@ class _MyHomePageState extends State<MyHomePage> {
         if (flag == 2) {
           SystemNavigator.pop();
         }
+        return;
       },
       child: Scaffold(
         body: PageView(
-          children: <Widget>[IndexPage(), TabbarPage2(), TabbarPage3(), TabbarPage4()],
+          children: <Widget>[
+            IndexPage(),
+            TabbarPage2(),
+            TabbarPage3(),
+            TabbarPage4(),
+          ],
           controller: pageController,
           onPageChanged: onPageChanged,
         ),

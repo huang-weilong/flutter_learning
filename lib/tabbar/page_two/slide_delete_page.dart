@@ -20,7 +20,9 @@ class _SlideDeletePageState extends State<SlideDeletePage> {
           IconButton(
               icon: Text('新增'),
               onPressed: () {
-                addList();
+                setState(() {
+                  list.add('test${list.length}');
+                });
               })
         ],
       ),
@@ -31,12 +33,6 @@ class _SlideDeletePageState extends State<SlideDeletePage> {
         },
       ),
     );
-  }
-
-  addList() {
-    setState(() {
-      list.add('test${list.length}');
-    });
   }
 
   Widget _buildSlideItem(int index) {
@@ -54,7 +50,7 @@ class _SlideDeletePageState extends State<SlideDeletePage> {
           subtitle: Text('小标题'),
         ),
       ),
-//      closeOnScroll: false,
+      closeOnScroll: true,
       actions: <Widget>[
         IconSlideAction(
           caption: 'Delete',
@@ -80,7 +76,7 @@ class _SlideDeletePageState extends State<SlideDeletePage> {
           },
         ),
       ],
-      actionPane: Text('test'),
+      actionPane: SlidableDrawerActionPane(),
     );
   }
 }
