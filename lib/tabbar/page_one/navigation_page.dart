@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_learning/tabbar/page_one/nested/index_nested2_page.dart';
+import 'package:flutter_learning/tabbar/page_one/nested/index_nested_scroll_view.dart';
 
 import 'gesture/index_drag_page.dart';
 import 'gesture/index_gesture_page.dart';
@@ -299,6 +301,39 @@ class IndexPainterPage extends StatelessWidget {
             title: Text('画矩形、多边形'),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) => DrawRect()));
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class NestedPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('一些方法的使用'),
+        elevation: 0.0,
+        centerTitle: true,
+      ),
+      body: ListView(
+        children: <Widget>[
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.check_box_outline_blank),
+            title: Text('nested1'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => IndexNestedScrollView()));
+            },
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.check_box_outline_blank),
+            title: Text('nested2'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => IndexNested2Page()));
             },
           ),
         ],

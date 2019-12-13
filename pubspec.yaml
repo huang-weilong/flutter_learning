@@ -28,6 +28,7 @@ dependencies:
   fcharts: ^0.0.10
   sqflite: ^1.1.7+1
   qr_flutter: ^3.1.0
+#  syncfusion_flutter_charts: ^17.3.26
 #  video_player: ^0.7.2
 
 #  custom_chewie:

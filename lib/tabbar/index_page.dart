@@ -10,7 +10,7 @@ import 'page_one/index_dialog_page.dart';
 import 'page_one/index_images_page.dart';
 import 'package:flutter_learning/tabbar/page_four/index_timer_page.dart';
 import 'package:flutter_learning/tabbar/page_one/example/index_add_delete_widget.dart';
-import 'page_one/index_nested_scroll_view.dart';
+import 'page_one/nested/index_nested_scroll_view.dart';
 import 'page_one/index_expansion_tile_page.dart';
 import 'page_one/index_tooltip_page.dart';
 import 'page_one/index_sliders_page.dart';
@@ -278,7 +278,7 @@ class _IndexPageState extends State<IndexPage> {
               leading: Icon(Icons.signal_cellular_4_bar),
               title: Text('NestedScrollView'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => IndexNestedScrollView()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => NestedPage()));
               },
             ),
             ListTile(
@@ -374,7 +374,7 @@ class _IndexPageState extends State<IndexPage> {
               leading: Icon(Icons.terrain),
               title: Text('测试页面1'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => DragPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => TabsDemo()));
               },
             ),
             ListTile(

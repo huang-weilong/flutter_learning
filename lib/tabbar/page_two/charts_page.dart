@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_learning/tabbar/page_two/charts/test_chart.dart';
 
 import 'charts/simple_bar_chart.dart';
 import 'charts/grouped_bar_chart.dart';
@@ -100,6 +101,13 @@ class ChartsPage extends StatelessWidget {
               title: Text('自定义横坐标'),
               onTap: () {
                 Navigator.push(context, CupertinoPageRoute(builder: (_) => SlidingViewportOnSelection.withRandomData()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.show_chart),
+              title: Text('测试'),
+              onTap: () {
+                Navigator.push(context, CupertinoPageRoute(builder: (_) => TestChart()));
               },
             )
           ],

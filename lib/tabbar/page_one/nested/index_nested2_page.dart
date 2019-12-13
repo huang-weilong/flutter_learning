@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class TabsDemo extends StatelessWidget {
+class IndexNested2Page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,24 +11,23 @@ class TabsDemo extends StatelessWidget {
               handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
               child: SliverAppBar(
                 pinned: true,
-                expandedHeight: 300.0,
-                // 这个高度必须比flexibleSpace高度大
+                expandedHeight: 300.0, // 这个高度必须比flexibleSpace高度大
                 forceElevated: innerBoxIsScrolled,
                 bottom: PreferredSize(
-                    child: Container(
-                      height: 46.0,
-                      padding: EdgeInsets.symmetric(vertical: 10.0),
-                      alignment: Alignment.center,
-                      child: Text('滑动时固定的内容'),
-                      color: Colors.redAccent[200],
-                    ),
-                    preferredSize: Size(double.infinity, 46.0)),
+                  child: Container(
+                    height: 46.0,
+                    padding: EdgeInsets.symmetric(vertical: 10.0),
+                    alignment: Alignment.center,
+                    child: Text('滑动时固定的内容'),
+                    color: Colors.redAccent[200],
+                  ),
+                  preferredSize: Size(double.infinity, 46.0),
+                ),
                 // 46.0为TabBar的高度，也就是tabs.dart中的_kTabHeight值，因为flutter不支持反射所以暂时没法通过代码获取
                 flexibleSpace: Container(
                   child: Column(
                     children: <Widget>[
-                      AppBar(title: Text("this is title")),
-                      Text('日历部分放在这个Column里布局'),
+                      AppBar(title: Text("标题Appbar")),
                       Expanded(child: Image.asset("assets/images/img.jpg")),
                     ],
                   ),
