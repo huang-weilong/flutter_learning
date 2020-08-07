@@ -9,7 +9,7 @@ class TabsDemo extends StatelessWidget {
           return <Widget>[
             SliverOverlapAbsorber(
               handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-              child: SliverAppBar(
+              sliver: SliverAppBar(
                 pinned: true,
                 expandedHeight: 300.0,
                 // 这个高度必须比flexibleSpace高度大

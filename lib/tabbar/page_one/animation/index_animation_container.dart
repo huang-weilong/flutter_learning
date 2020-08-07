@@ -74,7 +74,7 @@ class _IndexAnimationContainerState extends State<IndexAnimationContainer> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           AnimatedContainer(
-            duration: Duration(milliseconds: 50),
+            duration: Duration(milliseconds: 550),
             color: color,
             width: width,
             height: height,
@@ -82,7 +82,7 @@ class _IndexAnimationContainerState extends State<IndexAnimationContainer> {
           ),
           num == 0.0 ? Container() : Text('正在更新数据$num%'),
           AnimatedContainer(
-            duration: Duration(milliseconds: 50),
+            duration: Duration(milliseconds: 2800),
             color: color,
             width: width2,
             height: 4.0,

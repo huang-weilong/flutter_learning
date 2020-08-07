@@ -14,10 +14,10 @@ class _IndexTextFieldPageState extends State<IndexTextFieldPage> {
     // TODO: implement initState
     super.initState();
     controller.addListener(() {
-      print('===================123');
+      print('--------------${controller.text}');
     });
     focusNode.addListener(() {
-      print('==================456');
+      print('==================${controller.text}');
     });
   }
 

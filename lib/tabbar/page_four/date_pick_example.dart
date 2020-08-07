@@ -30,7 +30,7 @@ class _DatePickExampleState extends State<DatePickExample> {
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
-                    return DatePick(title: '选择时间', time: date, dateType: DateType.date);
+                    return DatePick(title: '选择时间', time: date, dateType: DateType.yyyyMMdd);
                   },
                 ).then((result) {
                   if (result != null) {
@@ -47,7 +47,7 @@ class _DatePickExampleState extends State<DatePickExample> {
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
-                    return DatePick(title: '选择时间', time: time, dateType: DateType.time);
+                    return DatePick(title: '选择时间', time: time, dateType: DateType.HHmmss);
                   },
                 ).then((result) {
                   if (result != null) {

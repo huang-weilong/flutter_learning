@@ -39,13 +39,12 @@ class _IndexDragPageState extends State<IndexDragPage> {
                 builder: (BuildContext context, List<int> data, List<dynamic> rejects) {
                   return Card(
                       child: Column(
-                        children: <Widget>[
-                          ListTile(leading: Icon(Icons.photo), title: Text(rows[index])),
-
-                        ],
-                      ));
+                    children: <Widget>[
+                      ListTile(leading: Icon(Icons.photo), title: Text(rows[index])),
+                    ],
+                  ));
                 },
-                onLeave: (int data) {
+                onLeave: (data) {
                   // Debug
                   print('$data is Leaving row $index');
                 },
@@ -56,11 +55,8 @@ class _IndexDragPageState extends State<IndexDragPage> {
                   return true;
                 },
               ),
-              onDragStarted: () {
-
-              },
-              onDragCompleted: () {
-              },
+              onDragStarted: () {},
+              onDragCompleted: () {},
               feedback: SizedBox(
                   width: constraint.maxWidth,
                   child: Card(

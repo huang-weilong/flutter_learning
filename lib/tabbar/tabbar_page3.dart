@@ -21,84 +21,35 @@ class _TabbarPage3State extends State<TabbarPage3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CupertinoNavigationBar(
-        middle: Text('iOS风格'),
-        backgroundColor: Colors.blue,
+        appBar: CupertinoNavigationBar(
+          middle: Text('iOS风格'),
+          backgroundColor: Colors.blue,
+        ),
+        body: GridView(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+          children: <Widget>[
+            _buildItem('loading动画', IndexCupertinoActivityIndicator()),
+            _buildItem('对话框', IndexCupertinoDialog()),
+            _buildItem('CupertinoActionSheet', IndexCupertinoActionSheet()),
+            _buildItem('按钮', IndexCupertinoButton()),
+            _buildItem('滑块', IndexCupertinoSlider()),
+            _buildItem('选择开关', IndexCupertinoSwitch()),
+            _buildItem('AppBar', IndexCupertinoNavigationBar()),
+            _buildItem('底部导航', IndexCurpertinoBottomNavBar()),
+            _buildItem('picker', IndexCupertinoPicker()),
+            _buildItem('CupertinoTabScaffold', IndexCupertinoTabScaffold()),
+          ],
+        ));
+  }
+
+  Widget _buildItem(String text, Widget router) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(context, CupertinoPageRoute(builder: (_) => router));
+      },
+      child: Center(
+        child: Text(text),
       ),
-      body: ListView(
-        children: <Widget>[
-          ListTile(
-            dense: true,
-            title: Text('loading动画'),
-            onTap: (){
-              Navigator.push(context, CupertinoPageRoute(builder: (_)=>IndexCupertinoActivityIndicator()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            title: Text('对话框'),
-            onTap: (){
-              Navigator.push(context, CupertinoPageRoute(builder: (_)=>IndexCupertinoDialog()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            title: Text('CupertinoActionSheet'),
-            onTap: (){
-              Navigator.push(context, CupertinoPageRoute(builder: (_)=>IndexCupertinoActionSheet()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            title: Text('按钮'),
-            onTap: (){
-              Navigator.push(context, CupertinoPageRoute(builder: (_)=>IndexCupertinoButton()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            title: Text('滑块'),
-            onTap: (){
-              Navigator.push(context, CupertinoPageRoute(builder: (_)=>IndexCupertinoSlider()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            title: Text('选择开关'),
-            onTap: (){
-              Navigator.push(context, CupertinoPageRoute(builder: (_)=>IndexCupertinoSwitch()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            title: Text('AppBar'),
-            onTap: (){
-              Navigator.push(context, CupertinoPageRoute(builder: (_)=>IndexCupertinoNavigationBar()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            title: Text('底部导航'),
-            onTap: (){
-              Navigator.push(context, CupertinoPageRoute(builder: (_)=>IndexCurpertinoBottomNavBar()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            title: Text('picker'),
-            onTap: (){
-              Navigator.push(context, CupertinoPageRoute(builder: (_)=>IndexCupertinoPicker()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            title: Text('CupertinoTabScaffold'),
-            onTap: (){
-              Navigator.push(context, CupertinoPageRoute(builder: (_)=>IndexCupertinoTabScaffold()));
-            },
-          ),
-        ],
-      )
     );
   }
 }

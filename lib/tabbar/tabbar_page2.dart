@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_learning/tabbar/page_two/audioplayers_page.dart';
+import 'package:flutter_learning/tabbar/page_two/photo_view/gallery_example_page.dart';
 import 'package:flutter_learning/tabbar/page_two/qr_flutter_page.dart';
 
 import 'page_two/map_page.dart';
@@ -36,152 +38,28 @@ class _TabbarPage2State extends State<TabbarPage2> {
         centerTitle: true,
         elevation: 0.0,
       ),
-      body: ListView(
+      body: GridView(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
         children: <Widget>[
-          ListTile(
-            dense: true,
-            leading: Icon(Icons.map),
-            title: Text('地图'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => MapPage()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            leading: Icon(Icons.insert_chart),
-            title: Text('图表'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => ChartsPage()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            leading: Icon(Icons.insert_chart),
-            title: Text('fchart图表'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => FChartsPage()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            leading: Icon(Icons.delete_sweep),
-            title: Text('滑动删除'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => SlideDeletePage()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            leading: Icon(Icons.whatshot),
-            title: Text('显示html'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => HtmlPage()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            leading: Icon(Icons.account_balance),
-            title: Text('使用Lottie json展示动画'),
-            onTap: () {
-//              Navigator.push(context, MaterialPageRoute(builder: (_) => LottieJsonAnimation()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            leading: Icon(Icons.camera_alt),
-            title: Text('使用相机或相册'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => UseCamera()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            leading: Icon(Icons.save),
-            title: Text('存储简单的数据SharePreference'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => IndexSharedPreferencePage()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            leading: Icon(Icons.blur_on),
-            title: Text('二维码扫描'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => ScanQRCode()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            leading: Icon(Icons.blur_on),
-            title: Text('生成二维码'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => QrFlutterPage()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            leading: Icon(Icons.share),
-            title: Text('分享'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => SharePage()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            leading: Icon(Icons.insert_drive_file),
-            title: Text('打开第三方应用'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => AndroidIntentPage()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            leading: Icon(Icons.event),
-            title: Text('event_bus'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => EventBusPage()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            leading: Icon(Icons.web),
-            title: Text('webview'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => WebViewPage()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            leading: Icon(Icons.web),
-            title: Text('dio'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => DioPage()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            leading: Icon(Icons.web),
-            title: Text('websocket channel'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => WebSocketChannelPage()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            leading: Icon(Icons.games),
-            title: Text('sqflite数据库'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => SqflitePage()));
-            },
-          ),
-          ListTile(
-            dense: true,
-            leading: Icon(Icons.audiotrack),
-            title: Text('播放音频'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => AudioPlayersPage()));
-            },
-          ),
+          _buildItem(Icons.map, '地图', MapPage()),
+          _buildItem(Icons.insert_chart, '图表', ChartsPage()),
+          _buildItem(Icons.insert_chart, 'fchart图表', FChartsPage()),
+          _buildItem(Icons.delete_sweep, '滑动删除', SlideDeletePage()),
+          _buildItem(Icons.whatshot, '显示html', HtmlPage()),
+          _buildItem(Icons.account_balance, 'json动画', null),
+          _buildItem(Icons.camera_alt, '使用相机或相册', UseCamera()),
+          _buildItem(Icons.save, 'SharePreference', IndexSharedPreferencePage()),
+          _buildItem(Icons.blur_on, '二维码扫描', ScanQRCode()),
+          _buildItem(Icons.blur_on, '生成二维码', QrFlutterPage()),
+          _buildItem(Icons.share, '分享', SharePage()),
+          _buildItem(Icons.insert_drive_file, '打开第三方应用', AndroidIntentPage()),
+          _buildItem(Icons.event, 'event_bus', EventBusPage()),
+          _buildItem(Icons.web, 'webview', WebViewPage()),
+          _buildItem(Icons.web, 'web', DioPage()),
+          _buildItem(Icons.web, 'websocket channel', WebSocketChannelPage()),
+          _buildItem(Icons.games, 'sqflite数据库', SqflitePage()),
+          _buildItem(Icons.audiotrack, '播放音频', AudioPlayersPage()),
+          _buildItem(Icons.image, '多图片查看', GalleryExamplePage()),
 //          ListTile(
 //            dense: true,
 //            leading: Icon(Icons.video_library),
@@ -201,6 +79,23 @@ class _TabbarPage2State extends State<TabbarPage2> {
 //            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>VideoChewie()));},
 //          ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildItem(IconData iconData, String text, Widget router) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(context, CupertinoPageRoute(builder: (_) => router));
+      },
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(iconData),
+            Text(text),
+          ],
+        ),
       ),
     );
   }

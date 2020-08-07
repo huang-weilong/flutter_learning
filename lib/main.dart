@@ -13,6 +13,7 @@ import 'tabbar/tabbar_page4.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(new MyApp());
 
