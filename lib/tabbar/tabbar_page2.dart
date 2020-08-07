@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_learning/tabbar/page_two/audioplayers_page.dart';
 import 'package:flutter_learning/tabbar/page_two/qr_flutter_page.dart';
 
 import 'page_two/map_page.dart';
@@ -171,6 +172,14 @@ class _TabbarPage2State extends State<TabbarPage2> {
             title: Text('sqflite数据库'),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) => SqflitePage()));
+            },
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.audiotrack),
+            title: Text('播放音频'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => AudioPlayersPage()));
             },
           ),
 //          ListTile(
