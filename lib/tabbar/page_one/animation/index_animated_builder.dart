@@ -6,7 +6,7 @@ class IndexAnimatedBuilder extends StatefulWidget {
   _IndexAnimatedBuilderState createState() => _IndexAnimatedBuilderState();
 }
 
-class _IndexAnimatedBuilderState extends State<IndexAnimatedBuilder> with SingleTickerProviderStateMixin{
+class _IndexAnimatedBuilderState extends State<IndexAnimatedBuilder> with SingleTickerProviderStateMixin {
   AnimationController _controller;
 
   @override

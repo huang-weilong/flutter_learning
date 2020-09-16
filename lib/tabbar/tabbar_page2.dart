@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_learning/tabbar/page_two/audioplayers_page.dart';
+import 'package:flutter_learning/tabbar/page_two/jpush_page.dart';
 import 'package:flutter_learning/tabbar/page_two/photo_view/gallery_example_page.dart';
 import 'package:flutter_learning/tabbar/page_two/qr_flutter_page.dart';
 
@@ -60,6 +61,7 @@ class _TabbarPage2State extends State<TabbarPage2> {
           _buildItem(Icons.games, 'sqflite数据库', SqflitePage()),
           _buildItem(Icons.audiotrack, '播放音频', AudioPlayersPage()),
           _buildItem(Icons.image, '多图片查看', GalleryExamplePage()),
+          _buildItem(Icons.animation, '极光推送', JPushPage()),
 //          ListTile(
 //            dense: true,
 //            leading: Icon(Icons.video_library),

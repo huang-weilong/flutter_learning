@@ -15,6 +15,7 @@ import 'layout/listview_layout.dart';
 import 'layout/gridview_layout.dart';
 import 'layout/row_layout.dart';
 import 'layout/column_layout.dart';
+import 'layout/tab_bar4.dart';
 import 'layout/wrap_layout.dart';
 
 import 'layout/index_tab_bar_page.dart';
@@ -109,6 +110,14 @@ class IndexLayoutPage extends StatelessWidget {
               title: Text('TabBar显示表情'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => IndexTabBarShowEmotions()));
+              },
+            ),
+            ListTile(
+              dense: true,
+              leading: Icon(Icons.tab),
+              title: Text('TabBar4'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => TabBar4()));
               },
             ),
             ListTile(

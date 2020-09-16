@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Test2 extends StatefulWidget {
@@ -10,7 +11,7 @@ class _Test2State extends State<Test2> {
   static SlideTransition createTransition(Animation<double> animation, Widget child) {
     return SlideTransition(
       position: Tween<Offset>(
-        begin: const Offset(1.0, 0.0),
+        begin: const Offset(-1.0, -1.0),
         end: const Offset(0.0, 0.0),
       ).animate(animation),
       child: child,
@@ -27,6 +28,7 @@ class _Test2State extends State<Test2> {
           IconButton(
               icon: Icon(Icons.ac_unit),
               onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => TTT2()));
                 Navigator.push<String>(
                   context,
                   PageRouteBuilder(pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {

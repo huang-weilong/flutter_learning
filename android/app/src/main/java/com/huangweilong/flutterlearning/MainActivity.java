@@ -2,8 +2,9 @@ package com.huangweilong.flutter_learning;
 
 import android.os.Build;
 import android.os.Bundle;
-import io.flutter.app.FlutterActivity;
-import io.flutter.plugins.GeneratedPluginRegistrant;
+//import io.flutter.app.FlutterActivity;
+//import io.flutter.plugins.GeneratedPluginRegistrant;
+import io.flutter.embedding.android.FlutterActivity;
 
 public class MainActivity extends FlutterActivity {
   @Override
@@ -13,6 +14,6 @@ public class MainActivity extends FlutterActivity {
     if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
       getWindow().setStatusBarColor(0);
     }
-    GeneratedPluginRegistrant.registerWith(this);
+//    GeneratedPluginRegistrant.registerWith(this);
   }
 }
