@@ -7,86 +7,52 @@ class Test2 extends StatefulWidget {
 }
 
 class _Test2State extends State<Test2> {
-  int d = 0;
-  static SlideTransition createTransition(Animation<double> animation, Widget child) {
-    return SlideTransition(
-      position: Tween<Offset>(
-        begin: const Offset(-1.0, -1.0),
-        end: const Offset(0.0, 0.0),
-      ).animate(animation),
-      child: child,
-    );
-  }
-
+  bool flag = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('test2'),
+        title: Text('测试2'),
+        centerTitle: true,
         elevation: 0.0,
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.ac_unit),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => TTT2()));
-                Navigator.push<String>(
-                  context,
-                  PageRouteBuilder(pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
-                    // 跳转的路由对象
-                    return TTT2();
-                  }, transitionsBuilder: (
-                    BuildContext context,
-                    Animation<double> animation,
-                    Animation<double> secondaryAnimation,
-                    Widget child,
-                  ) {
-                    return _Test2State.createTransition(animation, child);
-                  }),
-                );
-              })
-        ],
       ),
       body: Column(
-        children: <Widget>[
-          Text(d.toString()),
+        children: [
           RaisedButton(
-            child: Text('add'),
             onPressed: () {
               setState(() {
-                d++;
+                flag = !flag;
               });
             },
+            child: Text('测试'),
           ),
-          RaisedButton(
-              child: Text('ddd'),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => TTT2()));
-              })
+          flag ? Text('22222222') : T2()
         ],
       ),
     );
   }
 }
 
-class TTT2 extends StatefulWidget {
+class T2 extends StatefulWidget {
   @override
-  _TTT2State createState() => _TTT2State();
+  _T2State createState() => _T2State();
 }
 
-class _TTT2State extends State<TTT2> {
+class _T2State extends State<T2> {
+  @override
+  void dispose() {
+    print('-------------------------------');
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('TTT2'),
-      ),
-      body: Center(
-        child: RaisedButton(
-            child: Text('back'),
-            onPressed: () {
-              Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName));
-            }),
-      ),
-    );
+    return Text('data');
+  }
+}
+
+class P with ChangeNotifier {
+  void d() {
+    notifyListeners();
   }
 }

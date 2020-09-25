@@ -15,40 +15,45 @@ class DownloadFlag {
   bool original = false;
 }
 
-class _Test4State extends State<Test4> {
+class _Test4State extends State<Test4> with SingleTickerProviderStateMixin {
+  bool f = true;
+  double _size = 100;
+  AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(vsync: this, duration: Duration(seconds: 2))
+      ..addListener(() {
+        setState(() {
+          _size = 100 + 100 * _controller.value;
+        });
+      });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-//        appBar: AppBar(
-//          title: Text('test'),
-//          elevation: 0.0,
-//        ),
-        body: Center(
-      child: GestureDetector(
-        child: Hero(
-          child: Image.asset(
-            'assets/images/long.jpg',
-            width: 85.0,
-          ),
-          tag: 'long',
-        ),
-        onTap: () {
-          Navigator.push(
-            context,
-            PageRouteBuilder(
-              transitionDuration: Duration(milliseconds: 500),
-              pageBuilder: (BuildContext context, _, __) {
-                return HeroTest();
-              },
-            ),
-          );
-//          Navigator.push(context, MaterialPageRoute(
-//              builder: (BuildContext context) => HeroTest(
-//                flag: DownloadFlag.instance.original,
-//              )),);
-        },
+      appBar: AppBar(
+        title: Text('test'),
+        elevation: 0.0,
       ),
-    ));
+      body: GestureDetector(
+        onTap: () {
+          _controller.forward();
+        },
+        child: Container(
+          height: _size,
+          width: _size,
+          color: Colors.blue,
+          alignment: Alignment.center,
+          child: Text(
+            '点我变大',
+            style: TextStyle(color: Colors.white, fontSize: 18),
+          ),
+        ),
+      ),
+    );
   }
 }
 

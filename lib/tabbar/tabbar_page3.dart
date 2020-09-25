@@ -17,9 +17,10 @@ class TabbarPage3 extends StatefulWidget {
   _TabbarPage3State createState() => _TabbarPage3State();
 }
 
-class _TabbarPage3State extends State<TabbarPage3> {
+class _TabbarPage3State extends State<TabbarPage3> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
         appBar: CupertinoNavigationBar(
           middle: Text('iOS风格'),
@@ -52,4 +53,8 @@ class _TabbarPage3State extends State<TabbarPage3> {
       ),
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }

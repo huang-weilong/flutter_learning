@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_learning/tabbar/page_four/drawing_board_page.dart';
+import 'package:flutter_learning/tabbar/page_four/flow_pop_menu_page.dart';
 import 'package:flutter_learning/tabbar/page_four/refresh_and_loading.dart';
 
 import 'page_four/index_timer_page.dart';
@@ -38,9 +40,10 @@ class TabbarPage4 extends StatefulWidget {
   _TabbarPage4State createState() => _TabbarPage4State();
 }
 
-class _TabbarPage4State extends State<TabbarPage4> {
+class _TabbarPage4State extends State<TabbarPage4> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('小实例'),
@@ -62,6 +65,8 @@ class _TabbarPage4State extends State<TabbarPage4> {
             _buildItem(Icons.signal_cellular_4_bar, '柱状图', BarChartExample()),
             _buildItem(Icons.signal_cellular_4_bar, '时间选择器', DatePickExample()),
             _buildItem(Icons.signal_cellular_4_bar, '上拉加载 下拉刷新', RefreshAndLoading()),
+            _buildItem(Icons.signal_cellular_4_bar, '水平展开收起', FlowPopMenuPage()),
+            _buildItem(Icons.signal_cellular_4_bar, '画板', DrawingBoardPage()),
           ],
         ),
       ),
@@ -84,4 +89,8 @@ class _TabbarPage4State extends State<TabbarPage4> {
       ),
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }

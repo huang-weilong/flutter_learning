@@ -112,13 +112,28 @@ class _MyAppState extends State<MyApp> {
       ),
       home: MyHomePage(),
       routes: {
-        "/ss": (_) => new WebviewScaffold(
-              url: "https://www.jianshu.com/u/37c10960a409",
-              appBar: new AppBar(
-                title: new Text("Widget webview"),
-              ),
-            ),
+        "/ss": (_) => NRouter(),
       },
+    );
+  }
+}
+
+class NRouter extends StatefulWidget {
+  @override
+  _NRouterState createState() => _NRouterState();
+}
+
+class _NRouterState extends State<NRouter> {
+  @override
+  Widget build(BuildContext context) {
+    var args = ModalRoute.of(context).settings.arguments;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('命名路由跳转'),
+      ),
+      body: Center(
+        child: Text('传递参数:$args'),
+      ),
     );
   }
 }

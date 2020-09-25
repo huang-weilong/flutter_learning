@@ -30,9 +30,10 @@ class TabbarPage2 extends StatefulWidget {
   _TabbarPage2State createState() => _TabbarPage2State();
 }
 
-class _TabbarPage2State extends State<TabbarPage2> {
+class _TabbarPage2State extends State<TabbarPage2> with AutomaticKeepAliveClientMixin{
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('插件'),
@@ -101,4 +102,8 @@ class _TabbarPage2State extends State<TabbarPage2> {
       ),
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }

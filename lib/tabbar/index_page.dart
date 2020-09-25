@@ -30,7 +30,7 @@ class IndexPage extends StatefulWidget {
   _IndexPageState createState() => _IndexPageState();
 }
 
-class _IndexPageState extends State<IndexPage> {
+class _IndexPageState extends State<IndexPage> with AutomaticKeepAliveClientMixin {
   bool flag = false;
 
   @override
@@ -61,11 +61,20 @@ class _IndexPageState extends State<IndexPage> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
         appBar: AppBar(
           title: Text('首页'),
           centerTitle: true,
           elevation: 0.0,
+          actions: [
+            IconButton(
+              icon: Icon(Icons.animation),
+              onPressed: () {
+                Navigator.pushNamed(context, '/ss', arguments: "Hello World");
+              },
+            )
+          ],
         ),
         drawer: Drawer(
           child: ListView(
@@ -202,4 +211,7 @@ class _IndexPageState extends State<IndexPage> {
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
