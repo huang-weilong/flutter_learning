@@ -17,6 +17,21 @@ import 'package:jpush_flutter/jpush_flutter.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+
+  ErrorWidget.builder = (errorDetails) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('出错了'),
+        centerTitle: true,
+        elevation: 0.0,
+        backgroundColor: Colors.blue,
+      ),
+      body: Center(
+        child: Text('emm...出错了，请返回', style: TextStyle(fontSize: 14.0, color: Color(0xffc3c3c3))),
+      ),
+    );
+  };
+
   runApp(new MyApp());
 
   /** 以下代码设置Android状态栏为透明的沉浸
