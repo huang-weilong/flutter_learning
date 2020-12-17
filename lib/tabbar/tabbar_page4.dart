@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_learning/tabbar/page_four/drawing_board_page.dart';
 import 'package:flutter_learning/tabbar/page_four/flow_pop_menu_page.dart';
 import 'package:flutter_learning/tabbar/page_four/refresh_and_loading.dart';
+import 'package:flutter_learning/tabbar/page_four/signature_page.dart';
 
 import 'page_four/index_timer_page.dart';
 import 'page_four/index_marquee_page.dart';
@@ -67,6 +68,7 @@ class _TabbarPage4State extends State<TabbarPage4> with AutomaticKeepAliveClient
             _buildItem(Icons.signal_cellular_4_bar, '上拉加载 下拉刷新', RefreshAndLoading()),
             _buildItem(Icons.signal_cellular_4_bar, '水平展开收起', FlowPopMenuPage()),
             _buildItem(Icons.signal_cellular_4_bar, '画板', DrawingBoardPage()),
+            _buildItem(Icons.signal_cellular_4_bar, '画板2', SignaturePage()),
           ],
         ),
       ),

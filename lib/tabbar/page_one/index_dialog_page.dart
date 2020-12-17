@@ -65,7 +65,7 @@ class _IndexDialogPageState extends State<IndexDialogPage> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[_buildAlert(), _buildAlertWithTitle(), _buildSimple(), _buildConfirmation()],
+              children: <Widget>[_buildAlert(), _buildAlertWithTitle(), _buildSimple(), _buildConfirmation(), _buildTimerPicker()],
             ),
           ],
         ));
@@ -169,5 +169,19 @@ class _IndexDialogPageState extends State<IndexDialogPage> {
         });
       },
     );
+  }
+
+  _buildTimerPicker() {
+    return ElevatedButton(
+        onPressed: () async {
+          DateTime d = await showDatePicker(
+            context: context,
+            initialDate: DateTime.now(),
+            firstDate: DateTime(2020),
+            lastDate: DateTime(2022),
+            locale: Locale("zh"),
+          );
+        },
+        child: Text('日期选择'));
   }
 }

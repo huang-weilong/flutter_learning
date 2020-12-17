@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'dart:math';
 
-class SimpleBarChart extends StatelessWidget  {
+class SimpleBarChart extends StatelessWidget {
   final List<charts.Series> seriesList;
   final bool animate;
 
@@ -30,10 +30,10 @@ class SimpleBarChart extends StatelessWidget  {
     final random = Random();
 
     final data = [
-      OrdinalSales('2014', random.nextInt(100)),
-      OrdinalSales('2015', random.nextInt(100)),
-      OrdinalSales('2016', random.nextInt(100)),
-      OrdinalSales('2017', random.nextInt(100)),
+      OrdinalSales('2014年', random.nextInt(100)),
+      OrdinalSales('2015年', random.nextInt(100)),
+      OrdinalSales('2016年', random.nextInt(100)),
+      OrdinalSales('2017年', random.nextInt(100)),
     ];
 
     return [
@@ -55,9 +55,12 @@ class SimpleBarChart extends StatelessWidget  {
         title: Text('简单的柱状图'),
         elevation: 0.0,
       ),
-      body: charts.BarChart(
-        seriesList,
-        animate: animate,
+      body: SizedBox(
+        height: 200.0,
+        child: charts.BarChart(
+          seriesList,
+          animate: animate,
+        ),
       ),
     );
   }
@@ -82,6 +85,7 @@ class SimpleBarChart extends StatelessWidget  {
     ];
   }
 }
+
 class OrdinalSales {
   final String year;
   final int sales;

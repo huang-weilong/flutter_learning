@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'dart:ui' as ui;
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'test2.dart';
+import 'package:intl/intl.dart';
 
 class Test4 extends StatefulWidget {
   @override
@@ -38,20 +40,110 @@ class _Test4State extends State<Test4> with SingleTickerProviderStateMixin {
         title: Text('test'),
         elevation: 0.0,
       ),
-      body: GestureDetector(
-        onTap: () {
-          _controller.forward();
-        },
-        child: Container(
-          height: _size,
-          width: _size,
-          color: Colors.blue,
-          alignment: Alignment.center,
-          child: Text(
-            '点我变大',
-            style: TextStyle(color: Colors.white, fontSize: 18),
+      body: Column(
+        children: [
+          Text(DateFormat('yyyy-MM', 'zh').format(DateTime.now())),
+          TextButton(
+              onPressed: () {
+                Navigator.push(context, CupertinoPageRoute(builder: (_) => ColorApp()));
+              },
+              child: Text('ppp')),
+          ElevatedButton(onPressed: () {}, child: Text('ppp')),
+          GestureDetector(
+            onTap: () {
+              _controller.forward();
+            },
+            child: Container(
+              height: _size,
+              width: _size,
+              color: Colors.blue,
+              alignment: Alignment.center,
+              child: Text(
+                '点我变大',
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+            ),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class ColorApp extends StatefulWidget {
+  @override
+  _ColorAppState createState() => _ColorAppState();
+}
+
+class _ColorAppState extends State<ColorApp> {
+  Color _selectedColor;
+  List<Color> _colors = [Colors.red, Colors.green, Colors.blue];
+
+  @override
+  Widget build(BuildContext context) => Navigator(
+        // you can see and decide on every page in this list
+        pages: [
+          MaterialPage(
+            child: ColorListScreen(
+              colors: _colors,
+              onTapped: (color) => setState(() => _selectedColor = color),
+            ),
+          ),
+          if (_selectedColor != null) MaterialPage(child: ColorScreen(color: _selectedColor)),
+        ],
+        onPopPage: (route, result) {
+          if (!route.didPop(result)) return false;
+          setState(() => _selectedColor = null);
+          return true;
+        },
+      );
+}
+
+class ColorListScreen extends StatelessWidget {
+  final List<Color> colors;
+  final void Function(Color color) onTapped;
+  ColorListScreen({this.colors, this.onTapped});
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(title: Text('Colors')),
+        body: Column(
+          children: [
+            // you can see and decide on every color in this list
+            for (final color in colors)
+              Expanded(
+                child: GestureDetector(
+                  child: Container(color: color),
+                  onTap: () => onTapped(color),
+                ),
+              )
+          ],
         ),
+      );
+}
+
+class ColorScreen extends StatelessWidget {
+  final Color color;
+  const ColorScreen({this.color});
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(title: Text('Color')),
+        body: Container(color: color),
+      );
+}
+
+class FF extends StatefulWidget {
+  @override
+  _FFState createState() => _FFState();
+}
+
+class _FFState extends State<FF> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('==='),
       ),
     );
   }

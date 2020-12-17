@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_learning/tabbar/page_one/example/isolate_func.dart';
 import 'package:flutter_learning/tabbar/page_one/nested/index_nested2_page.dart';
 import 'package:flutter_learning/tabbar/page_one/nested/index_nested_scroll_view.dart';
 
@@ -377,6 +378,14 @@ class ExamplePage extends StatelessWidget {
             title: Text('添加、删除元素'),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) => IndexAddDeleteWidget()));
+            },
+          ),
+          ListTile(
+            dense: true,
+            leading: Icon(Icons.add),
+            title: Text('Isolate的使用'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => IsolateFunc()));
             },
           ),
         ],

@@ -26,10 +26,13 @@ class _StackedBarChartState extends State<StackedBarChart> {
         centerTitle: true,
         elevation: 0.0,
       ),
-      body: charts.BarChart(
-        seriesList,
-        animate: animate,
-        barGroupingType: charts.BarGroupingType.stacked,
+      body: SizedBox(
+        height: 250.0,
+        child: charts.BarChart(
+          seriesList,
+          animate: animate,
+          barGroupingType: charts.BarGroupingType.stacked,
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.refresh),

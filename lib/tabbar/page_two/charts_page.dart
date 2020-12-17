@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_learning/tabbar/page_two/charts/test_chart.dart';
 
+import 'charts/bar_example.dart';
 import 'charts/simple_bar_chart.dart';
 import 'charts/grouped_bar_chart.dart';
 import 'charts/simple_pie_chart.dart';
@@ -108,6 +109,13 @@ class ChartsPage extends StatelessWidget {
               title: Text('测试'),
               onTap: () {
                 Navigator.push(context, CupertinoPageRoute(builder: (_) => TestChart()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.insert_chart),
+              title: Text('柱状图例子'),
+              onTap: () {
+                Navigator.push(context, CupertinoPageRoute(builder: (_) => BarChartExample()));
               },
             )
           ],

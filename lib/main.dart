@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_learning/tabbar/page_one/index_container_page.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -44,6 +46,8 @@ void main() {
 //  SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
 }
 
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
@@ -74,6 +78,8 @@ class _MyAppState extends State<MyApp> {
         //  点击通知回调方法
         setState(() {
           debugLable = "flutter onOpenNotification: $message";
+          navigatorKey.currentState.pushAndRemoveUntil(MaterialPageRoute(builder: (_) => MyHomePage()), (Route route) => route == null);
+          navigatorKey.currentState.push(MaterialPageRoute(builder: (_) => IndexContainerPage()));
         });
       }, onReceiveMessage: (Map<String, dynamic> message) async {
         print("flutter onReceiveMessage: $message");
@@ -120,6 +126,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: navigatorKey,
       title: 'Flutter Learning',
       theme: ThemeData(
 //        platform: TargetPlatform.iOS,
@@ -129,6 +136,8 @@ class _MyAppState extends State<MyApp> {
       routes: {
         "/ss": (_) => NRouter(),
       },
+      localizationsDelegates: [GlobalMaterialLocalizations.delegate, GlobalWidgetsLocalizations.delegate],
+      supportedLocales: [const Locale("zh", "CH"), const Locale("en", "US")],
     );
   }
 }

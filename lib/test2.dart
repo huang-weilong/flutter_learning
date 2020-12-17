@@ -17,7 +17,10 @@ class _Test2State extends State<Test2> {
         elevation: 0.0,
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
+          if (flag == true) Offstage(offstage: true, child: Container()),
+//          Opacity(opacity: 0.1, child: Container(height: 0.0, width: 0.0)),
           RaisedButton(
             onPressed: () {
               setState(() {
