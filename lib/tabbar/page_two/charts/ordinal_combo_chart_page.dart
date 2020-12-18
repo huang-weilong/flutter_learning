@@ -21,7 +21,7 @@ class _OrdinalComboChartPageState extends State<OrdinalComboChartPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('d'),
+        title: Text('String类型的横坐标'),
         centerTitle: true,
         elevation: 0.0,
       ),

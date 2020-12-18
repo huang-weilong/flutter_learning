@@ -28,7 +28,7 @@ class FlutterBarChart extends StatefulWidget {
 
   final double height;
   final bool animate;
-  final List<charts.Series<DataModel, String>> data;
+  final List<charts.Series<dynamic, String>> data;
   // 柱状图类型（堆叠、分组、分组堆叠）
   final common.BarGroupingType barGroupingType;
   // 柱状图内显示数据
@@ -69,6 +69,7 @@ class _FlutterBarChartState extends State<FlutterBarChart> {
       child: charts.BarChart(
         widget.data,
         animate: widget.animate,
+        defaultInteractions: true, // 选择条形栏突出显示，默认true
         defaultRenderer: charts.BarRendererConfig(
           // 柱状图内显示数据
           barRendererDecorator: widget.barRendererDecorator,
@@ -79,8 +80,16 @@ class _FlutterBarChartState extends State<FlutterBarChart> {
           // 自定义图例图标
           symbolRenderer: widget.legendIcon == null ? null : IconRenderer(widget.legendIcon),
         ),
-        // 初始视图及显示的数据大小
-        // domainAxis: charts.OrdinalAxisSpec(viewport: charts.OrdinalViewport('xAxisName', 20)),
+        primaryMeasureAxis: charts.NumericAxisSpec(
+            // renderSpec: charts.NoneRenderSpec(), // 不显示纵坐标
+            // renderSpec: charts.GridlineRendererSpec(lineStyle: charts.LineStyleSpec(dashPattern: [4, 4])) // 网格虚线图案
+            // showAxisLine: true, // 显示坐标轴
+            ),
+        domainAxis: charts.OrdinalAxisSpec(
+            // viewport: charts.OrdinalViewport('xAxisName', 20), // 初始视口及显示的数据大小
+            // showAxisLine: true,  // 显示坐标轴
+            // renderSpec: charts.NoneRenderSpec(), // 不显示横坐标
+            ),
         behaviors: [
           // 图例
           if (widget.showLegend)

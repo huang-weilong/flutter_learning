@@ -104,6 +104,10 @@ class _BarChartExampleState extends State<BarChartExample> {
         measureFn: (DataModel sales, _) => sales.value,
         data: _dataModel2,
       )
+      // ..setAttribute(charts.rendererIdKey, 'customLine')
+      // customSeriesRenderers: [
+      //   charts.LineRendererConfig(customRendererId: 'customLine'),
+      // ],
     ];
 
     chartData4 = [
