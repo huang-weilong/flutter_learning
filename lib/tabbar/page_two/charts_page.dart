@@ -4,6 +4,7 @@ import 'package:flutter_learning/tabbar/page_two/charts/test_chart.dart';
 
 import 'charts/bar_example.dart';
 import 'charts/line_example.dart';
+import 'charts/pie_example.dart';
 import 'charts/simple_bar_chart.dart';
 import 'charts/grouped_bar_chart.dart';
 import 'charts/simple_pie_chart.dart';
@@ -124,6 +125,13 @@ class ChartsPage extends StatelessWidget {
               title: Text('折线图例子'),
               onTap: () {
                 Navigator.push(context, CupertinoPageRoute(builder: (_) => LineExample()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.pie_chart),
+              title: Text('饼图例子'),
+              onTap: () {
+                Navigator.push(context, CupertinoPageRoute(builder: (_) => PieExample()));
               },
             )
           ],

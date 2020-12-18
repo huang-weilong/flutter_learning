@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/tabbar/page_two/charts/widgets/bar_chart.dart';
+import 'package:flutter_learning/tabbar/page_two/charts/widgets/flutter_bar_chart.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
 class BarChartExample extends StatefulWidget {
