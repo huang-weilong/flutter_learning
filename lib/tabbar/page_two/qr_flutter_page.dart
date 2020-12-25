@@ -21,7 +21,6 @@ class _QrFlutterPageState extends State<QrFlutterPage> {
         title: Text('flutter生成二维码'),
         elevation: 0.0,
         centerTitle: true,
-        actions: [IconButton(icon: null, onPressed: null)],
       ),
       body: ListView(
         children: <Widget>[

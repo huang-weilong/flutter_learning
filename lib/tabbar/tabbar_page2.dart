@@ -24,13 +24,14 @@ import 'page_two/dio_page.dart';
 import 'page_two/web_socket_channel_page.dart';
 import 'page_two/fcharts_page.dart';
 import 'page_two/sqflite_page.dart';
+import 'page_two/xml_page.dart';
 
 class TabbarPage2 extends StatefulWidget {
   @override
   _TabbarPage2State createState() => _TabbarPage2State();
 }
 
-class _TabbarPage2State extends State<TabbarPage2> with AutomaticKeepAliveClientMixin{
+class _TabbarPage2State extends State<TabbarPage2> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -63,6 +64,7 @@ class _TabbarPage2State extends State<TabbarPage2> with AutomaticKeepAliveClient
           _buildItem(Icons.audiotrack, '播放音频', AudioPlayersPage()),
           _buildItem(Icons.image, '多图片查看', GalleryExamplePage()),
           _buildItem(Icons.animation, '极光推送', JPushPage()),
+          _buildItem(Icons.animation, 'xml', XmlPage()),
 //          ListTile(
 //            dense: true,
 //            leading: Icon(Icons.video_library),

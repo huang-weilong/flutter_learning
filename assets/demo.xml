@@ -1,0 +1,14 @@
+<root>
+    <customers>
+        <customer customerId='A001'>
+            <name>Alex</name>
+            <address>...</address>
+            <photo>http://myserver/images/alex.png</photo>
+        </customer>
+        <customer customerId='B001'>
+            <name>Bruce</name>
+            <address>...</address>
+            <photo>http://myserver/images/bruce.png</photo>
+        </customer>
+    </customers>
+</root>

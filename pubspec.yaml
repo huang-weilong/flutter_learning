@@ -38,6 +38,9 @@ dependencies:
   signature: ^3.2.0
   hand_signature: ^0.6.3
   orientation: ^1.2.0
+  xml: ^4.5.1
+  xml_parser: ^0.1.2
+  xml_layout: ^1.0.4
 #  syncfusion_flutter_charts: ^17.3.26
 #  video_player: ^0.7.2
 
@@ -76,6 +79,7 @@ flutter:
    - assets/file/
    - assets/js/
    - assets/music/ljj.mp3
+   - assets/demo.xml
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
