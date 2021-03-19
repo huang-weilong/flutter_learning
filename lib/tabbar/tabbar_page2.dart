@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_learning/config/themes.dart';
 import 'package:flutter_learning/tabbar/page_two/audioplayers_page.dart';
 import 'package:flutter_learning/tabbar/page_two/jpush_page.dart';
 import 'package:flutter_learning/tabbar/page_two/photo_view/gallery_example_page.dart';
@@ -40,6 +41,7 @@ class _TabbarPage2State extends State<TabbarPage2> with AutomaticKeepAliveClient
         title: Text('插件'),
         centerTitle: true,
         elevation: 0.0,
+        backgroundColor: Themes.primaryColor(context),
       ),
       body: GridView(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),

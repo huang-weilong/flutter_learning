@@ -2,10 +2,13 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_learning/config/themes.dart';
 import 'package:flutter_learning/tabbar/page_one/index_container_page.dart';
+import 'package:flutter_learning/util/sp_client.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
 
 import 'tabbar/index_page.dart';
 import 'tabbar/tabbar_page2.dart';
@@ -33,7 +36,7 @@ void main() {
       ),
     );
   };
-
+  SpClient.getInstance();
   runApp(new MyApp());
 
   /** 以下代码设置Android状态栏为透明的沉浸
@@ -125,19 +128,24 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: navigatorKey,
-      title: 'Flutter Learning',
-      theme: ThemeData(
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => Themes()),
+      ],
+      child: MaterialApp(
+        // key: navigatorKey,
+        title: 'Flutter Learning',
+        theme: ThemeData(
 //        platform: TargetPlatform.iOS,
-        primarySwatch: Colors.blue,
+          primarySwatch: Colors.blue,
+        ),
+        home: MyHomePage(),
+        routes: {
+          "/ss": (_) => NRouter(),
+        },
+        localizationsDelegates: [GlobalMaterialLocalizations.delegate, GlobalWidgetsLocalizations.delegate],
+        supportedLocales: [const Locale("zh", "CH"), const Locale("en", "US")],
       ),
-      home: MyHomePage(),
-      routes: {
-        "/ss": (_) => NRouter(),
-      },
-      localizationsDelegates: [GlobalMaterialLocalizations.delegate, GlobalWidgetsLocalizations.delegate],
-      supportedLocales: [const Locale("zh", "CH"), const Locale("en", "US")],
     );
   }
 }
@@ -188,6 +196,7 @@ class _MyHomePageState extends State<MyHomePage> {
         return;
       },
       child: Scaffold(
+        key: navigatorKey,
         body: PageView(
           children: <Widget>[
             IndexPage(),

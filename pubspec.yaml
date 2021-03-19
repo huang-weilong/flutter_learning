@@ -1,6 +1,10 @@
 name: flutter_learning
 description: A new Flutter application.
+environment:
+  sdk: '>=2.10.0 <3.0.0'
 
+dependency_overrides:
+  intl: ^0.17.0
 dependencies:
   flutter:
     sdk: flutter
@@ -10,7 +14,6 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  intl: ^0.16.1
   cupertino_icons: ^0.1.2
   image_picker: ^0.6.1+8
   dio: ^3.0.9
@@ -31,7 +34,7 @@ dependencies:
   web_socket_channel: ^1.1.0
   fcharts: ^0.0.10
   sqflite: ^1.1.7+1
-  qr_flutter: ^3.1.0
+  qr_flutter: ^3.2.0
   photo_view: ^0.9.0
   audioplayers: ^0.13.5
   jpush_flutter: 0.5.5
@@ -41,6 +44,7 @@ dependencies:
   xml: ^4.5.1
   xml_parser: ^0.1.2
   xml_layout: ^1.0.4
+  provider: ^4.3.2
 #  syncfusion_flutter_charts: ^17.3.26
 #  video_player: ^0.7.2
 

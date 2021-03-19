@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_learning/config/themes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'page_one/index_button_page.dart';
@@ -67,6 +68,7 @@ class _IndexPageState extends State<IndexPage> with AutomaticKeepAliveClientMixi
           title: Text('首页'),
           centerTitle: true,
           elevation: 0.0,
+          backgroundColor: Themes.primaryColor(context),
           actions: [
             IconButton(
               icon: Icon(Icons.animation),
