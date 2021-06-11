@@ -12,6 +12,7 @@ class _WebViewPageState extends State<WebViewPage> {
   Widget build(BuildContext context) {
     return WebviewScaffold(
       url: 'https://www.baidu.com',
+      withZoom: true,
       appBar: AppBar(
         title: Text('GitHub:huang-weilong'),
       ),

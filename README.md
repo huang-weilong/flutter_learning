@@ -1,8 +1,16 @@
 # flutter_learning
 
-一个用于学习flutter基础的demo 
+A new Flutter application.
 
-# 介绍
-该项目主要是一些自己初学flutter总结的示例，包含了一些基础widget的使用，
-一些插件的使用以及一些实例等，尽量以最简短的代码呈现出效果，熟悉之后可以
-自由组合使用。本项目将在学习flutter的过程中不断完善。
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
