@@ -23,7 +23,7 @@ class _ScanQRCodeState extends State<ScanQRCode> {
       body: Center(
         child: Column(
           children: <Widget>[
-            RaisedButton(
+            ElevatedButton(
               child: Text('扫一扫'),
               onPressed: scan,
             ),
@@ -36,17 +36,17 @@ class _ScanQRCodeState extends State<ScanQRCode> {
 
   Future scan() async {
     try {
-      String barcode = await BarcodeScanner.scan();
-      setState(() => this.barcode = barcode);
+      ScanResult barcode = await BarcodeScanner.scan();
+      setState(() => this.barcode = barcode.rawContent);
     } on PlatformException catch (e) {
-      if (e.code == BarcodeScanner.CameraAccessDenied) {
+      if (e.code == BarcodeScanner.cameraAccessDenied) {
         setState(() {
           this.barcode = 'The user did not grant the camera permission!';
         });
       } else {
         setState(() => this.barcode = 'Unknown error: $e');
       }
-    } on FormatException{
+    } on FormatException {
       setState(() => this.barcode = 'null (User returned using the "back"-button before scanning anything. Result)');
     } catch (e) {
       setState(() => this.barcode = 'Unknown error: $e');

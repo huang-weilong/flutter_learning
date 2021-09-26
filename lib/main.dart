@@ -15,8 +15,6 @@ import 'tabbar/tabbar_page2.dart';
 import 'tabbar/tabbar_page3.dart';
 import 'tabbar/tabbar_page4.dart';
 
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-
 import 'package:jpush_flutter/jpush_flutter.dart';
 
 void main() {

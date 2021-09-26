@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class WebViewPage extends StatefulWidget {
   @override
@@ -10,11 +10,13 @@ class WebViewPage extends StatefulWidget {
 class _WebViewPageState extends State<WebViewPage> {
   @override
   Widget build(BuildContext context) {
-    return WebviewScaffold(
-      url: 'https://www.baidu.com',
-      withZoom: true,
+    return Scaffold(
       appBar: AppBar(
-        title: Text('GitHub:huang-weilong'),
+        title: Text('webview'),
+      ),
+      body: WebView(
+        initialUrl: 'https://flutter.io',
+        javascriptMode: JavascriptMode.unrestricted,
       ),
     );
   }

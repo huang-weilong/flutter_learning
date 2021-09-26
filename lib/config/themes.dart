@@ -9,7 +9,7 @@ class Themes with ChangeNotifier {
     'red': Colors.red,
   };
 
-  Color _primaryColor = colorMap[SpClient.sp.getString('theme') ?? 'blue'];
+  Color _primaryColor = colorMap['blue'];
 
   void changeTheme(String theme) {
     SpClient.sp.setString('theme', theme);

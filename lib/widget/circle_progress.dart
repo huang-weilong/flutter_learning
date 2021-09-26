@@ -46,7 +46,7 @@ class _CircleProgressState extends State<CircleProgress> with TickerProviderStat
       child: Center(
         child: Text(
           '${(_controller.value * 100).toStringAsFixed(0)}%',
-          style: Theme.of(context).textTheme.display1,
+          style: Theme.of(context).textTheme.bodyText1,
         ),
       ),
     );

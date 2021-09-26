@@ -62,7 +62,7 @@ class _WaveProgressState extends State<WaveProgress> with TickerProviderStateMix
       child: Center(
         child: Text(
           '${(_heightAnimation.value * 100).toStringAsFixed(0)}%',
-          style: Theme.of(context).textTheme.display1,
+          style: Theme.of(context).textTheme.bodyText1,
         ),
       ),
     );

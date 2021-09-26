@@ -26,20 +26,14 @@ class _IndexSharedPreferencePageState extends State<IndexSharedPreferencePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.display1,
+              style: Theme.of(context).textTheme.bodyText1,
             ),
             RaisedButton(
               onPressed: _addStr,
               child: Text('字符串初始值'),
             ),
-            RaisedButton(
-                onPressed: _editStr,
-                child: Text('修改字符串')
-            ),
-            RaisedButton(
-                onPressed: _getStr,
-                child: Text('读取str的值')
-            ),
+            RaisedButton(onPressed: _editStr, child: Text('修改字符串')),
+            RaisedButton(onPressed: _getStr, child: Text('读取str的值')),
             RaisedButton(
               onPressed: _del,
               child: Text('删除str'),
@@ -65,7 +59,7 @@ class _IndexSharedPreferencePageState extends State<IndexSharedPreferencePage> {
   //运行时加载数据
   _loadCounter() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    print('获取counter的数值'+prefs.getInt('counter').toString());
+    print('获取counter的数值' + prefs.getInt('counter').toString());
     setState(() {
       _counter = (prefs.getInt('counter') ?? 0);
     });
@@ -84,7 +78,7 @@ class _IndexSharedPreferencePageState extends State<IndexSharedPreferencePage> {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     preferences.setString('str', '初始字符串');
     setState(() {
-      text ='str: ' + preferences.get('str');
+      text = 'str: ' + preferences.get('str');
     });
   }
 
@@ -92,7 +86,7 @@ class _IndexSharedPreferencePageState extends State<IndexSharedPreferencePage> {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     preferences.remove('str');
     setState(() {
-      text ='str: ' + (preferences.get('str')??'该key已被删除');
+      text = 'str: ' + (preferences.get('str') ?? '该key已被删除');
     });
   }
 
@@ -100,14 +94,14 @@ class _IndexSharedPreferencePageState extends State<IndexSharedPreferencePage> {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     preferences.setString('str', '被修改的字符串');
     setState(() {
-      text ='str: ' + preferences.get('str');
+      text = 'str: ' + preferences.get('str');
     });
   }
 
   _getStr() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     setState(() {
-      text = 'str: '+ (preferences.get('str') ?? '该key不存在，或已被删除');
+      text = 'str: ' + (preferences.get('str') ?? '该key不存在，或已被删除');
     });
   }
 }
