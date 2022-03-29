@@ -12,8 +12,8 @@ class _IndexCupertinoTabScaffoldState extends State<IndexCupertinoTabScaffold> {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.add), title: Text('tab1')),
-          BottomNavigationBarItem(icon: Icon(Icons.add), title: Text('tab2')),
+          BottomNavigationBarItem(icon: Icon(Icons.add), label: 'tab1'),
+          BottomNavigationBarItem(icon: Icon(Icons.add), label: 'tab2'),
         ],
       ),
       tabBuilder: (BuildContext context, int index) {

@@ -32,41 +32,43 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^0.1.2
+  cupertino_icons: ^1.0.3
   image_picker: ^0.6.1+8
-  dio: ^3.0.9
+  dio: ^4.0.4
   shared_preferences: ^2.0.5
-#  charts_flutter: ^0.11.0
-  charts_flutter:
-    git:
-      url: git://github.com/google/charts.git
-      path: charts_flutter
+  charts_flutter: ^0.12.0
+  lottie: ^1.2.2
+#  video_player: 2.2.11
+#  charts_flutter:
+#    git:
+#      url: git://github.com/google/charts.git
+#      path: charts_flutter
   flutter_slidable: ^0.5.4
   flutter_html: ^0.11.0
-  barcode_scan: ^3.0.1
+  barcode_scan2: ^4.2.0
   share: ^0.6.2+4
   path_provider: ^2.0.1
   open_file: ^3.2.1
-  flutter_document_picker: ^4.0.1
   android_intent: ^2.0.0
-  chewie: ^0.9.8+1
+  chewie: ^1.2.2
   event_bus: ^1.1.0
   fluttertoast: ^8.0.8
-  webview_flutter: ^2.0.10
+  webview_flutter: 3.0.1
   web_socket_channel: ^1.1.0
   fcharts: ^0.0.10
   sqflite: ^1.1.7+1
   qr_flutter: ^3.2.0
   photo_view: ^0.9.0
-  audioplayers: ^0.18.1
+  audioplayers: ^0.20.1
   jpush_flutter: ^2.0.1
   signature: 4.0.0-nullsafety
   hand_signature: ^0.6.3
   orientation: ^1.2.0
   xml: ^5.0.2
-  xml_parser: ^0.1.2
+  xml_parser: ^1.0.0
   xml_layout: ^1.0.4
-  provider: ^4.3.2
+  provider: ^5.0.0
+  get: ^4.6.1
 
 dev_dependencies:
   flutter_test:

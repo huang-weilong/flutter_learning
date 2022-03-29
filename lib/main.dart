@@ -141,8 +141,12 @@ class _MyAppState extends State<MyApp> {
         routes: {
           "/ss": (_) => NRouter(),
         },
-        localizationsDelegates: [GlobalMaterialLocalizations.delegate, GlobalWidgetsLocalizations.delegate],
-        supportedLocales: [const Locale("zh", "CH"), const Locale("en", "US")],
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: [const Locale("zh", "CN"), const Locale("en", "US")],
       ),
     );
   }
@@ -208,10 +212,10 @@ class _MyHomePageState extends State<MyHomePage> {
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('基础')),
-            BottomNavigationBarItem(icon: Icon(Icons.build), title: Text('插件')),
-            BottomNavigationBarItem(icon: Icon(Icons.bubble_chart), title: Text('iOS风格')),
-            BottomNavigationBarItem(icon: Icon(Icons.ac_unit), title: Text('小实例')),
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: '基础'),
+            BottomNavigationBarItem(icon: Icon(Icons.build), label: '插件'),
+            BottomNavigationBarItem(icon: Icon(Icons.bubble_chart), label: 'iOS风格'),
+            BottomNavigationBarItem(icon: Icon(Icons.ac_unit), label: '小实例'),
           ],
           onTap: onTap,
           currentIndex: page,

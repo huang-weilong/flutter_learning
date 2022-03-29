@@ -47,7 +47,7 @@ class _XmlPageState extends State<XmlPage> {
         children: [
           ElevatedButton(
             onPressed: () {
-              var document = XmlDocument.fromString(bookshelfXml);
+              var document = XmlDocument.from(bookshelfXml);
               var v = [
                 {'year': '2014年', 'value': 100},
                 {'year': '2015年', 'value': 130},

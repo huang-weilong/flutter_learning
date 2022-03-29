@@ -22,42 +22,42 @@ class _AndroidIntentPageState extends State<AndroidIntentPage> {
       body: Center(
         child: Column(
           children: <Widget>[
-            RaisedButton(
+            ElevatedButton(
               child: Text('打开高德地图'),
               onPressed: _displayMapInAMap,
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('打开相机'),
               onPressed: _displayCamera,
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('打开sd卡的test.pptx'),
               onPressed: _displaySDCardPPT,
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('打开网络的test.pptx'),
               onPressed: _displayNetworkPPT,
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('获取getApplicationDocumentsDirectory路径'),
               onPressed: _requestAppDocumentsDirectory,
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('获取getExternalStorageDirectory路径'),
               onPressed: _requestExternalStorageDirectory,
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('获取getTemporaryDirectory路径'),
               onPressed: _requestTempDirectory,
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('打印项目目录（控制台）'),
               onPressed: () {
                 printFiles('/data/data/com.huangweilong.flutterlearning/');
               },
             ),
-            RaisedButton(child: Text('打印SD卡目录（控制台）'), onPressed: printSDCardDirectory),
-            RaisedButton(child: Text('打印Temp目录（控制台）'), onPressed: printTempDirectory),
+            ElevatedButton(child: Text('打印SD卡目录（控制台）'), onPressed: printSDCardDirectory),
+            ElevatedButton(child: Text('打印Temp目录（控制台）'), onPressed: printTempDirectory),
             Text(dir ?? '')
           ],
         ),

@@ -51,7 +51,7 @@ class _TabbarPage2State extends State<TabbarPage2> with AutomaticKeepAliveClient
           _buildItem(Icons.insert_chart, 'fchart图表', FChartsPage()),
           _buildItem(Icons.delete_sweep, '滑动删除', SlideDeletePage()),
           _buildItem(Icons.whatshot, '显示html', HtmlPage()),
-          _buildItem(Icons.account_balance, 'json动画', null),
+          _buildItem(Icons.account_balance, 'json动画', LottieJsonAnimation()),
           _buildItem(Icons.camera_alt, '使用相机或相册', UseCamera()),
           _buildItem(Icons.save, 'SharePreference', IndexSharedPreferencePage()),
           _buildItem(Icons.blur_on, '二维码扫描', ScanQRCode()),

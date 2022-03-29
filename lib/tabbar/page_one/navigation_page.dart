@@ -299,7 +299,7 @@ class IndexPainterPage extends StatelessWidget {
           ),
           ListTile(
             dense: true,
-            leading: Icon(Icons.pie_chart_outlined),
+            leading: Icon(Icons.pie_chart_outline),
             title: Text('画圆、画弧'),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) => DrawCircle()));
